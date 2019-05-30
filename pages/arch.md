@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 架构师的自我修养
+title: 架构师的成长之路
 titlebar: arch
-subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 其实我是一名程序员。
+subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 滴水穿石,积水成河
 menu: arch
 css: ['blog-page.css']
 permalink: /arch
@@ -14,7 +14,9 @@ permalink: /arch
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='arch' or post.keywords contains '架构' %}
+                {% if post.category=='arch'
+                  or post.tags contains '架构'
+                %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
@@ -24,7 +26,7 @@ permalink: /arch
                 </li>
                 {% endif %}
             {% endfor %}
-        </ul> 
+        </ul>
 
         <!-- Pagination -->
         {% include pagination.html %}

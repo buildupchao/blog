@@ -187,10 +187,10 @@ classes:
   #   name: 我的故事
   #   describe: 生活就是故事，故事就是生活
 
-  # -
-  #   href: /arch.html
-  #   name: 架构师之路
-  #   describe: 一个架构师的自我修养
+  -
+    href: /arch.html
+    name: 架构师成长之路
+    describe: 滴水穿石,积水成河
 
   -
     href: /java.html
