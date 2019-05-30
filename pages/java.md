@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Java 极客技术
+title: Java跨阶修炼
 titlebar: java
-subtitle: <span class="mega-octicon octicon-clippy"></span> &nbsp;&nbsp; Java 人的精神家园。>&nbsp;&nbsp;>&nbsp;&nbsp;<a href ="http://www.justdojava.com/" target="_blank" ><font color="#EB9439">点我直达</font></a>
+subtitle: <span class="mega-octicon octicon-clippy"></span> &nbsp;&nbsp; Java觉醒之路>&nbsp;&nbsp;>&nbsp;&nbsp;
 menu: java
 css: ['blog-page.css']
 permalink: /java
@@ -14,7 +14,12 @@ permalink: /java
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='java' or post.category=='jvm' or post.keywords contains 'java' %}
+                {% if post.category=='Java'
+                    or post.category=='java'
+                    or post.category=='jvm'
+                    or post.category=='JVM'
+                    or post.tags contains 'java'
+                    or post.tags contains 'Java' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
@@ -24,7 +29,7 @@ permalink: /java
                 </li>
                 {% endif %}
             {% endfor %}
-        </ul> 
+        </ul>
 
         <!-- Pagination -->
         {% include pagination.html %}
