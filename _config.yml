@@ -222,12 +222,12 @@ comments_provider: gitalk
 disqus:
     username: buildupchao
 # https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: buildupchao
-    repo: buildupchao.github.io
-    oauth:
-        client_id: 7875384262e8e900eafa
-        client_secret: e58288b5749a9437025983c9f144ba572949b41e
+# gitment:
+#     owner: buildupchao
+#     repo: buildupchao.github.io
+#     oauth:
+#         client_id: 7875384262e8e900eafa
+#         client_secret: e58288b5749a9437025983c9f144ba572949b41e
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: buildupchao

@@ -82,6 +82,7 @@
     {% when 'gitalk' %}
         <div id="gitalk-container"></div>
         <script src="/assets/js/gitalk.min.js"></script>
+        <<script type="text/javascript" href="https://github.com/buildupchao/buildupchao.github.io/blob/master/md5.min.js"></script>
         <script>
         var gitalk = new Gitalk({
             id: '{{ page.url }}',
@@ -90,7 +91,7 @@
             repo: '{{ site.gitalk.repo }}',
             owner: '{{ site.gitalk.owner }}',
             admin: ['{{ site.gitalk.owner }}'],
-            labels: ['gitment'],
+            labels: ['gitalk'],
             perPage: 50,
         })
         gitalk.render('gitalk-container')
