@@ -125,6 +125,11 @@ navs:
     target: _self
 
   -
+    href: /bigdataplatform.html
+    label: 大数据平台
+    target: _self
+
+  -
     href: /archives.html
     label: 归档
     target: _self
