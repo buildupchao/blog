@@ -2,7 +2,7 @@
 layout: page
 title: Java跨阶修炼
 titlebar: java
-subtitle: <span class="mega-octicon octicon-clippy"></span> &nbsp;&nbsp; Java觉醒之路>&nbsp;&nbsp;>&nbsp;&nbsp;
+subtitle: <span class="mega-octicon octicon-clippy"></span> &nbsp;&nbsp; Java觉醒之路
 menu: java
 css: ['blog-page.css']
 permalink: /java
