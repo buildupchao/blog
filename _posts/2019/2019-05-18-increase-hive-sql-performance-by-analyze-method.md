@@ -2,6 +2,7 @@
 title: Hive SQL查询效率提升之Analyze方案的实施
 date: 2019-05-19 22:45:41
 tags: ['Hive', 'HQL查询效率', 'Analyze Table']
+category: BigData
 ---
 
 ## **0.简介**

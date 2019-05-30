@@ -2,7 +2,7 @@
 title: 由一段Java代码渗析原因
 date: 2018-04-23 23:50:36
 tags: ['Java']
-categories: ['Java']
+category: Java
 ---
 
 前段时间，看到了一段如下代码：

@@ -2,7 +2,7 @@
 title: 警报：线上事故之CountDownLatch的威力
 date: 2019-02-22 16:59:06
 tags: ['Java', 'Hive', 'CountDownLatch', '大数据']
-categories: ['线上问题集锦']
+category: Java
 ---
 
 > 2019.2.22号凌晨3点半，是一个让人难以忘怀的、和瑞哥最后一次一起奋战的夜晚。

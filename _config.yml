@@ -93,7 +93,7 @@ navs:
 
   -
     href: /
-    label: Home
+    label: 首页
 
   # -
   #   href: /spring-boot.html
@@ -114,20 +114,24 @@ navs:
   #   label: Spring Cloud
   #   target: _self
 
+  # -
+  #
+  #   href: http://www.justdojava.com
+  #   label: Java
+  #   target: _blank
   -
-
-    href: http://www.justdojava.com
-    label: Java
-    target: _blank
+    href: /datawarehouse.html
+    label: 数据仓库
+    target: _self
 
   -
     href: /archives.html
-    label: Archives
+    label: 归档
     target: _self
 
   -
     href: /about.html
-    label: About
+    label: 其他
     target: _self
 
 
