@@ -8,4 +8,4 @@ permalink: /bigdata-platform
 keywords: BigData,大数据平台,大数据,bigdata-platform
 ---
 
-{% include bigdata-platform.html %}
+{% include bigdataplatform.html %}
