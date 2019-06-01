@@ -2,7 +2,7 @@
 layout: page
 title: 大数据之路
 titlebar: 大数据之路
-subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 我的大数据之路
+subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 我的大数据之路： &nbsp;&nbsp; <a href ="http://www.buildupchao.cn/spark.html"><font color="#1A0DAB">Spark</font></a>&nbsp;&nbsp; <a href ="http://www.buildupchao.cn/hadoop.html"><font color="#EB9439">Hadoop</font></a>&nbsp;&nbsp; <a href ="http://www.buildupchao.cn/bigdata.html"><font color="#1E90FF">大数据</font></a>
 menu: arch
 css: ['blog-page.css']
 permalink: /bigdata
