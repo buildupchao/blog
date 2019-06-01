@@ -5,9 +5,7 @@ tags: ['大数据']
 category: Hadoop
 ---
 
-## MapJoin和ReduceJoin区别及优化
-
-###  1 Map-side Join（Broadcast join）
+##  1 Map-side Join（Broadcast join）
 思想：
 > 小表复制到各个节点上，并加载到内存中；大表分片，与小表完成连接操作。
 
@@ -24,7 +22,7 @@ category: Hadoop
 - 这种方法有明显的局限性：
 	- 有一份数据比较小，在map端，能够把它加载在内存，并进行join操作。
 
-### 2 Reduce-side Join（shuffle join）
+## 2 Reduce-side Join（shuffle join）
 思想：
 > map端按照连接字段进行hash，reduce端完成连接操作
 
@@ -40,7 +38,7 @@ category: Hadoop
 	- map阶段没有对数据瘦身，shuffle的网络传输和排序性能很低。
 	- reduce端对2个集合做乘积计算，很耗内存，容易导致OOM。
 
-### 3 优化方案
+## 3 优化方案
 
 - 使用内存服务器，扩大节点的内存空间
 针对map join，可以报一份数据放到专门的内存服务器，在map()方法中，对每一个的输入对，根据key到内存服务器中取出数据，进行连接。
@@ -56,7 +54,7 @@ jar: mapreduce-client-core.jar
 package: org.apache.hadoop.mapreduce.lib.join
 ```
 
-### Reference Link
+## Reference Link
 - [1] [hive mapjoin使用和个人理解](http://blog.csdn.net/liuj2511981/article/details/8616730)
 
 - [2] [hive优化(1)之mapjoin](http://blog.csdn.net/lpxuan151009/article/details/7956544)
