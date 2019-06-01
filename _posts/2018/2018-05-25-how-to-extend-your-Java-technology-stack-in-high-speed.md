@@ -12,7 +12,7 @@ category: Java
 听完这段话，其实个人觉得对方有些“眼高手低”。当然，在这里不过多讨论。就来说说如何高效拓展Java技术栈。
 
 我们来执行“丁字”三步走策略：
-![learning style.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-05-25-1.png)
+![learning style.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-05-25-1.png?raw=true)
 
 - 当你对某一个方向很感兴趣，那么你可以先了解该方向所需的技术点有哪些；（这个过程相当于“丁”字的横，这条水平线上分散着MQ，缓存，负载均衡等等技术要点）
 

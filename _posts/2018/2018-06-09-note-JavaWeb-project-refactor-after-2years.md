@@ -9,7 +9,8 @@ category: Java
 
 那么究竟里面的设计有多烂呢？答案就是，有好有坏。在此就不太过多讨论这些了，有兴趣你可以直接去我的[码云Git](https://gitee.com/Zychaowill/steap)看一下这个项目的当时的版本。
 <!-- more -->
-# **1. 为什么要重构该项目？**
+
+## **1. 为什么要重构该项目？**
 
 原因有很多，但是最重要的原因应该是：
 
@@ -17,7 +18,7 @@ category: Java
 
 - 一个通性问题，就是成员技术能力良莠不齐，代码书写以及设计上也会有多多少少的问题。
 
-# **2. 主要针对该项目进行那些重新设计？**
+## **2. 主要针对该项目进行那些重新设计？**
 
 鉴于博主已经工作了，所以大多精力都在工作上，其次也要给自己留一些时间充电，所以时间有限，只针对最重要的一点进行了重新设计，即系统整理的项目状态管理。
 
@@ -33,7 +34,7 @@ new design主要是基于Spring Boot开发（而旧系统开发较早，采用�
 
 针对项目状态管理的设计点就是：当项目启动时，自动加载系统字典中的状态类信息并根据`SortNo`进行排序，然后构建不同种类状态树` DictionaryHierarchyTree `，统一放到动态加载的自定义Bean` SystemDataHolder ` 中。而` SystemDataHolder ` 则为系统提供统一的项目状态操作工具，而且我们对项目状态信息一无所知，只需要要简单的调用` SystemDataHoder#nextStatus(Project) ` 即可。
 
-# **3. 新设计核心代码介绍**
+## **3. 新设计核心代码介绍**
 
 针对新设计，核心代码主要分为三个部分：
 
@@ -43,7 +44,7 @@ new design主要是基于Spring Boot开发（而旧系统开发较早，采用�
 
 - c) listener的监听
 
-## **3.1 加载数据的Service和动态bean构建**
+### **3.1 加载数据的Service和动态bean构建**
 
 以下只提供`LoadSystemDataServiceImpl `中的核心代码，其余均进行了省略。而主要核心部分就是 ` LoadSystemDataServiceImpl#initSystemData ` 方法。
 
@@ -102,7 +103,7 @@ public class LoadSystemDataServiceImpl implements LoadSystemDataService, Applica
 }
 ```
 
-## **3.2 listener的监听**
+### **3.2 listener的监听**
 
 主要用于达到项目系统就从DB加载系统字典数据构建字典树。
 
@@ -123,7 +124,7 @@ public class LoadSystemDataListener implements CommandLineRunner {
 }
 ```
 
-## **3.3 项目状态管理应用案例？**
+### **3.3 项目状态管理应用案例？**
 
 ```Java
 @RestController
@@ -147,7 +148,7 @@ public class ProjectApi {
 
 启动项目，在浏览器中键入` http://localhost:8081/project/action/update ` 进行访问，你会得到如下信息：
 
-![2018-06-09_111011.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-06-09-1.png)
+![2018-06-09_111011.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-06-09-1.png?raw=true)
 
 
 因为我们的代码中针对项目设计的项目状态是100001，而项目下一个状态是100002，所以，得到如此结果，就是正确的，也是我们想要的效果，隔离代码与DB的直接访问以及开发人员对过多的信息进行感知。

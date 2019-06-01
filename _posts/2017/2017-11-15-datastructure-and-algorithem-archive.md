@@ -15,6 +15,7 @@ category: datastructureandalgo
 
 - 其他：并查集
 <!-- more -->
+
 ## 2. 算法整理
 
 （1）基本思想：枚举，递归，分治，模拟，贪心，动态规划，剪枝，回溯
