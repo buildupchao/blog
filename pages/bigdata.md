@@ -1,11 +1,11 @@
 ---
 layout: page
-title: 架构师的成长之路
-titlebar: arch
-subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 滴水穿石,积水成河
+title: 大数据之路
+titlebar: 大数据之路
+subtitle: <span class="mega-octicon octicon-keyboard"></span>&nbsp;&nbsp; 我的大数据之路
 menu: arch
 css: ['blog-page.css']
-permalink: /arch
+permalink: /bigdata
 ---
 
 <div class="row">
@@ -14,9 +14,11 @@ permalink: /arch
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='arch'
-                  or post.tags contains '架构'
-                  or post.title contains '架构'
+                {% if post.category=='bigdata'
+                  or post.category contains '大数据'
+                  or post.category contains 'bigdata'
+                  or post.tags contains '大数据'
+                  or post.title contains '大数据'
                 %}
                 <li class="posts-list-item">
                     <div class="posts-content">
