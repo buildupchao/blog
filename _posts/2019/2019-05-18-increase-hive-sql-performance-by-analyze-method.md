@@ -12,24 +12,28 @@ Analyze，分析表（也称为计算统计信息）是一种内置的Hive操作
 
 ## **1.如何分析表？**
 - 基础分析语句
+
 ```SQL
 ANALYZE TABLE my_database_name.my_table_name COMPUTE STATISTICS;
 ```
 这是一个基础分析语句，不限制是否存在表分区，如果你是分区表更应该定期执行。
 
 - 分析特定分区
+
 ```SQL
 ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12) COMPUTE STATISTICS;
 ```
 这是一个细粒度的分析语句。它收集指定的分区上的元数据，并将该信息存储在Hive Metastore中已进行查询优化。该信息包括每列，不同值的数量，NULL值的数量，列的平均大小，平均值或列中所有值的总和（如果类型为数字）和值的百分数。
 
 - 分析列
+
 ```SQL
 ANALYZE TABLE my_database_name.my_table_name COMPUTE STATISTICS FOR column1, column2, column3;
 ```
 它收集指定列上的元数据，并将该信息存储在Hive Metastore中以进行查询优化。该信息包括每列，不同值的数量，NULL值的数量，列的平均大小，平均值或列中所有值的总和（如果类型为数字）和值的百分数。
 
 - 分析指定分区上的列
+
 ```SQL
 ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12, HOUR=0) COMPUTE STATISTICS for column1, column2, column3;
 
@@ -37,13 +41,14 @@ ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=
 
 ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12, HOUR) COMPUTE STATISTICS FOR COLUMNS;
 ```
+
 第一个SQL只会分析单小时分区上的列信息；
 第二个SQL会分析单天分区上的列信息；
 第三个SQL会分析单天分区上的所有列信息。
 
-## **2.效果验证**
+<h2>2.效果验证</h2>
+<h3>测试案例1</h3>
 
-### **测试案例1**
 - 数据准备
 选取KS3线上数据集、TPC-DS基准测试数据集作为样本。结合Hive表分析操作，对多个文件格式以及压缩算法下的数据查询时间进行比对。
 
@@ -64,6 +69,7 @@ WHERE dt >= '2019-03-12'
 
 
 ### **测试案例2**
+
 - 数据准备（TPC-DS基础测试）
   - 美国事务处理效能委员会(TPC,Transaction Processing Performance Council) ：是目前最知名的非赢利的数据管理系统评测基准标准化组织。它定义了多组标准测试集用于客观地、可重现地评测数据库的性能。
   - TPC-DS测试基准是TPC组织推出的用于替代TPC-H的下一代决策支持系统测试基准：TPC-DS采用星型、雪花型等多维数据模式。它包含7张事实表，17张维度表，平均每张表有18列。
