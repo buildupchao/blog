@@ -12,7 +12,6 @@ css: ['blog-page.css']
               {% assign tags = post.tags %}
                   {% for tag in tags %}
                       {% assign targetTag = tag | downcase %}
-                      {{ tagParam }} ----------- {{ targetTag }} ||
                       {% if tagParam contains targetTag %}
                       <li class="posts-list-item">
                           <div class="posts-content">

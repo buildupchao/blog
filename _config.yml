@@ -137,12 +137,7 @@ navs:
     target: _self
 
   -
-    href: /category_file_list.html
-    label: dddd
-    target_: _self
-
-  -
-    #href: /about.html
+    href: /about.html
     label: 其他
     target: _self
     subnav:
@@ -263,15 +258,10 @@ lazy_load_disqus : true
 baidu-analysis: true
 
 jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout:
+  enabled: [categories, tags]
+  layouts:
     category: dynamic_archive
     tag: dynamic_tag
   permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
     category: '/category/:name/'
+    tag: '/category/tag/:name/'

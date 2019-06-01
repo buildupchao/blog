@@ -131,11 +131,11 @@
                   {% if tagMap contains tag[0] %}
                     {% for holdTag in tagMap %}
                       {% if holdTag[0]==tag[0] %}
-                        <a style="color: #FCF2F1;" href="/tag/{{ tag[0] }}" target="_blank">{{ holdTag[1] }}&nbsp;({{ tag[1].size }})</a>
+                        <a style="color: #FCF2F1;" href="/category/tag/{{ tag[0] }}" target="_blank">{{ holdTag[1] }}&nbsp;({{ tag[1].size }})</a>
                       {% endif %}
                     {% endfor %}
                   {% else %}
-                    <a style="color: #FCF2F1;" href="/tag/{{ tag[0] }}" target="_blank">{{ tag[0] }}&nbsp;({{ tag[1].size }})</a>
+                    <a style="color: #FCF2F1;" href="/category/tag/{{ tag[0] }}" target="_blank">{{ tag[0] }}&nbsp;({{ tag[1].size }})</a>
                   {% endif %}
               </h5>
           </li>
