@@ -46,6 +46,7 @@ ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=
 ### **测试案例1**
 - 数据准备
 选取KS3线上数据集、TPC-DS基准测试数据集作为样本。结合Hive表分析操作，对多个文件格式以及压缩算法下的数据查询时间进行比对。
+
 ```SQL
 SELECT count(DISTINCT(uuid)) AS script_appentry_30day_uv
 FROM test_hive.document_assistant
@@ -56,8 +57,11 @@ WHERE dt >= '2019-03-12'
 ```
 
 - 测试结果
+
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table.png?raw=true)
+
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table2.png?raw=true)
+
 
 ### **测试案例2**
 - 数据准备（TPC-DS基础测试）
@@ -72,6 +76,7 @@ WHERE dt >= '2019-03-12'
 场景：单事实表、多个维表，复杂的Join
 Store_Sales表记录数：2,879,987,999
 事实表存储大小（GB）：Text：390， Parquet(Gzip)：116， Orc(Zlib):131
+
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table3.png?raw=true)
 
 query27.sql:
