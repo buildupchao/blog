@@ -148,7 +148,7 @@ public class ProjectApi {
 
 启动项目，在浏览器中键入` http://localhost:8081/project/action/update ` 进行访问，你会得到如下信息：
 
-![2018-06-09_111011.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-06-09-1.png?raw=true)
+![描述信息](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-06-09-1.png?raw=true)
 
 
 因为我们的代码中针对项目设计的项目状态是100001，而项目下一个状态是100002，所以，得到如此结果，就是正确的，也是我们想要的效果，隔离代码与DB的直接访问以及开发人员对过多的信息进行感知。
