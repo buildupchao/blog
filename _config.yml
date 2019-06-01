@@ -28,6 +28,7 @@ plugins:
   - kramdown
   - jekyll-github-metadata
   - jekyll-octicons
+  - jekyll-sitemap
 
 # Build settings
 markdown: kramdown
@@ -50,7 +51,7 @@ syntax_highlighter_opts:
    coderay_line_numbers:  nil
 
 # Pagination
-paginate: 12
+paginate: 10
 paginate_path: 'page:num'
 
 # Navigation. top menu list
@@ -235,8 +236,8 @@ comments_provider: gitalk
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
-disqus:
-    username: buildupchao
+# disqus:
+    # username: buildupchao
 # https://imsun.net/posts/gitment-introduction/
 # gitment:
 #     owner: buildupchao
