@@ -253,3 +253,5 @@ gitalk:
     clientSecret: e58288b5749a9437025983c9f144ba572949b41e
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : true
+
+baidu-analysis: true
