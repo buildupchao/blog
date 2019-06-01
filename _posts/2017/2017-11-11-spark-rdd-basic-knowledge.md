@@ -1,6 +1,6 @@
 ---
 title: 从RDD角度来剖析Spark内部原理
-date: 2017-09-29 23:49:54
+date: 2017-11-11 23:49:54
 tags: ['大数据', 'Spark']
 category: Spark
 ---
@@ -176,11 +176,11 @@ org.apache.spark.shuffle.sort.SortShuffleManager（基于排序的Shuffle机制�
 
 Spark Application Job的Stage划分规则：
 
--（1）RDD在调用 transformation 类型的函数时候形成 DAG 执行图（RDD的依赖）
+- 1) RDD在调用 transformation 类型的函数时候形成 DAG 执行图（RDD的依赖）
 
--（2）RDD在调用 action 类型函数时候会触发 job 的执行
+- 2) RDD在调用 action 类型函数时候会触发 job 的执行
 
--（3）在 Driver 中使用 DAGScheduler 对 DAG图进行 Stage的划分
+- 3) 在 Driver 中使用 DAGScheduler 对 DAG图进行 Stage的划分
 
 从DAG图的最后一步（结果输出的那一步）往前推，如果发现API是宽依赖（ShuffledRDD），就结束推断，将此时构成的DAG图称为一个 Stage，然后继续往前推断，直到第一个RDD ————> Stage与Stage之间的分割是宽依赖。
 
