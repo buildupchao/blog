@@ -23,9 +23,19 @@ css: ['index.css', 'sidebar-popular-repo.css']
         <div class="col-md-8">
 
             <ol class="post-list">
+                {% assign categoryMap = site.data.categorymap %}
                 {% for post in paginator.posts %}
                  {% if post.category != 'zsxq' and post.category != 'gitchat' and post.category != 'geektime' %}
                     <li class="post-list-item">
+                        {% if categoryMap contains post.category %}
+                          {% for holdCategory in categoryMap %}
+                            {% if holdCategory[0]==post.category %}
+                              <a class="label label-important" style="background: #D9534F;position: relative;font-size: 14px;" href="http://www.buildupchao.cn/archives/category/{{post.category}}">{{holdCategory[1]}}</a><span class="arrow-right" style="content:''; position: absolute; top: 33px; border: 8px solid transparent; border-left: 12px solid #D9534F;"></span>
+                            {% endif %}
+                          {% endfor %}
+                        {% else %}
+                              <a class="label label-important" style="background: #D9534F;position: relative;font-size: 14px;" href="http://www.buildupchao.cn/archives/category/{{post.category}}">{{post.category}}</a><span class="arrow-right" style="content:''; position: absolute; top: 33px; border: 8px solid transparent; border-left: 12px solid #D9534F;"></span>
+                        {% endif %}
                         <h2 class="post-list-title">
                             <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
                         </h2>
@@ -52,4 +62,3 @@ css: ['index.css', 'sidebar-popular-repo.css']
     </div>
 
 </section>
-
