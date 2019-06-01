@@ -13,7 +13,7 @@ e g: [root@localhost ~]# 表示当前目录为~
 
 [root@localhost mysql]# 表示当前目录为mysql
 <!-- more -->
-# **一、安装MySQL**
+## **一、安装MySQL**
 
 1、下载安装包mysql-5.6.34-linux-glibc2.5-x86_64.tar（可前往官网自行下载：http://dev.mysql.com/downloads/mysql/）
 
@@ -144,7 +144,7 @@ FATAL ERROR: please install the following Perl modules before executing
 到此数据库安装完毕！
 
 
-# **二、配置MySQL**
+## **二、配置MySQL**
 
 1、授予my.cnf最大权限
 

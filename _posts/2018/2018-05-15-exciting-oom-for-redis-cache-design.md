@@ -10,7 +10,7 @@ category: Redis
 <!-- more -->
 其中有这么一种情况，有个子模块需要能够实时查看到所有Open状态以及通过DashBoard进行划分种类的订单。但是鉴于每分钟Open的订单数据量在5W左右，如果每次查询检测都需要直逼DB进行查询，那么就可能会给数据库造成无形的压力（虽然已经采用了读写分离以及分库分表技术，但是每个订单所包含的Detail商品信息就可能上万，所以并不是看到5W个订单，就可以认为数据量很少。更何况，在微服务架构的基础上，我们不能直接进行跨库做表Join操作，而且只能通过网络传输数据）。
 <br/>
-# **1. 刚开始的设计**
+## **1. 刚开始的设计**
 
 每分钟Load一次Open态的订单数据，然后全部放入到Redis缓存中。<br/>
 
@@ -38,7 +38,7 @@ org.springframework.data.redis.serializer.SerializationException:Cannot serializ
        atorg.springframework.session.data.redis.RedisOperationsSessionRepository.save(RedisOperationsSessionRepository.java:245)
 ```
 
-# **2. 缓存的重新设计**
+## **2. 缓存的重新设计**
 
 考虑到查询条件有这么几种情况：
 
@@ -50,7 +50,7 @@ org.springframework.data.redis.serializer.SerializationException:Cannot serializ
 
 而我们拿到的Open态的订单就属于header级别的数据，所以我们可以直接根据已知的三个条件分别分组，根据分组编号放到三个不同的Cache中，这样不仅避免了每次数据存放的传输以及序列化时间，同时也已经在无形之中减免了一部分查询条件。
 
-## **2.1 进一步优化查询**
+### **2.1 进一步优化查询**
 
 后来发现查询条件中还有一个根据订单号以及上述header级别信息进行组合过滤订单的条件，所以又针对此处加了一个特殊逻辑，即，如果有订单号这个查询条件，就先根据订单号进行查询，然后根据header级别信息进行匹配该订单，这样就又有效减免了Redis缓存数据的访问。
 

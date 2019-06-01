@@ -24,14 +24,14 @@ public class ScaryExpression {
 }
 ```
 然后这段代码的运行结果如下：
-![2018-04-23_232405.png](https://upload-images.jianshu.io/upload_images/3631711-6b5a33cd9cb3e2bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![2018-04-23_232405.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-04-23-1.png)
 <!-- more -->
 很神奇的0，对不对？（而不是奇怪）毕竟作为Java程序员从入门开始就已经刻在脑子里面关于` i++ `与 ` ++i `的区别。
 
 我们都知道前者是先赋值后自增，后者则是先自增后赋值。那底层到底是怎么样的呢？好，下面咱们就通过反编译代码，看看底层字节码指令是什么样的。
 
 我们先执行如下操作，得到data.txt反编译代码：
-![2018-04-23_232047.png](https://upload-images.jianshu.io/upload_images/3631711-9ddfc3c2548974e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![2018-04-23_232047.png](https://github.com/buildupchao/ImgStore/blob/master/blog/2018-04-23-2.png)
 
 现在我们看看data.txt里面都是些什么东西：
 ```
