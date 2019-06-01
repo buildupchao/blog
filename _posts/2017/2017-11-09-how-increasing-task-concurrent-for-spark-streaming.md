@@ -11,7 +11,7 @@ Q: 在Spark集群中，集群的节点个数、RDD分区个数、CPU内核个数
 
 我们先梳理一下Spark中关于并发度涉及的几个概念: File, Block, Split, Task, Partition, RDD以及节点数、Executor数、core数目的关系。
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-09-1.png?raw=true
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-09-1.png?raw=true)
 
 - 输入可能以多个文件的形式存储在HDFS上，每个File都包括了很多Block。
 
