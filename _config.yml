@@ -135,10 +135,18 @@ navs:
     target: _self
 
   -
-    href: /about.html
+    #href: /about.html
     label: 其他
     target: _self
+    subnav:
 
+      -
+        subHref: /about.html
+        subLabel: 关于大超
+
+      -
+        subHref: /learningroutemap.html
+        subLabel: 我的学习路线
 
 # labels. my blog key words
 # labels:

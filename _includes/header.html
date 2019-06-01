@@ -28,7 +28,7 @@
                     {{ nav.label }}
                 </a>
                 {% if nav.subnav %}
-                <ul class="submenu">
+                <ul class="submenu" style="background: transparent;">
                     {% for subItem in nav.subnav %}
                     <li><a href="{{ subItem.subHref }}">{{ subItem.subLabel }}</a></li>
                     {% endfor %}
