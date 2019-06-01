@@ -186,8 +186,8 @@ Spark Application Job的Stage划分规则：
 
 ## Reference Link
 
-- [1] Spark的算子的分类: https://www.cnblogs.com/zlslch/p/5723857.html
+- [1] [Spark的算子的分类](https://www.cnblogs.com/zlslch/p/5723857.html)
 
-- [2] 常见的RDD转换和行动算子：http://blog.csdn.net/bitbyteworld/article/details/53612089
+- [2] [常见的RDD转换和行动算子](http://blog.csdn.net/bitbyteworld/article/details/53612089)
 
-- [3] Spark函数详解系列之RDD基本转换: https://www.cnblogs.com/MOBIN/p/5373256.html
+- [3] [Spark函数详解系列之RDD基本转换](https://www.cnblogs.com/MOBIN/p/5373256.html)
