@@ -117,10 +117,10 @@ ROW_NUMBER() 从1开始，为每一个分组记录返回一个数字。
 
 ## Summary
 
-- 1. Hive通过lateral view (outer) 和explode、split函数实现数据一变多
+- Hive通过lateral view (outer) 和explode、split函数实现数据一变多
 
-- 2. Hive通过concat_ws、collect_set和concat函数实现数据多变一
+- Hive通过concat_ws、collect_set和concat函数实现数据多变一
 
-- 3. Hive通过ROW_NUMBER() OVER函数实现数据去重
+- Hive通过ROW_NUMBER() OVER函数实现数据去重
 
 好了，Hive小记到此结束。博主设计，仅供参考！

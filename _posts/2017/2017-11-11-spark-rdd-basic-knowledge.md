@@ -8,11 +8,11 @@ category: Spark
 ## 1 Spark的核心 — RDD？
 ### 1.1 RDD的5个属性
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-1.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-1.bmp?raw=true)
 ​
 ### 1.2 RDD的特性
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-2.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-2.bmp?raw=true)
 
 ### 1.3 What's RDD？
 
@@ -53,7 +53,7 @@ RDD算子有四大类：创建算子、Transformation算子、缓存算子、Act
 
 ## 3 常用的Spark算子
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-3.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-3.bmp?raw=true)
 
 ## 4 从RDD角度来剖析Spark内部原理 — WordCount
 ### 4.1 WordCount
@@ -63,11 +63,11 @@ val file = sc.textFile("hdfs://data/test.txt")
 val data = file.flatMap(_.split(" ")).map((_,1)).reduceByKey(_ + _)
 ```
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-4.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-4.jpeg?raw=true)
 
 ### 4.2 WordCount执行流程
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-8.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-8.jpg?raw=true)
 
 ### 4.3 DAG（RDD的依赖关系）
 #### 4.3.1 两种依赖
@@ -84,11 +84,11 @@ Spark中的依赖分为两种: narrow 和 shuffle / wide。原因如下:
 
 总的来说，RDD的每个partition，仅仅依赖于父 RDD中的一个partition，这才是窄。（子RDD的partition和父RDD的partition是一对一就是窄依赖）。
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-5.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-5.bmp?raw=true)
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-6.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-6.bmp?raw=true)
 
-![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-7.png?raw=true)
+![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-7.bmp?raw=true)
 
 之前总感觉上图关系是窄依赖，其实RDD1的partition0依赖父RDD0的partition0和partition1，所以是宽依赖。
 
