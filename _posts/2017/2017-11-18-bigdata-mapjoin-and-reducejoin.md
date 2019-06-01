@@ -48,6 +48,7 @@ category: Hadoop
 
 - 使用map reduce专为join设计的包
 在map reduce包看到有专门为join设计的包，对这些包还没有学习，不知道怎么使用，只是在这里记录下来，做个提醒。
+
 ```
 jar: mapreduce-client-core.jar
 
