@@ -55,7 +55,7 @@ RDD算子有四大类：创建算子、Transformation算子、缓存算子、Act
 
 ![这里写图片描述](https://github.com/buildupchao/ImgStore/blob/master/blog/2017-11-11-3.bmp?raw=true)
 
-## 4 从RDD角度来剖析Spark内部原理 — WordCount
+## 4 从RDD角度来剖析Spark内部原理—WordCount
 ### 4.1 WordCount
 
 ```
