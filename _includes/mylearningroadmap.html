@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-md-12">
         <ul id="posts-list">
-            {% for roadInfo in site.data.learningroadmap.learningroadmap %}
+            {% for roadInfo in site.data.learningroadmap.learningroadmap | sort:"date" %}
                 {% if roadInfo != null %}
                 <li class="posts-list-item">
                     <div class="posts-content">
-                        <span class="posts-list-meta">{{ roadInfo.date }}</span>
-                        <a class="posts-list-name bubble-float-left" href="www.baidu.com">{{ roadInfo.description }}</a>
+                        <span class="posts-list-meta"><strong>{{ roadInfo.date }}</strong></span>
+                        <label class="posts-list-name bubble-float-left" href="www.buildupchao.cn">{{ roadInfo.description }}</label>
                         <span class='circle'></span>
                     </div>
                 </li>

@@ -2,7 +2,7 @@
 title: MySQL如何实现强制查询走索引和强制查询不缓存
 date: 2017-08-16 09:19:07
 tags: ['MySQL', '数据库']
-category: 数据库
+category: db
 ---
 
 - A:强制走索引

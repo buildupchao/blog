@@ -29,6 +29,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
+  - jekyll-archives
 
 # Build settings
 markdown: kramdown
@@ -134,6 +135,11 @@ navs:
     href: /archives.html
     label: 归档
     target: _self
+
+  -
+    href: /category_file_list.html
+    label: dddd
+    target_: _self
 
   -
     #href: /about.html
@@ -255,3 +261,17 @@ gitalk:
 lazy_load_disqus : true
 
 baidu-analysis: true
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout:
+    category: dynamic_archive
+    tag: dynamic_tag
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
