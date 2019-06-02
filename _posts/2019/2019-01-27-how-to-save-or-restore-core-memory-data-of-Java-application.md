@@ -79,31 +79,31 @@ private static void saveData() {
 ```
 @PostConstruct
 public void resoverData() {
-      ObjectInputStream ois = null;
-      try {
-          File cacheFile = new File(filePath);
-          if (cacheFile.exists()) {
-              ois = new ObjectInputStream(new FileInputStream(filePath));
-              Map<String, User> cacheMap =
-              					(Map<String, User>) ois.readObject();
-              for (Map.Entry<String, User> entry : cacheMap.entrySet()) {
-                  cacheData.put(entry.getKey(), entry.getValue());
-              }
-              LOGGER.info("Recover memory data successfully, cacheData={}"
-              							, cacheData.toString());
-          }
-      } catch (Exception ex) {
-          LOGGER.error("recover memory data error", ex);
-      } finally {
-          try {
-              if (ois != null) {
-                  ois.close();
-              }
-          } catch (IOException ex) {
-              LOGGER.error("close ObjectInputStream error", ex);
-          }
-      }
-  }
+    ObjectInputStream ois = null;
+    try {
+        File cacheFile = new File(filePath);
+        if (cacheFile.exists()) {
+            ois = new ObjectInputStream(new FileInputStream(filePath));
+            Map<String, User> cacheMap =
+            					(Map<String, User>) ois.readObject();
+            for (Map.Entry<String, User> entry : cacheMap.entrySet()) {
+                cacheData.put(entry.getKey(), entry.getValue());
+            }
+            LOGGER.info("Recover memory data successfully, cacheData={}"
+            							, cacheData.toString());
+        }
+    } catch (Exception ex) {
+        LOGGER.error("recover memory data error", ex);
+    } finally {
+        try {
+            if (ois != null) {
+                ois.close();
+            }
+        } catch (IOException ex) {
+            LOGGER.error("close ObjectInputStream error", ex);
+        }
+    }
+}
 ```
 
 是不是整个过程似曾相识？没错，就是Java IO流 **ObjectInputStream**和**ObjectOutputStream**的应用。但是有一点需要注意，使用对象流的时候，需要保证被序列化的对象必须实现了**Serializable**接口，这样才能正常使用。
@@ -113,8 +113,7 @@ public void resoverData() {
 @SpringBootApplication
 public class SavePointApplication {
 
-  private static final Logger LOGGER =
-  				LoggerFactory.getLogger(SavePointApplication.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SavePointApplication.class);
 
   private static final HashMap<String, User> cacheData = new HashMap<>();
   private static final String filePath = System.getProperty("user.dir")
