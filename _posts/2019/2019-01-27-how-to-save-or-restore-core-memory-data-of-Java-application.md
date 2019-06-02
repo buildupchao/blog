@@ -34,39 +34,38 @@ Runtime.getRuntime().addShutdownHook(Thread thread);
 理好了思路，那就开始Coding吧！
 
 ```
-	private static final HashMap<String, User> cacheData = new HashMap<>();
-    private static final String filePath = System.getProperty("user.dir")
-				     			+ File.separator + "save_point.binary";
+private static final HashMap<String, User> cacheData = new HashMap<>();
+private static final String filePath = System.getProperty("user.dir")+ File.separator +"save_point.binary";
 
-	Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                saveData();
-            }
-        });
-
-	private static void saveData() {
-        ObjectOutputStream oos = null;
-        try {
-            File cacheFile = new File(filePath);
-            if (!cacheFile.exists()) {
-                cacheFile.createNewFile();
-            }
-            oos = new ObjectOutputStream(new FileOutputStream(filePath));
-            oos.writeObject(cacheData);
-            oos.flush();
-        } catch (IOException ex) {
-            LOGGER.error("save memory data error", ex);
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.close();
-                }
-            } catch (IOException ex) {
-                LOGGER.error("close ObjectOutputStream error", ex);
-            }
-        }
+Runtime.getRuntime().addShutdownHook(new Thread() {
+    @Override
+    public void run() {
+        saveData();
     }
+});
+
+private static void saveData() {
+      ObjectOutputStream oos = null;
+      try {
+          File cacheFile = new File(filePath);
+          if (!cacheFile.exists()) {
+              cacheFile.createNewFile();
+          }
+          oos = new ObjectOutputStream(new FileOutputStream(filePath));
+          oos.writeObject(cacheData);
+          oos.flush();
+      } catch (IOException ex) {
+          LOGGER.error("save memory data error", ex);
+      } finally {
+          try {
+              if (oos != null) {
+                  oos.close();
+              }
+          } catch (IOException ex) {
+              LOGGER.error("close ObjectOutputStream error", ex);
+          }
+      }
+  }
 ```
 
 这样我们就可以保证Map<String, User>这个映射关系保存好了。
@@ -78,68 +77,69 @@ Runtime.getRuntime().addShutdownHook(Thread thread);
 继续Coding...
 
 ```
-	@PostConstruct
-	public void resoverData() {
-        ObjectInputStream ois = null;
-        try {
-            File cacheFile = new File(filePath);
-            if (cacheFile.exists()) {
-                ois = new ObjectInputStream(new FileInputStream(filePath));
-                Map<String, User> cacheMap =
-                					(Map<String, User>) ois.readObject();
-                for (Map.Entry<String, User> entry : cacheMap.entrySet()) {
-                    cacheData.put(entry.getKey(), entry.getValue());
-                }
-                LOGGER.info("Recover memory data successfully, cacheData={}"
-                							, cacheData.toString());
-            }
-        } catch (Exception ex) {
-            LOGGER.error("recover memory data error", ex);
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-            } catch (IOException ex) {
-                LOGGER.error("close ObjectInputStream error", ex);
-            }
-        }
-    }
+@PostConstruct
+public void resoverData() {
+      ObjectInputStream ois = null;
+      try {
+          File cacheFile = new File(filePath);
+          if (cacheFile.exists()) {
+              ois = new ObjectInputStream(new FileInputStream(filePath));
+              Map<String, User> cacheMap =
+              					(Map<String, User>) ois.readObject();
+              for (Map.Entry<String, User> entry : cacheMap.entrySet()) {
+                  cacheData.put(entry.getKey(), entry.getValue());
+              }
+              LOGGER.info("Recover memory data successfully, cacheData={}"
+              							, cacheData.toString());
+          }
+      } catch (Exception ex) {
+          LOGGER.error("recover memory data error", ex);
+      } finally {
+          try {
+              if (ois != null) {
+                  ois.close();
+              }
+          } catch (IOException ex) {
+              LOGGER.error("close ObjectInputStream error", ex);
+          }
+      }
+  }
 ```
 
 是不是整个过程似曾相识？没错，就是Java IO流 **ObjectInputStream**和**ObjectOutputStream**的应用。但是有一点需要注意，使用对象流的时候，需要保证被序列化的对象必须实现了**Serializable**接口，这样才能正常使用。
 
 应用整体调用逻辑如下（测试的时候，第一次需要正常调用generateAndPutData()方法，终止项目保存现场后，需要把generateAndPutData()注释掉，看看时候正确恢复现场了。）：
 ```
-	@SpringBootApplication
-	public class SavePointApplication {
+@SpringBootApplication
+public class SavePointApplication {
 
-    private static final Logger LOGGER =
-    				LoggerFactory.getLogger(SavePointApplication.class);
+  private static final Logger LOGGER =
+  				LoggerFactory.getLogger(SavePointApplication.class);
 
-    private static final HashMap<String, User> cacheData = new HashMap<>();
-    private static final String filePath = System.getProperty("user.dir")
-    				+ File.separator + "save_point.binary";
+  private static final HashMap<String, User> cacheData = new HashMap<>();
+  private static final String filePath = System.getProperty("user.dir")
+  				+ File.separator + "save_point.binary";
 
-    public static void main(String[] args) {
-        SpringApplication.run(SavePointApplication.class, args);
+  public static void main(String[] args) {
+      SpringApplication.run(SavePointApplication.class, args);
 
-        LOGGER.info("save_point filePath={}", filePath);
-        generateAndPutData();
+      LOGGER.info("save_point filePath={}", filePath);
+      generateAndPutData();
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                saveData();
-            }
-        });
-    }
+      Runtime.getRuntime().addShutdownHook(new Thread() {
+          @Override
+          public void run() {
+              saveData();
+          }
+      });
+  }
 
 	private static void generateAndPutData() {
-        cacheData.put("test1", new User(1L, "testName1"));
-        cacheData.put("test2", new User(2L, "testName2"));
-        cacheData.put("test3", new User(3L, "testName3"));
-    }
+      cacheData.put("test1", new User(1L, "testName1"));
+      cacheData.put("test2", new User(2L, "testName2"));
+      cacheData.put("test3", new User(3L, "testName3"));
+  }
+}
 ```
 
 ## **2. Fuck! 没有保存现场?!**
