@@ -1,0 +1,30 @@
+---
+layout: page
+css: ['blog-page.css']
+---
+
+{% assign tagParam = page.url | split:"/" | last | downcase %}
+<article class="post container">
+  <div class="row">
+      <div class="col-md-12">
+          <ul id="posts-list">
+              {% for post in site.posts %}
+              {% assign tags = post.tags %}
+                  {% for tag in tags %}
+                      {% assign targetTag = tag | downcase %}
+                      {% if tagParam contains targetTag %}
+                      <li class="posts-list-item">
+                          <div class="posts-content">
+                              <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+                              <a class="posts-list-name bubble-float-left" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                              <span class='circle'></span>
+                          </div>
+                      </li>
+                      {% break %}
+                      {% endif %}
+                  {% endfor %}
+              {% endfor %}
+          </ul>
+      </div>
+  </div>
+</article>
