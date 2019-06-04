@@ -98,11 +98,11 @@
                   {% if categoryMap contains category[0] %}
                     {% for holdCategory in categoryMap %}
                       {% if holdCategory[0]==category[0] %}
-                        <a href="/archives/{{ category[0] }}" target="_blank">{{ holdCategory[1] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
+                        <a href="/category/{{ category[0] }}" target="_blank">{{ holdCategory[1] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
                       {% endif %}
                     {% endfor %}
                   {% else %}
-                    <a href="/archives/{{ category[0] }}" target="_blank">{{ category[0] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
+                    <a href="/category/{{ category[0] }}" target="_blank">{{ category[0] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
                   {% endif %}
               </h5>
           </li>
@@ -131,11 +131,11 @@
                   {% if tagMap contains tag[0] %}
                     {% for holdTag in tagMap %}
                       {% if holdTag[0]==tag[0] %}
-                        <a style="color: #FCF2F1;" href="/archives/tag/{{ tag[0] }}" target="_blank">{{ holdTag[1] }}&nbsp;({{ tag[1].size }})</a>
+                        <a style="color: #FCF2F1;" href="/tag/{{ tag[0] }}" target="_blank">{{ holdTag[1] }}&nbsp;({{ tag[1].size }})</a>
                       {% endif %}
                     {% endfor %}
                   {% else %}
-                    <a style="color: #FCF2F1;" href="/archives/tag/{{ tag[0] }}" target="_blank">{{ tag[0] }}&nbsp;({{ tag[1].size }})</a>
+                    <a style="color: #FCF2F1;" href="/tag/{{ tag[0] }}" target="_blank">{{ tag[0] }}&nbsp;({{ tag[1].size }})</a>
                   {% endif %}
               </h5>
           </li>

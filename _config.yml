@@ -263,5 +263,5 @@ jekyll-archives:
     category: dynamic_archive
     tag: dynamic_tag
   permalinks:
-    category: '/archives/:name/'
-    tag: '/archives/tag/:name/'
+    category: '/category/:name/'
+    tag: '/tag/:name/'
