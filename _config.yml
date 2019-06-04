@@ -149,6 +149,9 @@ navs:
       -
         subHref: /mylearningroadmap.html
         subLabel: 我的学习路线
+      -
+        subHref: /bookmark
+        subLabel: 书签直达站
 
 # labels. my blog key words
 # labels:
@@ -258,10 +261,12 @@ lazy_load_disqus : true
 baidu-analysis: true
 
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled:
+    - categories
+    - tags
   layouts:
-    category: dynamic_archive
-    tag: dynamic_tag
+    category: 'dynamic_archive'
+    tag: 'dynamic_tag'
   permalinks:
     category: '/category/:name/'
     tag: '/tag/:name/'
