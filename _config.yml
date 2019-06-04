@@ -29,7 +29,7 @@ plugins:
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
-  - jekyll-archives
+  # - jekyll-archives
 
 # Build settings
 markdown: kramdown
