@@ -6,7 +6,7 @@ require "jekyll"
 
 
 # Change your GitHub reponame
-GITHUB_REPONAME = "buildupchao/buildupchao.github.com"
+GITHUB_REPONAME = "buildupchao/buildupchao.github.io"
 
 
 desc "Generate blog files"
