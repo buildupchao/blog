@@ -135,19 +135,6 @@ navs:
     href: /archives.html
     label: 归档
     target: _self
-    subnav:
-
-      -
-        subHref: /java.html
-        subLabel: Java
-
-      -
-        subHref: /arch.html
-        subLabel: 架构
-
-      -
-        subHref: /bigdata.html
-        subLabel: 大数据
 
   -
     href: /about.html
