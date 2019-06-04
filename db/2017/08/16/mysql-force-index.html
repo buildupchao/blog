@@ -1,0 +1,20 @@
+<ul>
+  <li>A:强制走索引</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT uid, uname
+FROM table_name
+force index(ind_id);
+</code></pre></div></div>
+
+<ul>
+  <li>B:强制查询不缓存</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT SQL_NO_CACHE uid, uanme
+FROM table_name
+</code></pre></div></div>
+
+<p>不走逻辑IO，走物理IO</p>
+
+<p>在此仅用以做记录备用。</p>
