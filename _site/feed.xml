@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>buildupchao</title>
+    <description>本站是buildupchao的技术分享博客。</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 04 Jun 2019 22:59:14 +0800</pubDate>
+    <lastBuildDate>Tue, 04 Jun 2019 22:59:14 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Airflow大数据任务调度平台使用</title>
+        <description>&lt;p&gt;Airflow使用记录&lt;/p&gt;
+</description>
+        <pubDate>Sat, 01 Jun 2019 10:33:00 +0800</pubDate>
+        <link>http://localhost:4000/bigdataplatform/2019/06/01/airflow-task-schedule-platform-using.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bigdataplatform/2019/06/01/airflow-task-schedule-platform-using.html</guid>
+        
+        <category>Airflow</category>
+        
+        <category>大数据</category>
+        
+        
+        <category>bigdataplatform</category>
+        
+      </item>
+    
+      <item>
+        <title>大数据任务调度平台</title>
+        <description>&lt;p&gt;大数据任务调度平台&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 May 2019 15:12:00 +0800</pubDate>
+        <link>http://localhost:4000/bigdataplatform/2019/05/31/bigdata-task-schedule-platform.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bigdataplatform/2019/05/31/bigdata-task-schedule-platform.html</guid>
+        
+        <category>大数据</category>
+        
+        <category>大数据平台</category>
+        
+        
+        <category>bigdataplatform</category>
+        
+      </item>
+    
+      <item>
+        <title>数据仓库的概念和ER实体模型</title>
+        <description>&lt;p&gt;0.什么是数据库？
+1.什么是数据仓库？&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 May 2019 08:23:21 +0800</pubDate>
+        <link>http://localhost:4000/datawarehouse/2019/05/20/dw-conception-and-ER-entity-model.html</link>
+        <guid isPermaLink="true">http://localhost:4000/datawarehouse/2019/05/20/dw-conception-and-ER-entity-model.html</guid>
+        
+        <category>大数据</category>
+        
+        <category>数据仓库</category>
+        
+        <category>DW</category>
+        
+        
+        <category>datawarehouse</category>
+        
+      </item>
+    
+      <item>
+        <title>数据仓库从0到1总结整理</title>
+        <description>&lt;p&gt;&lt;strong&gt;目录：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.buildupchao.cn/datawarehouse/2019/05/20/dw-conception-and-ER-entity-model.html&quot;&gt;1.数据仓库的概念和ER实体模型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 May 2019 08:23:21 +0800</pubDate>
+        <link>http://localhost:4000/datawarehouse/2019/05/20/dw-summary-from-0-to-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/datawarehouse/2019/05/20/dw-summary-from-0-to-1.html</guid>
+        
+        <category>大数据</category>
+        
+        <category>数据仓库</category>
+        
+        
+        <category>datawarehouse</category>
+        
+      </item>
+    
+      <item>
+        <title>Hive SQL查询效率提升之Analyze方案的实施</title>
+        <description>&lt;h2 id=&quot;0简介&quot;&gt;&lt;strong&gt;0.简介&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Analyze，分析表（也称为计算统计信息）是一种内置的Hive操作，可以执行该操作来收集表上的元数据信息。这可以极大的改善表上的查询时间，因为它收集构成表中数据的行计数，文件计数和文件大小（字节），并在执行之前将其提供给查询计划程序。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;1如何分析表&quot;&gt;&lt;strong&gt;1.如何分析表？&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;基础分析语句&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;ANALYZE TABLE my_database_name.my_table_name COMPUTE STATISTICS;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这是一个基础分析语句，不限制是否存在表分区，如果你是分区表更应该定期执行。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分析特定分区&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12) COMPUTE STATISTICS;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这是一个细粒度的分析语句。它收集指定的分区上的元数据，并将该信息存储在Hive Metastore中已进行查询优化。该信息包括每列，不同值的数量，NULL值的数量，列的平均大小，平均值或列中所有值的总和（如果类型为数字）和值的百分数。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分析列&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;ANALYZE TABLE my_database_name.my_table_name COMPUTE STATISTICS FOR column1, column2, column3;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;它收集指定列上的元数据，并将该信息存储在Hive Metastore中以进行查询优化。该信息包括每列，不同值的数量，NULL值的数量，列的平均大小，平均值或列中所有值的总和（如果类型为数字）和值的百分数。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分析指定分区上的列&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12, HOUR=0) COMPUTE STATISTICS for column1, column2, column3;
+
+ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12, HOUR) COMPUTE STATISTICS for column1, column2, column3;
+
+ANALYZE TABLE my_database_name.my_table_name PARTITION (YEAR=2019, MONTH=5, DAY=12, HOUR) COMPUTE STATISTICS FOR COLUMNS;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第一个SQL只会分析单小时分区上的列信息；
+第二个SQL会分析单天分区上的列信息；
+第三个SQL会分析单天分区上的所有列信息。&lt;/p&gt;
+
+&lt;h2&gt;2.效果验证&lt;/h2&gt;
+&lt;h3&gt;测试案例1&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数据准备
+选取KS3线上数据集、TPC-DS基准测试数据集作为样本。结合Hive表分析操作，对多个文件格式以及压缩算法下的数据查询时间进行比对。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;SELECT count(DISTINCT(uuid)) AS script_appentry_30day_uv
+FROM test_hive.document_assistant
+WHERE dt &amp;gt;= '2019-03-12'
+  AND dt &amp;lt;= '2019-04-10'
+  AND p3 = '14'
+  AND p5 = 'script_appentry'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;测试结果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table2.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;测试案例2&quot;&gt;&lt;strong&gt;测试案例2&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数据准备（TPC-DS基础测试）
+    &lt;ul&gt;
+      &lt;li&gt;美国事务处理效能委员会(TPC,Transaction Processing Performance Council) ：是目前最知名的非赢利的数据管理系统评测基准标准化组织。它定义了多组标准测试集用于客观地、可重现地评测数据库的性能。&lt;/li&gt;
+      &lt;li&gt;TPC-DS测试基准是TPC组织推出的用于替代TPC-H的下一代决策支持系统测试基准：TPC-DS采用星型、雪花型等多维数据模式。它包含7张事实表，17张维度表，平均每张表有18列。&lt;/li&gt;
+      &lt;li&gt;TPC-DS 特点：
+        &lt;ul&gt;
+          &lt;li&gt;共99个测试案例，遵循SQL’99和SQL 2003的语法标准，SQL案例比较复杂；&lt;/li&gt;
+          &lt;li&gt;分析的数据量大，并且测试案例是在回答真实的商业问题；&lt;/li&gt;
+          &lt;li&gt;测试案例中包含各种业务模型(如分析报告型，迭代式的联机分析型，数据挖掘型等)；&lt;/li&gt;
+          &lt;li&gt;几乎所有的测试案例都有很高的IO负载和CPU计算需求。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;场景：单事实表、多个维表，复杂的Join
+Store_Sales表记录数：2,879,987,999
+事实表存储大小（GB）：Text：390， Parquet(Gzip)：116， Orc(Zlib):131&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table3.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;query27.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query27.tpl and seed 2017787633
+select  i_item_id,
+        s_state, grouping(s_state) g_state,
+        avg(ss_quantity) agg1,
+        avg(ss_list_price) agg2,
+        avg(ss_coupon_amt) agg3,
+        avg(ss_sales_price) agg4
+ from store_sales, customer_demographics, date_dim, store, item
+ where ss_sold_date_sk = d_date_sk and
+       ss_item_sk = i_item_sk and
+       ss_store_sk = s_store_sk and
+       ss_cdemo_sk = cd_demo_sk and
+       cd_gender = 'M' and
+       cd_marital_status = 'U' and
+       cd_education_status = '2 yr Degree' and
+       d_year = 2001 and
+       s_state in ('SD','FL', 'MI', 'LA', 'MO', 'SC')
+ group by rollup (i_item_id, s_state)
+ order by i_item_id
+         ,s_state
+ limit 100;
+
+-- end query 1 in stream 0 using template query27.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query28.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query28.tpl and seed 444293455
+select  *
+from (select avg(ss_list_price) B1_LP
+            ,count(ss_list_price) B1_CNT
+            ,count(distinct ss_list_price) B1_CNTD
+      from store_sales
+      where ss_quantity between 0 and 5
+        and (ss_list_price between 11 and 11+10
+             or ss_coupon_amt between 460 and 460+1000
+             or ss_wholesale_cost between 14 and 14+20)) B1,
+     (select avg(ss_list_price) B2_LP
+            ,count(ss_list_price) B2_CNT
+            ,count(distinct ss_list_price) B2_CNTD
+      from store_sales
+      where ss_quantity between 6 and 10
+        and (ss_list_price between 91 and 91+10
+          or ss_coupon_amt between 1430 and 1430+1000
+          or ss_wholesale_cost between 32 and 32+20)) B2,
+     (select avg(ss_list_price) B3_LP
+            ,count(ss_list_price) B3_CNT
+            ,count(distinct ss_list_price) B3_CNTD
+      from store_sales
+      where ss_quantity between 11 and 15
+        and (ss_list_price between 66 and 66+10
+          or ss_coupon_amt between 920 and 920+1000
+          or ss_wholesale_cost between 4 and 4+20)) B3,
+     (select avg(ss_list_price) B4_LP
+            ,count(ss_list_price) B4_CNT
+            ,count(distinct ss_list_price) B4_CNTD
+      from store_sales
+      where ss_quantity between 16 and 20
+        and (ss_list_price between 142 and 142+10
+          or ss_coupon_amt between 3054 and 3054+1000
+          or ss_wholesale_cost between 80 and 80+20)) B4,
+     (select avg(ss_list_price) B5_LP
+            ,count(ss_list_price) B5_CNT
+            ,count(distinct ss_list_price) B5_CNTD
+      from store_sales
+      where ss_quantity between 21 and 25
+        and (ss_list_price between 135 and 135+10
+          or ss_coupon_amt between 14180 and 14180+1000
+          or ss_wholesale_cost between 38 and 38+20)) B5,
+     (select avg(ss_list_price) B6_LP
+            ,count(ss_list_price) B6_CNT
+            ,count(distinct ss_list_price) B6_CNTD
+      from store_sales
+      where ss_quantity between 26 and 30
+        and (ss_list_price between 28 and 28+10
+          or ss_coupon_amt between 2513 and 2513+1000
+          or ss_wholesale_cost between 42 and 42+20)) B6
+limit 100;
+
+-- end query 1 in stream 0 using template query28.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query43.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query43.tpl and seed 1819994127
+select  s_store_name, s_store_id,
+        sum(case when (d_day_name='Sunday') then ss_sales_price else null end) sun_sales,
+        sum(case when (d_day_name='Monday') then ss_sales_price else null end) mon_sales,
+        sum(case when (d_day_name='Tuesday') then ss_sales_price else  null end) tue_sales,
+        sum(case when (d_day_name='Wednesday') then ss_sales_price else null end) wed_sales,
+        sum(case when (d_day_name='Thursday') then ss_sales_price else null end) thu_sales,
+        sum(case when (d_day_name='Friday') then ss_sales_price else null end) fri_sales,
+        sum(case when (d_day_name='Saturday') then ss_sales_price else null end) sat_sales
+ from date_dim, store_sales, store
+ where d_date_sk = ss_sold_date_sk and
+       s_store_sk = ss_store_sk and
+       s_gmt_offset = -6 and
+       d_year = 1998
+ group by s_store_name, s_store_id
+ order by s_store_name, s_store_id,sun_sales,mon_sales,tue_sales,wed_sales,thu_sales,fri_sales,sat_sales
+ limit 100;
+
+-- end query 1 in stream 0 using template query43.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query67.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query67.tpl and seed 1819994127
+select  *
+from (select i_category
+            ,i_class
+            ,i_brand
+            ,i_product_name
+            ,d_year
+            ,d_qoy
+            ,d_moy
+            ,s_store_id
+            ,sumsales
+            ,rank() over (partition by i_category order by sumsales desc) rk
+      from (select i_category
+                  ,i_class
+                  ,i_brand
+                  ,i_product_name
+                  ,d_year
+                  ,d_qoy
+                  ,d_moy
+                  ,s_store_id
+                  ,sum(coalesce(ss_sales_price*ss_quantity,0)) sumsales
+            from store_sales
+                ,date_dim
+                ,store
+                ,item
+       where  ss_sold_date_sk=d_date_sk
+          and ss_item_sk=i_item_sk
+          and ss_store_sk = s_store_sk
+          and d_month_seq between 1212 and 1212+11
+       group by  rollup(i_category, i_class, i_brand, i_product_name, d_year, d_qoy, d_moy,s_store_id))dw1) dw2
+where rk &amp;lt;= 100
+order by i_category
+        ,i_class
+        ,i_brand
+        ,i_product_name
+        ,d_year
+        ,d_qoy
+        ,d_moy
+        ,s_store_id
+        ,sumsales
+        ,rk
+limit 100;
+
+-- end query 1 in stream 0 using template query67.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query46.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query46.tpl and seed 803547492
+select  c_last_name
+       ,c_first_name
+       ,ca_city
+       ,bought_city
+       ,ss_ticket_number
+       ,amt,profit
+ from
+   (select ss_ticket_number
+          ,ss_customer_sk
+          ,ca_city bought_city
+          ,sum(ss_coupon_amt) amt
+          ,sum(ss_net_profit) profit
+    from store_sales,date_dim,store,household_demographics,customer_address
+    where store_sales.ss_sold_date_sk = date_dim.d_date_sk
+    and store_sales.ss_store_sk = store.s_store_sk
+    and store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk
+    and store_sales.ss_addr_sk = customer_address.ca_address_sk
+    and (household_demographics.hd_dep_count = 2 or
+         household_demographics.hd_vehicle_count= 1)
+    and date_dim.d_dow in (6,0)
+    and date_dim.d_year in (1998,1998+1,1998+2)
+    and store.s_city in ('Cedar Grove','Wildwood','Union','Salem','Highland Park')
+    group by ss_ticket_number,ss_customer_sk,ss_addr_sk,ca_city) dn,customer,customer_address current_addr
+    where ss_customer_sk = c_customer_sk
+      and customer.c_current_addr_sk = current_addr.ca_address_sk
+      and current_addr.ca_city &amp;lt;&amp;gt; bought_city
+  order by c_last_name
+          ,c_first_name
+          ,ca_city
+          ,bought_city
+          ,ss_ticket_number
+  limit 100;
+
+-- end query 1 in stream 0 using template query46.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query7.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query7.tpl and seed 1930872976
+select  i_item_id,
+        avg(ss_quantity) agg1,
+        avg(ss_list_price) agg2,
+        avg(ss_coupon_amt) agg3,
+        avg(ss_sales_price) agg4
+ from store_sales, customer_demographics, date_dim, item, promotion
+ where ss_sold_date_sk = d_date_sk and
+       ss_item_sk = i_item_sk and
+       ss_cdemo_sk = cd_demo_sk and
+       ss_promo_sk = p_promo_sk and
+       cd_gender = 'F' and
+       cd_marital_status = 'W' and
+       cd_education_status = 'Primary' and
+       (p_channel_email = 'N' or p_channel_event = 'N') and
+       d_year = 1998
+ group by i_item_id
+ order by i_item_id
+ limit 100;
+
+-- end query 1 in stream 0 using template query7.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;query73.sql:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;-- start query 1 in stream 0 using template query73.tpl and seed 1971067816
+select c_last_name
+       ,c_first_name
+       ,c_salutation
+       ,c_preferred_cust_flag
+       ,ss_ticket_number
+       ,cnt from
+   (select ss_ticket_number
+          ,ss_customer_sk
+          ,count(*) cnt
+    from store_sales,date_dim,store,household_demographics
+    where store_sales.ss_sold_date_sk = date_dim.d_date_sk
+    and store_sales.ss_store_sk = store.s_store_sk
+    and store_sales.ss_hdemo_sk = household_demographics.hd_demo_sk
+    and date_dim.d_dom between 1 and 2
+    and (household_demographics.hd_buy_potential = '&amp;gt;10000' or
+         household_demographics.hd_buy_potential = 'unknown')
+    and household_demographics.hd_vehicle_count &amp;gt; 0
+    and case when household_demographics.hd_vehicle_count &amp;gt; 0 then
+             household_demographics.hd_dep_count/ household_demographics.hd_vehicle_count else null end &amp;gt; 1
+    and date_dim.d_year in (2000,2000+1,2000+2)
+    and store.s_county in ('Mobile County','Maverick County','Huron County','Kittitas County')
+    group by ss_ticket_number,ss_customer_sk) dj,customer
+    where ss_customer_sk = c_customer_sk
+      and cnt between 1 and 5
+    order by cnt desc;
+
+-- end query 1 in stream 0 using template query73.tpl
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;测试结果
+&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/analyze_table4.png?raw=true&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3结论&quot;&gt;&lt;strong&gt;3.结论&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hive执行表分析后能大幅加速查询速度
+    &lt;ul&gt;
+      &lt;li&gt;查询耗时（压缩算法）：None &amp;gt; Snappy &amp;gt; Gzip/Zlib&lt;/li&gt;
+      &lt;li&gt;查询耗时（文件格式）：Text &amp;gt; Parquet &amp;gt; Orc&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;当前测试场景下，ORC格式查询耗时最低
+    &lt;ul&gt;
+      &lt;li&gt;Parquet与Orc查询耗时接近&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 20 May 2019 06:45:41 +0800</pubDate>
+        <link>http://localhost:4000/bigdata/2019/05/20/increase-hive-sql-performance-by-analyze-method.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bigdata/2019/05/20/increase-hive-sql-performance-by-analyze-method.html</guid>
+        
+        <category>Hive</category>
+        
+        <category>HQL查询效率</category>
+        
+        <category>Analyze Table</category>
+        
+        <category>大数据</category>
+        
+        
+        <category>BigData</category>
+        
+      </item>
+    
+      <item>
+        <title>Hive集群合并之应用端的负载均衡算法</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/Hive%E9%9B%86%E7%BE%A4%E5%90%88%E5%B9%B6.png?raw=true&quot; alt=&quot;Hive集群合并&quot; /&gt;
+&lt;!-- more --&gt;&lt;/p&gt;
+&lt;h2 id=&quot;0背景&quot;&gt;&lt;strong&gt;0.背景&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;有这么一个场景，我们有两个Hive集群，Hive集群1（后面成为1号集群）是一直专享于数据计算平台的，而Hive集群2（后面成为2号集群）是用于其他团队使用的，比如特征，广告等。而由此存在两个主要问题：a) 两个Hive集群共享了同一份MetaData，导致经常会出现在HUE（建立与2号集群上）上建表成功后，但是在计算平台上却无法查询到新建表信息；b) 让运维同学们同时维护两套集群，管理和资源分配调整起来的确是麻烦很多，毕竟也不利于资源的弹性分配。那么鉴于此，经过讨论，需要做这么一样工作：两个集群合二为一，由1号集群合并到2号集群上来。&lt;/p&gt;
+
+&lt;h2 id=&quot;1集群合并前的思考与分析&quot;&gt;&lt;strong&gt;1.集群合并前的思考与分析&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;但是，集群合并是不可能一下子全部合并，需要逐步迁移合并（比如每次20个结点）到2号集群。但是这样存在一个问题，计算平台每天使用的计算资源是差不多固定的，而在迁移过程中，1号集群的资源在逐渐减少，显然是不满足计算需求的，所以我们也需要由得到迁移资源的2号集群分担一些压力。&lt;strong&gt;那么重点来了，这就需要我们任务调度器合理的分配任务到1号集群以及2号集群的某个队列。&lt;/strong&gt;其实，所谓的任务分配也就是一种负载均衡算法，即任务来了，通过负载均衡算法调度到哪个集群去执行，但是使用哪种负载均衡算法就需要好好探究一下。&lt;/p&gt;
+
+&lt;h3 id=&quot;11负载均衡算法的选择&quot;&gt;&lt;strong&gt;1.1负载均衡算法的选择&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;Q：常用的负载均衡算法有哪些呢？
+A：随机算法，轮询，hash算法，加权随机算法，加权轮询算法，一致性hash算法。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;随机算法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该算法通过产生随机数的方式进行负载，可能会导致任务倾斜，比如大量任务调度到了1好集群，显然不可取，pass。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;轮询&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该算法是通过一个接一个循环往复的方式进行调度，会保证任务分配很均衡，但是我们的1号集群资源是在不断减少的，2号集群资源是在不断增加的，如果均衡分配计算任务，显然也是不合理的，pass。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;hash算法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该算法是基于当前结点的ip的hashCode值来进行调度，那么只要结点ip不变，那么hashCode值就不会变，所有的任务岂不是都提交到一个结点了吗？不合理，pass。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;加权随机算法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同随机算法，只不过是对每个结点增加了权重，但是因为是随机调度，不可控的，直接pass。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;加权轮询算法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上面说到，轮询算法可以保证任务分配很均衡，但是无法保证随集群资源的调整进行任务分配的动态调整。此时，如果我们可以依次根据集群迁移情况，设置1号集群与2号集群的任务比重为：7:5 -&amp;gt; 3:2 -&amp;gt; 2:3 -&amp;gt; 完整切换。可行。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一致性hash算法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;该算法较为复杂，鉴于我们是为了进行集群合并以及保证任务尽量根据集群资源的调整进行合理调度，无需设计太复杂的算法进行处理，故也pass。&lt;/p&gt;
+
+&lt;h2 id=&quot;2负载均衡算法的落地实现&quot;&gt;&lt;strong&gt;2.负载均衡算法的落地实现&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;虽然我们最终方法选定为&lt;strong&gt;加权轮询算法&lt;/strong&gt;，但是它起源于&lt;strong&gt;轮询算法&lt;/strong&gt;，那么我们就从&lt;strong&gt;轮询算法&lt;/strong&gt;说起。&lt;/p&gt;
+
+&lt;p&gt;首选，我们会有Hive集群对应的HS2的ip地址列表，然后我们通过某种算法（这里指的就是负载均衡算法），获取其中一个HS2的ip地址进行任务提交（这就是任务调度）。&lt;/p&gt;
+
+&lt;h3 id=&quot;21轮询算法的实现&quot;&gt;&lt;strong&gt;2.1轮询算法的实现&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;我们先定义一个算法抽象接口，它只有一个select方法。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;import java.util.List;
+
+/**
+ * @author buildupchao
+ * @date: 2019/5/12 21:51
+ * @since JDK 1.8
+ */
+public interface ClusterStrategy {
+
+    /**
+     * 负载均衡算法接口
+     * @param ipList ip地址列表
+     * @return 通过负载均衡算法选中的ip地址
+     */
+    String select(List&amp;lt;String&amp;gt; ipList);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;轮询算法实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * @author buildupchao
+ * @date: 2019/5/12 21:57
+ * @since JDK 1.8
+ */
+public class PollingClusterStrategyImpl implements ClusterStrategy {
+
+    private AtomicInteger counter = new AtomicInteger(0);
+
+    @Override
+    public String select(List&amp;lt;String&amp;gt; ipList) {
+        String selectedIp = null;
+        try {
+            int size = ipList.size();
+            if (counter.get() &amp;gt;= size) {
+                counter.set(0);
+            }
+            selectedIp = ipList.get(counter.get());
+            counter.incrementAndGet();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        if (StringUtils.isBlank(selectedIp)) {
+            selectedIp = ipList.get(0);
+        }
+        return selectedIp;
+    }
+
+    public static void main(String[] args) {
+        List&amp;lt;String&amp;gt; ipList = Arrays.asList(&quot;172.31.0.191&quot;, &quot;172.31.0.192&quot;);
+        PollingClusterStrategyImpl strategy = new PollingClusterStrategyImpl();
+        ExecutorService executorService = Executors.newFixedThreadPool(100);
+        for (int i = 0; i &amp;lt; 100; i++) {
+            executorService.execute(() -&amp;gt; {
+                System.out.println(Thread.currentThread().getName() + &quot;:&quot; + strategy.select(ipList));
+            });
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行上述代码，你会发现，线程号为奇数的轮询到的是’172.31.0.191’这个ip，偶数是‘172.31.0.192’这个ip。至于打印出来的日志乱序，那是并发打印返回的ip的问题，并不是获取ip进行任务调度的问题。
+&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/%E8%BD%AE%E8%AF%A2%E7%AE%97%E6%B3%95.png?raw=true&quot; alt=&quot;轮询算法&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;22加权轮询算法的实现&quot;&gt;&lt;strong&gt;2.2加权轮询算法的实现&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;既然我们已经实现了轮询算法，那加权轮询怎么实现呢？无非是增加结点被轮询到的比例罢了，我们只需要根据指定的权重，进行轮询即可。因为需要有权重等信息，我们需要重新设计接口。&lt;/p&gt;
+
+&lt;p&gt;提供一个Bean进行封装ip以及权重等信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+/**
+ * @author buildupchao
+ *         Date: 2019/2/1 02:52
+ * @since JDK 1.8
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProviderService implements Serializable {
+    private String ip;
+    // the weight of service provider
+    private int weight;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;新的负载均衡算法接口：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;import com.buildupchao.zns.client.bean.ProviderService;
+
+import java.util.List;
+
+/**
+ * @author buildupchao
+ *         Date: 2019/2/1 02:44
+ * @since JDK 1.8
+ */
+public interface ClusterStrategy {
+
+    ProviderService select(List&amp;lt;ProviderService&amp;gt; serviceRoutes);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加权轮询算法的实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;import com.buildupchao.zns.client.bean.ProviderService;
+import com.buildupchao.zns.client.cluster.ClusterStrategy;
+import com.google.common.collect.Lists;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * @author buildupchao
+ *         Date: 2019/2/4 22:39
+ * @since JDK 1.8
+ */
+public class WeightPollingClusterStrategyImpl implements ClusterStrategy {
+
+    private int counter = 0;
+    private Lock lock = new ReentrantLock();
+
+    @Override
+    public ProviderService select(List&amp;lt;ProviderService&amp;gt; serviceRoutes) {
+        ProviderService providerService = null;
+
+        try {
+            lock.tryLock(10, TimeUnit.SECONDS);
+            List&amp;lt;ProviderService&amp;gt; providerServices = Lists.newArrayList();
+            for (ProviderService serviceRoute : serviceRoutes) {
+                int weight = serviceRoute.getWeight();
+                for (int i = 0; i &amp;lt; weight; i++) {
+                    providerServices.add(serviceRoute);
+                }
+            }
+
+            if (counter &amp;gt;= providerServices.size()) {
+                counter = 0;
+            }
+            providerService = providerServices.get(counter);
+            counter++;
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+
+        if (providerService == null) {
+            providerService = serviceRoutes.get(0);
+        }
+        return providerService;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;你会发现这里的算法实现中不再是通过AtomicInteger来做计数器了，而是借助于&lt;code class=&quot;highlighter-rouge&quot;&gt;private int counter = 0;&lt;/code&gt;同时借助于&lt;code class=&quot;highlighter-rouge&quot;&gt;Lock&lt;/code&gt;锁的技术保证计数器的安全访问。只是写法的不同，不用纠结啦！&lt;/p&gt;
+
+&lt;p&gt;这样，我们就可以应用这个&lt;code class=&quot;highlighter-rouge&quot;&gt;加权轮询算法&lt;/code&gt;到我们的任务调度器中了，快速配合运维完成集群迁移合并工作吧！&lt;/p&gt;
+
+&lt;h2 id=&quot;3总结&quot;&gt;&lt;strong&gt;3.总结&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;常用的负载均衡算法有：随机算法，轮询，hash算法，加权随机算法，加权轮询算法，一致性hash算法&lt;/li&gt;
+  &lt;li&gt;和业务场景最契合的负载均衡算法才是最合适的&lt;/li&gt;
+  &lt;li&gt;加权轮询负载均衡算法只是在轮询算法基础上根据权重把对应的信息进行平铺多份，从而提高比重实现加权的效果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;资源链接&quot;&gt;&lt;strong&gt;资源链接&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/buildupchao/zns/tree/dev-1.0/zns-client/src/main/java/com/buildupchao/zns/client/cluster&quot;&gt;负载均衡算法的实现可以参考&lt;strong&gt;zns&lt;/strong&gt;项目中的运用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 13 May 2019 04:46:59 +0800</pubDate>
+        <link>http://localhost:4000/bigdata/2019/05/13/cluster-loadbalance-strategy-for-combine-hive-cluster.html</link>
+        <guid isPermaLink="true">http://localhost:4000/bigdata/2019/05/13/cluster-loadbalance-strategy-for-combine-hive-cluster.html</guid>
+        
+        <category>Hive</category>
+        
+        <category>大数据</category>
+        
+        <category>负载均衡算法</category>
+        
+        
+        <category>BigData</category>
+        
+      </item>
+    
+      <item>
+        <title>小文件合并之如何通过状态机保证应用高可用</title>
+        <description>&lt;p&gt;(敬请期待，未完待续…)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Apr 2019 01:56:05 +0800</pubDate>
+        <link>http://localhost:4000/arch/2019/04/22/how-to-make-app-high-available-using-statemachine-for-smallfile-merge.html</link>
+        <guid isPermaLink="true">http://localhost:4000/arch/2019/04/22/how-to-make-app-high-available-using-statemachine-for-smallfile-merge.html</guid>
+        
+        <category>状态机</category>
+        
+        <category>高可用</category>
+        
+        <category>小文件合并</category>
+        
+        <category>大数据</category>
+        
+        
+        <category>arch</category>
+        
+      </item>
+    
+      <item>
+        <title>警报：线上事故之CountDownLatch的威力</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;2019.2.22号凌晨3点半，是一个让人难以忘怀的、和瑞哥最后一次一起奋战的夜晚。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;背景&quot;&gt;&lt;strong&gt;背景&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;我们有这样一个业务场景：用户提供各种数据源配置信息，然后基于数据源配置的模板，再者在模板基础上构建报表，而&lt;code class=&quot;highlighter-rouge&quot;&gt;大数据计算平台&lt;/code&gt;则会根据这些信息生成数据计算任务，以实时、离线、混合的方式跑数，并将计算结果落到存储设备中。&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;线上事故&quot;&gt;&lt;strong&gt;线上事故&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;应用每天凌晨1点10分进行自清理重启后，会进行数据源连接池的初始化操作。而报表跑数也只能在数据源是连通的状态下正常进行，所以，这里我们就借助于&lt;code class=&quot;highlighter-rouge&quot;&gt;CountDownLatch&lt;/code&gt;进行了数据源连接池初始化等待操作。正常情况下，不论是&lt;code class=&quot;highlighter-rouge&quot;&gt;Hive&lt;/code&gt;集群、&lt;code class=&quot;highlighter-rouge&quot;&gt;DRUID&lt;/code&gt;集群还是&lt;code class=&quot;highlighter-rouge&quot;&gt;MySQL&lt;/code&gt;等数据源都没出现问题。然后，事不绝对，海外的Hive集群的HS2却莫名其妙的不健康了（端口和服务监听仍在，但是就是不做任何feedback），然而Hive连接是没有超时配置，和MySQL等不同，所以导致CountDownLatch计数器一直Waiting在最后一个数据源连接池初始化上，进而无法继续后续作业（因为数据源不完整，跑数便无意义），导致任务管理器、任务解析器以及后续的各个组件无法启动工作，最终还是我们的监控人员发现了该状况（任务量不正常、集群负载不正常、任务并发数不正常），紧急通知我们，经过排查发现是因为海外的Hive数据源连接池初始化无响应造成阻塞，影响任务运行，此时如果再大费周章联系对方集群负责人，估计受影响任务量会更大，白天根本追加不回来，会严重影响数据KPI，苦逼些可能忙碌一年，到年底没了年终奖，岂不扯皮。所以，当机立断，禁用了海外Hive数据源，应用正常启动运行，然后就是追补数据的工作，还好抢救及时，今天白天任务正常完成。&lt;/p&gt;
+
+&lt;h2 id=&quot;事后反思&quot;&gt;&lt;strong&gt;事后反思&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CountDownLatch&lt;/code&gt;就是这么强大，你只要不调用&lt;code class=&quot;highlighter-rouge&quot;&gt;CountDownLatch#countDown()&lt;/code&gt;,那我就敢等到地老天荒。但是，使用CountDownLatch的人也有责任，太过于相信集群的健康程度以及监控，即使知道Hive连接没有超时限制，却没有通过代码把控最大连接超时时间，如果指定时间内没有返回，就直接调用一次&lt;code class=&quot;highlighter-rouge&quot;&gt;countDown()&lt;/code&gt;即可。可能你会说，那如果刚好那个时间点出现了网络延迟，导致连接请求一直没返回呢？你这样岂不是就无法初始化该数据源连接池了？这也简单，我们可以通过重试机制来处理，比如重试3次连接请求，如果均不可行，就直接调用&lt;code class=&quot;highlighter-rouge&quot;&gt;countDown&lt;/code&gt;方法返回即可，这样就不会影响其他业务了。当然，后续也可以针对不同数据源进行相应隔离初始化，这样也只有使用该数据源的报表会受影响。&lt;/p&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;不要过分相信监控指标等信息&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;针对长耗时的业务，一定要做超时限制，不可无所谓的放任&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CountDownLatch的确在高并发场景很实用，但是使用不当也会带来一定隐患&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;居然感觉和瑞哥一起奋战的夜晚时间很幸福的事情！&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Sat, 23 Feb 2019 00:59:06 +0800</pubDate>
+        <link>http://localhost:4000/java/2019/02/23/alert-release-accident-with-CountDownLatch-effect.html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2019/02/23/alert-release-accident-with-CountDownLatch-effect.html</guid>
+        
+        <category>Java</category>
+        
+        <category>Hive</category>
+        
+        <category>CountDownLatch</category>
+        
+        <category>大数据</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>设计一个分布式RPC框架</title>
+        <description>&lt;h2 id=&quot;0-前言&quot;&gt;&lt;strong&gt;0 前言&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;提前先祝大家春节快乐！好了，先简单聊聊。&lt;/p&gt;
+
+&lt;p&gt;我从事的是大数据开发相关的工作，主要负责的是大数据计算这块的内容。最近Hive集群跑任务总是会出现Thrift连接HS2相关问题，研究了解了下内部原理，突然来了兴趣，就想着自己也实现一个RPC框架，这样可以让自己在设计与实现RPC框架过程中，也能从中了解和解决一些问题，进而让自己能够更好的发展（哈哈，会不会说我有些剑走偏锋？不去解决问题，居然研究RPC。别急，这类问题已经解决了，后续我也会发文章详述的）。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-rpc流水线工程&quot;&gt;&lt;strong&gt;1 RPC流水线工程？&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/RPC%E5%8E%9F%E7%90%86.png?raw=true&quot; alt=&quot;RPC框架原理图&quot; /&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+&lt;p&gt;原理图上我已经标出来流程序号，我们来走一遍：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;① Client以本地调用的方式调用服务&lt;/li&gt;
+  &lt;li&gt;② Client Stub接收到调用后，把服务调用相关信息组装成需要网络传输的消息体，并找到服务地址（host:port），对消息进行&lt;code class=&quot;highlighter-rouge&quot;&gt;编码&lt;/code&gt;后交给Connector进行发送&lt;/li&gt;
+  &lt;li&gt;③ Connector通过网络通道发送消息给Acceptor&lt;/li&gt;
+  &lt;li&gt;④ Acceptor接收到消息后交给Server Stub&lt;/li&gt;
+  &lt;li&gt;⑤ Server Stub对消息进行&lt;code class=&quot;highlighter-rouge&quot;&gt;解码&lt;/code&gt;，并根据解码的结果通过&lt;code class=&quot;highlighter-rouge&quot;&gt;反射&lt;/code&gt;调用本地服务&lt;/li&gt;
+  &lt;li&gt;⑥ Server执行本地服务并返回结果给Server Stub&lt;/li&gt;
+  &lt;li&gt;⑦ Server Stub对返回结果组装打包并&lt;code class=&quot;highlighter-rouge&quot;&gt;编码&lt;/code&gt;后交给Acceptor进行发送&lt;/li&gt;
+  &lt;li&gt;⑧ Acceptor通过网络通道发送消息给Connector&lt;/li&gt;
+  &lt;li&gt;⑨ Connector接收到消息后交给Client Stub，Client Stub接收到消息并进行&lt;code class=&quot;highlighter-rouge&quot;&gt;解码&lt;/code&gt;后转交给Client&lt;/li&gt;
+  &lt;li&gt;⑩ Client获取到服务调用的最终结果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;由此可见，主要需要RPC负责的是2~9这些步骤，也就是说，RPC主要职责就是把这些步骤封装起来，对用户透明，让用户像调用本地服务一样去使用。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-为rpc做个技术选型&quot;&gt;&lt;strong&gt;2 为RPC做个技术选型&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;序列化/反序列化&lt;/p&gt;
+
+    &lt;p&gt;首先排除Java的ObjectInputStream和ObjectOutputStream，因为不仅需要保证需要序列化或反序列化的类实现&lt;code class=&quot;highlighter-rouge&quot;&gt;Serializable&lt;/code&gt;接口，还要保证JDK版本一致，公司应用So Many，使用的语言也众多，这显然是不可行的，考虑再三，决定采用Objesess。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;通信技术&lt;/p&gt;
+
+    &lt;p&gt;同样我们首先排除Java的原生IO，因为进行消息读取的时候需要进行大量控制，如此晦涩难用，正好近段时间也一直在接触Netty相关技术，就不再纠结，直接命中Netty。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;高并发技术&lt;/p&gt;
+
+    &lt;p&gt;远程调用技术一定会是多线程的，只有这样才能满足多个并发的处理请求。这个可以采用JDK提供的Executor。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;服务注册与发现&lt;/p&gt;
+
+    &lt;p&gt;Zookeeper。当Server启动后，自动注册服务信息（包括host,port,还有nettyPort）到ZK中；当Client启动后，自动订阅获取需要远程调用的服务信息列表到本地缓存中。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;负载均衡&lt;/p&gt;
+
+    &lt;p&gt;分布式系统都离不开负载均衡算法，好的负载均衡算法可以充分利用好不同服务器的计算资源，提高系统的并发量和运算能力。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;非侵入式&lt;/p&gt;
+
+    &lt;p&gt;借助于Spring框架&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;RPC架构图如下：
+&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/zns.png?raw=true&quot; alt=&quot;zns架构图&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-让rpc梦想成真&quot;&gt;&lt;strong&gt;3 让RPC梦想成真&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;由架构图，我们知道RPC是C/S结构的。&lt;/p&gt;
+
+&lt;h3 id=&quot;31-先来一个单机版&quot;&gt;&lt;strong&gt;3.1 先来一个单机版&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;单机版的话比较简单，不需要考虑负载均衡（也就没有zookeeper)，会简单很多，但是只能用于本地测试使用。而RPC整体的思想是：为客户端创建服务代理类，然后构建客户端和服务端的通信通道以便于传输数据，服务端的话，就需要在接收到数据后，通过反射机制调用本地服务获取结果，继续通过通信通道返回给客户端，直到客户端获取到数据，这就是一次完整的RPC调用。&lt;/p&gt;
+
+&lt;h4 id=&quot;311-创建服务代理&quot;&gt;&lt;strong&gt;3.1.1 创建服务代理&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;可以采用JDK原生的Proxy.newProxyInstance和InvocationHandler创建一个代理类。详细细节网上博客众多，就不展开介绍了。当然，也可以采用CGLIB字节码技术实现。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/create-proxy.png?raw=true&quot; alt=&quot;create-proxy&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;312-构建通信通道--消息的发送与接收&quot;&gt;&lt;strong&gt;3.1.2 构建通信通道 &amp;amp; 消息的发送与接收&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;客户端通过Socket和服务端建立通信通道，保持连接。可以通过构建好的Socket获取&lt;code class=&quot;highlighter-rouge&quot;&gt;ObjectInputStream&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;ObjectOutputStream&lt;/code&gt;。但是有一点需要注意，如果Client端先获取&lt;code class=&quot;highlighter-rouge&quot;&gt;ObjectOutputStream&lt;/code&gt;，那么服务端只能先获取&lt;code class=&quot;highlighter-rouge&quot;&gt;ObjectInputStream&lt;/code&gt;，不然就会出现死锁一直无法通信的。&lt;/p&gt;
+
+&lt;h4 id=&quot;313-反射调用本地服务&quot;&gt;&lt;strong&gt;3.1.3 反射调用本地服务&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;服务端根据请求各项信息，获取Method，在Service实例上反向调用该方法。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/reflection-invoke.png?raw=true&quot; alt=&quot;reflection-invoke&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;32-再来一个分布式版本&quot;&gt;&lt;strong&gt;3.2 再来一个分布式版本&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;我们先从顶层架构来进行设计实现，也就是技术选型后的RPC架构图。主要涉及了借助于，Zookeeper实现的服务注册于发现。&lt;/p&gt;
+
+&lt;h4 id=&quot;321-服务注册与发现&quot;&gt;&lt;strong&gt;3.2.1 服务注册与发现&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;当Server端启动后，自动将当前Server所提供的所有带有&lt;code class=&quot;highlighter-rouge&quot;&gt;@ZnsService&lt;/code&gt;注解的Service Impl注册到Zookeeper中，在Zookeeper中存储数据结构为 ip:httpPort:acceptorPort&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/service-provider.png?raw=true&quot; alt=&quot;service-provider&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/push-service-manager.png?raw=true&quot; alt=&quot;push-service-manager&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当Client端启动后，根据扫描到的带有&lt;code class=&quot;highlighter-rouge&quot;&gt;@ZnsClient&lt;/code&gt;注解的Service Interface从Zookeeper中拉去Service提供者信息并缓存到本地，同时在Zookeeper上添加这些服务的监听事件，一旦有节点发生变动（上线/下线），就会立即更新本地缓存。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/pull-service-manager.png?raw=true&quot; alt=&quot;pull-service-manager&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;322-服务调用的负载均衡&quot;&gt;&lt;strong&gt;3.2.2 服务调用的负载均衡&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;Client拉取到服务信息列表后，每个Service服务都对应一个地址list，所以针对连哪个server去调用服务，就需要设计一个负载均衡路由算法。当然，负载均衡算法的好坏，会关系到服务器计算资源、并发量和运算能力。不过，目前开发的&lt;code class=&quot;highlighter-rouge&quot;&gt;RPC&lt;/code&gt;框架&lt;code class=&quot;highlighter-rouge&quot;&gt;zns&lt;/code&gt;中只内置了&lt;code class=&quot;highlighter-rouge&quot;&gt;Random&lt;/code&gt;算法，后续会继续补充完善。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/load-balance-strategy.png?raw=true&quot; alt=&quot;load-balance-strategy&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;323-网络通道&quot;&gt;&lt;strong&gt;3.2.3 网络通道&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Acceptor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当Server端启动后，将同时启动一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Acceptor&lt;/code&gt;长连接线程，用于接收外部服务调用请求。内部包含了编解码以及反射调用本地服务机制。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/acceptor.png?raw=true&quot; alt=&quot;Acceptor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/acceptor-work.png?raw=true&quot; alt=&quot;Acceptor-work&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Connector&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当Client端发起一个远程服务调用时，&lt;code class=&quot;highlighter-rouge&quot;&gt;ZnsRequestManager&lt;/code&gt;将会启动一个&lt;code class=&quot;highlighter-rouge&quot;&gt;Connector&lt;/code&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;Acceptor&lt;/code&gt;进行连接，同时会保存通道信息&lt;code class=&quot;highlighter-rouge&quot;&gt;ChannelHolder&lt;/code&gt;到内部，直到请求完成，再进行通道信息销毁。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/connector.png?raw=true&quot; alt=&quot;Connector&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/connector-work.png?raw=true&quot; alt=&quot;Connector-work&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;324-请求池管理&quot;&gt;&lt;strong&gt;3.2.4 请求池管理&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;为了保证一定的请求并发，所以对服务调用请求进行了池化管理，这样可以等到消息返回再进行处理，不需要阻塞等待。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/request-pool.png?raw=true&quot; alt=&quot;request-pool&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;325-响应结果异步回调&quot;&gt;&lt;strong&gt;3.2.5 响应结果异步回调&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;当Client端接收到远程服务调用返回的结果时，直接通知请求池进行处理，No care anything!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/buildupchao/ImgStore/blob/master/blog/async-callback.png?raw=true&quot; alt=&quot;async-callback&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;4-总结&quot;&gt;&lt;strong&gt;4. 总结&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;本次纯属是在解决Thrift连接HS2问题时，突然来了兴趣，就构思了几天RPC大概架构设计情况，便开始每天晚上疯狂敲代码实现。我把这个RPC框架命名为&lt;code class=&quot;highlighter-rouge&quot;&gt;zns&lt;/code&gt;，现在已经完成了&lt;code class=&quot;highlighter-rouge&quot;&gt;1.0-SNAPSHOT&lt;/code&gt;版本，可以正常使用了。在开发过程中，也遇到了一些平时忽略的小问题，还有些是工作过程中没有遇到或者遗漏的地方。因为是初期，所以会存在一些bug，如果你感兴趣的话，欢迎提PR和ISSUE，当然也欢迎把代码Fork一份研究学习。虽然就目前来看，想要做成一个真正稳定可投产使用的RPC框架还有段距离，但是我会坚持继续下去，毕竟RPC真的涉及到了很多点，只有真正开始做了，才能切身体会和感受到。Ya hoh!终于成功实现了v1.0，嘿嘿……&lt;/p&gt;
+
+&lt;h2 id=&quot;源码地址&quot;&gt;&lt;strong&gt;源码地址&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/buildupchao/zns&quot;&gt;zns源码地址&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;zns源码简单介绍：&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zns&lt;/code&gt;由&lt;code class=&quot;highlighter-rouge&quot;&gt;zns-api&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zns-common&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zns-client&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zns-server&lt;/code&gt;四个核心模块组成。&lt;code class=&quot;highlighter-rouge&quot;&gt;zns-service-api&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zns-service-consumer&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zns-service-provider&lt;/code&gt;三个模块是对&lt;code class=&quot;highlighter-rouge&quot;&gt;zns&lt;/code&gt;进行测试使用的案例。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 02 Feb 2019 07:18:16 +0800</pubDate>
+        <link>http://localhost:4000/arch/2019/02/02/design-a-distributed-RPC-structure.html</link>
+        <guid isPermaLink="true">http://localhost:4000/arch/2019/02/02/design-a-distributed-RPC-structure.html</guid>
+        
+        <category>Java</category>
+        
+        <category>RPC</category>
+        
+        <category>框架设计</category>
+        
+        
+        <category>arch</category>
+        
+      </item>
+    
+      <item>
+        <title>如何保存/恢复Java应用程序核心内存数据现场？</title>
+        <description>&lt;h2 id=&quot;0-背景&quot;&gt;&lt;strong&gt;0. 背景&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;不论是单体应用还是分布式应用，总是会有些许迭代或者紧急Fix bug上线的神操作。但是如果不是那么幸运，当时还存在大量核心内存中数据在进行计算等逻辑，此时终止项目，就会出现核心数据或者状态丢失的不利情况，后续即使上线完成也要尽快追加数据。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;那是否存在某种技巧???：在需要终止应用的时候，能够监听到终止操作，并保存核心数据现场，然后再终止应用，而后在应用恢复后，再进行核心数据恢复。
+
+答案是肯定的。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;01-技术储备&quot;&gt;&lt;strong&gt;0.1 技术储备&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Runtime.getRuntime().addShutdownHook(Thread thread);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;我们可以借助于JDK为我们所提供的上述&lt;strong&gt;钩子&lt;/strong&gt;方法。这个方法的意思就是在JVM中增加一个关闭的钩子，当JVM关闭的时候，会执行系统中已经设置的所有通过方法addShutdownHook添加的钩子，当系统执行完这些钩子后，JVM才会关闭。所以这些钩子可以在JVM关闭的时候进行&lt;strong&gt;内存清理、对象销毁以及核心数据现场保存&lt;/strong&gt;等操作。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-假设一种场景&quot;&gt;&lt;strong&gt;1. 假设一种场景&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;11-保存现场为应用保驾护航&quot;&gt;&lt;strong&gt;1.1 保存现场，为应用保驾护航&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;我们应用程序运行中，在内存中存储着Map&amp;lt;String, User&amp;gt;（用户唯一标识符和用户信息的映射关系），此时，突然需要紧急处理某个bug并打包上线。&lt;/p&gt;
+
+&lt;p&gt;用户映射关系已经建立好了，我们总不能因为紧急上线就让用户重新登录一次，只是为了构建这个映射关系？？？这样显然不是很合理，其次还有用户流失的风险，我们怎么可以去冒着被大boss怒怼这般的大风险呢，搞不好年终奖还没有，哈哈哈哈哈……&lt;/p&gt;
+
+&lt;p&gt;那我们换个思路，我们要解决的问题是什么呢？因为Map&amp;lt;String, User&amp;gt;是在内存中保存的，一但应用终止，内存资源释放，内存中数据当然无存……所以，我们的目标就是&lt;strong&gt;保存这个处于内存中的Map对象&lt;/strong&gt;，对不对？那就简单了，我们可以&lt;strong&gt;把这个对象序列化存储到本地文件里面&lt;/strong&gt;不就好了吗？是不是很简单？然后呢，只需要在应用程序被终止前序列化且保存到本地文件，就可以了。&lt;/p&gt;
+
+&lt;p&gt;理好了思路，那就开始Coding吧！&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private static final HashMap&amp;lt;String, User&amp;gt; cacheData = new HashMap&amp;lt;&amp;gt;();
+private static final String filePath = System.getProperty(&quot;user.dir&quot;)+ File.separator +&quot;save_point.binary&quot;;
+
+Runtime.getRuntime().addShutdownHook(new Thread() {
+    @Override
+    public void run() {
+        saveData();
+    }
+});
+
+private static void saveData() {
+      ObjectOutputStream oos = null;
+      try {
+          File cacheFile = new File(filePath);
+          if (!cacheFile.exists()) {
+              cacheFile.createNewFile();
+          }
+          oos = new ObjectOutputStream(new FileOutputStream(filePath));
+          oos.writeObject(cacheData);
+          oos.flush();
+      } catch (IOException ex) {
+          LOGGER.error(&quot;save memory data error&quot;, ex);
+      } finally {
+          try {
+              if (oos != null) {
+                  oos.close();
+              }
+          } catch (IOException ex) {
+              LOGGER.error(&quot;close ObjectOutputStream error&quot;, ex);
+          }
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样我们就可以保证Map&amp;lt;String, User&amp;gt;这个映射关系保存好了。&lt;/p&gt;
+
+&lt;h3 id=&quot;12-恢复现场让应用快速飞翔&quot;&gt;&lt;strong&gt;1.2 恢复现场，让应用快速飞翔&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;既然我们保存了内存数据现场，那在应用启动后，我们相应的也需要进行数据现场恢复，这样才能保证应用平滑过渡到终止前状态，同时用户还能无感知。&lt;/p&gt;
+
+&lt;p&gt;继续Coding…&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@PostConstruct
+public void resoverData() {
+    ObjectInputStream ois = null;
+    try {
+        File cacheFile = new File(filePath);
+        if (cacheFile.exists()) {
+            ois = new ObjectInputStream(new FileInputStream(filePath));
+            Map&amp;lt;String, User&amp;gt; cacheMap =
+            					(Map&amp;lt;String, User&amp;gt;) ois.readObject();
+            for (Map.Entry&amp;lt;String, User&amp;gt; entry : cacheMap.entrySet()) {
+                cacheData.put(entry.getKey(), entry.getValue());
+            }
+            LOGGER.info(&quot;Recover memory data successfully, cacheData={}&quot;
+            							, cacheData.toString());
+        }
+    } catch (Exception ex) {
+        LOGGER.error(&quot;recover memory data error&quot;, ex);
+    } finally {
+        try {
+            if (ois != null) {
+                ois.close();
+            }
+        } catch (IOException ex) {
+            LOGGER.error(&quot;close ObjectInputStream error&quot;, ex);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;是不是整个过程似曾相识？没错，就是Java IO流 &lt;strong&gt;ObjectInputStream&lt;/strong&gt;和&lt;strong&gt;ObjectOutputStream&lt;/strong&gt;的应用。但是有一点需要注意，使用对象流的时候，需要保证被序列化的对象必须实现了&lt;strong&gt;Serializable&lt;/strong&gt;接口，这样才能正常使用。&lt;/p&gt;
+
+&lt;p&gt;应用整体调用逻辑如下（测试的时候，第一次需要正常调用generateAndPutData()方法，终止项目保存现场后，需要把generateAndPutData()注释掉，看看时候正确恢复现场了。）：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@SpringBootApplication
+public class SavePointApplication {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(SavePointApplication.class);
+
+  private static final HashMap&amp;lt;String, User&amp;gt; cacheData = new HashMap&amp;lt;&amp;gt;();
+  private static final String filePath = System.getProperty(&quot;user.dir&quot;)
+  				+ File.separator + &quot;save_point.binary&quot;;
+
+  public static void main(String[] args) {
+      SpringApplication.run(SavePointApplication.class, args);
+
+      LOGGER.info(&quot;save_point filePath={}&quot;, filePath);
+      generateAndPutData();
+
+      Runtime.getRuntime().addShutdownHook(new Thread() {
+          @Override
+          public void run() {
+              saveData();
+          }
+      });
+  }
+
+	private static void generateAndPutData() {
+      cacheData.put(&quot;test1&quot;, new User(1L, &quot;testName1&quot;));
+      cacheData.put(&quot;test2&quot;, new User(2L, &quot;testName2&quot;));
+      cacheData.put(&quot;test3&quot;, new User(3L, &quot;testName3&quot;));
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;2-fuck-没有保存现场&quot;&gt;&lt;strong&gt;2. Fuck! 没有保存现场?!&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;为什么应用程序终止时没有保存现场状态呢？那就要细说一下关闭钩子(shutdown hooks)了。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果JVM因异常关闭，那么子线程（Hook本质上也是子线程）将不会停止。但在JVM被强行关闭时，这些线程都会被强行结束。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;关闭钩子本质是一个线程（也称为Hook线程），用来监听JVM的关闭。通过Runtime的addShutdownHook可以向JVM注册一个关闭钩子。Hook线程在JVM正常关闭才会执行，强制关闭时不会执行。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JVM中注册的多个关闭钩子是并发执行的，无法保证执行顺序，当所有Hook线程执行完毕，runFinalizersOnExit为true,JVM会先运行终结器，然后停止。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;所以，如果我们直接使用的&lt;strong&gt;kill -9 processId&lt;/strong&gt;命令直接强制关闭的应用程序，JVM都被强制关闭了，还怎么运行我们的Java代码呢？嘿嘿，所以我们可以尝试着用如下命令替代&lt;strong&gt;kill -9 processId&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kill processId
+kill -2 processId
+kill -15 processId
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;通过上述命令进行终止应用的时候，是不是我们看到我们项目下成功生成了 &lt;strong&gt;save_point.binary&lt;/strong&gt; 文件了，哈哈哈哈哈……&lt;/p&gt;
+
+&lt;h2 id=&quot;3-使用关闭钩子有哪些注意事项呢&quot;&gt;&lt;strong&gt;3. 使用关闭钩子有哪些注意事项呢？&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;hook线程会延迟JVM的关闭时间，所以尽可能减少执行时间。&lt;/li&gt;
+  &lt;li&gt;关闭钩子中不要调用system.exit()，会卡主JVM的关闭过程。但是可以调用Runtime.halt()&lt;/li&gt;
+  &lt;li&gt;不能在钩子中进行钩子的添加和删除，会抛IllegalStateException&lt;/li&gt;
+  &lt;li&gt;在system.exit()后添加的钩子无效，因为此时JVM已经关闭了。&lt;/li&gt;
+  &lt;li&gt;当JVM收到SIGTERM命令（比如操作系统在关闭时）后，如果钩子线程在一定时间没有完成，那么Hook线程可能在执行过程中被终止。&lt;/li&gt;
+  &lt;li&gt;Hook线程也会抛错，若未捕获，则钩子的执行序列会被停止。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 28 Jan 2019 05:08:11 +0800</pubDate>
+        <link>http://localhost:4000/java/2019/01/28/how-to-save-or-restore-core-memory-data-of-Java-application.html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2019/01/28/how-to-save-or-restore-core-memory-data-of-Java-application.html</guid>
+        
+        <category>钩子函数</category>
+        
+        <category>Java</category>
+        
+        <category>保存数据现场</category>
+        
+        <category>addShutdownHook</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+  </channel>
+</rss>

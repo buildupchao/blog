@@ -82,6 +82,7 @@ GEM
     jekyll-github-metadata (2.12.1)
       jekyll (~> 3.4)
       octokit (~> 4.0, != 4.4.0)
+    jekyll-itafroma-archive (0.3.0)
     jekyll-octicons (8.5.0)
       jekyll (~> 3.1)
       octicons (= 8.5.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   jekyll-archives
   jekyll-geo-pattern
   jekyll-github-metadata
+  jekyll-itafroma-archive
   jekyll-octicons
   jekyll-paginate
   jekyll-sitemap
