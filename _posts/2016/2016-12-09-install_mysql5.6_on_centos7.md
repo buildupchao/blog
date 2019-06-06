@@ -9,9 +9,11 @@ Centos7将默认数据库mysql替换成了Mariadb，对于我们这些还想使�
 
 在接下来的mysql安装过程中，请一定保证自己当前所在目录是正确的! 
 
+<strong style="color:red;">
 e g: [root@localhost ~]# 表示当前目录为~
 
 [root@localhost mysql]# 表示当前目录为mysql
+</strong>
 <!-- more -->
 ## **一、安装MySQL**
 
