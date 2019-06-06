@@ -92,15 +92,15 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 - 通过``` sc ```命令查看类的信息
   - 通过``` sc yourFullClassName ```
 
-  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-12.png?raw=true)
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-13.png?raw=true)
 
   - 通过``` sc -d yourFullClassName* ```去查看JVM加载的类信息
 
-  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-13.png?raw=true)
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-14.png?raw=true)
 
   - 通过``` sc *yourClassName* ```去查看JVM加载的类信息
 
-  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-14.png?raw=true)
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-8.png?raw=true)
 
 - 通过``` sm ```命令查看类的方法信息
   - case 1: ``` sm java.math.RoundingMode ```
