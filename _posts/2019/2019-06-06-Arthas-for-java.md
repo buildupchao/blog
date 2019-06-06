@@ -5,7 +5,7 @@ tags: ['Java', 'Arthas', '诊断利器']
 category: Java
 ---
 
-## 1.Arthas是什么？
+## 1. Arthas是什么？
 
 摘自Arthas的Github介绍：
 <blockquote>
@@ -17,9 +17,9 @@ category: Java
 
 听起来确实是我们的程序员的一大福利。比如，我们就遇到一种情况，Spring Boot应用中有个cron定时任务为每天凌晨1点启动执行，但是测试起来很不方便，总不能每次修改cron时间来让QC测试吧？这样虽然是方便了测试妹子，但是却徒增了我们开发时间和迭代次数啊！！！那Arthas到底是否能够满足我们需求呢？Go on...
 
-## 2.开启Arthas之旅
+## 2. 开启Arthas之旅
 
-### 2.1安装Arthas
+### 2.1 安装Arthas
 
 - 方式1：下载arthas-boot.jar包的方式
 
@@ -58,13 +58,13 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 ./as.sh -h
 ```
 
-### 2.2开始使用
+### 2.2 开始使用
 
 下面演示我们以``` as.sh ```为主。
 
 首先我们启动arthas，会查看到我们当前server上部署的应用已经被探测到，当前我的server上只有一个应用程序，只需输入数字1，即可和该应用进行交互：
 
-#### 2.2.1基础命令
+#### 2.2.1 基础命令
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-3-new.png?raw=true)
 
@@ -114,8 +114,41 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 
   ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-12.png?raw=true)
 
-#### 2.2.2重头戏命令
+#### 2.2.2 重头戏命令
 
 - 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
 
   ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
+
+- 通过``` jad --source-only yourFullClassName > /tmp/yourClassName.java ```导出反编译代码到临时目录
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-15-1.png?raw=true)
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-15-2.png?raw=true)
+
+- 通过``` vim /tmp/yourClassName.java ```进行编辑修改代码
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-16-1.png?raw=true)
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-16-2.png?raw=true)
+
+- 通过``` sc -d *yourClassName | grep classLoaderHash ```获取加载<strong>yourClassName</strong>的类加载器
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-17.png?raw=true)
+
+- 通过``` mc -c classLoaderHash /tmp/yourClassName.java -d /tmp ```重新用相同类加载器重新编译修改后的类（mc: Memory Compiler）
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-18-1.png?raw=true)
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-18-2.png?raw=true)
+
+- 通过``` redefine /tmp/yourFullClassName.class ```重新加载新的被编译的类文件
+
+#### 2.2.3 更多操作案例
+
+[请参考官方手册，了解更多操作案例和用法。](https://alibaba.github.io/arthas/)
+
+## 参考资料
+
+- [Arthas](https://github.com/alibaba/arthas)
+- [Arthas使用手册](https://alibaba.github.io/arthas/)
