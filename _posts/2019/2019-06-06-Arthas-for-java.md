@@ -83,15 +83,24 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 当然，因为是命令行交互，也是支持管道流式操作：
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-7.png?raw=true)
 
-- 通过``` sc -d *yourClassName* ```去查看JVM加载的类信息
-
-![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-8.png?raw=true)
-
 - 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
 
 - 通过``` watch ```命令去查看方法的参数、返回值和异常信息
+
+- 通过``` sc ```命令查看类的信息
+  - 通过``` sc yourFullClassName ```
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-12.png?raw=true)
+
+  - 通过``` sc -d yourFullClassName* ```去查看JVM加载的类信息
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-13.png?raw=true)
+
+  - 通过``` sc *yourClassName* ```去查看JVM加载的类信息
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-14.png?raw=true)
 
 - 通过``` sm ```命令查看类的方法信息
   - case 1: ``` sm java.math.RoundingMode ```
