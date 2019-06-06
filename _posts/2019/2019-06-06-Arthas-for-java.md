@@ -73,15 +73,16 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 - 通过``` thread ```命令查看应用程序中所有线程情况
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-5.png?raw=true)
-其中第一列为线程的ID。
+  其中第一列为线程的ID。
 
 - 通过``` thread threadId ```命令查看指定线程状态信息
+  - 比如我们要查看线程ID为506的线程状态信息：
 
-比如我们要查看线程ID为506的线程状态信息：
-![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-6.png?raw=true)
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-6.png?raw=true)
 
-当然，因为是命令行交互，也是支持管道流式操作：
-![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-7.png?raw=true)
+  - 当然，因为是命令行交互，也是支持管道流式操作：
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-7.png?raw=true)
 
 - 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
 
