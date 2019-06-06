@@ -61,3 +61,7 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 ### 2.2开始使用
 
 下面演示我们以``` as.sh ```为主。
+
+首先我们启动arthas，会查看到我们当前server上部署的应用已经被探测到，当前我的server上只有一个应用程序，只需输入数字1，即可和该应用进行交互：
+
+![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-3.png?raw=true)
