@@ -44,5 +44,18 @@ java -jar arthas-boot.jar -h
 - 方式2：通过as.sh安装Arthas（<strong>强烈推荐</strong>）
 
 ```shell
+# 该命令会下载 as.sh 到当前目录下
 curl -L https://alibaba.github.io/arthas/install.sh | sh
 ```
+
+尝试下arthas:
+
+```shell
+# 启动arthas，会进入命令行交互状态
+./as.sh
+
+# 查看arthas命令手册
+./as.sh -h
+```
+
+### 2.2开始使用
