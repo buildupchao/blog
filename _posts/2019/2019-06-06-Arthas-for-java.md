@@ -59,3 +59,5 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 ```
 
 ### 2.2开始使用
+
+下面演示我们以``` as.sh ```为主。
