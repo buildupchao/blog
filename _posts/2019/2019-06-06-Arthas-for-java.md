@@ -12,3 +12,5 @@ category: Java
   <p>Arthas is a Java Diagnostic tool open sourced by Alibaba.</p>
   <p>Arthas allows developers to troubleshoot production issues for Java applications without modifying code or restarting servers.</p>
 </blockquote>
+
+大意为：Arthas是阿里开源的一个Java诊断工具。Arthas可以在不修改代码或重启服务器的情况下帮助开发人员快速定位线上问题。
