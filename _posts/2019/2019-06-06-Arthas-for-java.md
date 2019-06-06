@@ -90,3 +90,18 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 - 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
+
+- 通过``` watch ```命令去查看方法的参数、返回值和异常信息
+
+- 通过``` sm ```命令查看类的方法信息
+  - case 1: ``` sm java.math.RoundingMode ```
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-10.png?raw=true)
+
+  - case 2: ``` sm -d java.math.RoundingMode ```
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-11.png?raw=true)
+
+  - case 3: ``` sm java.math.RoundingMode <init> ```
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-12.png?raw=true)
