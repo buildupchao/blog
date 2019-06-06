@@ -32,7 +32,7 @@ A：缓存的大小是有限的，当缓存被用满时，哪些数据应该被�
 当访问的数据存在于存储的缓存的链表中，将该数据对应的节点，移动到链表表头，时间复杂度为O(n)；
 如果缓存被占满，则从链表尾部的数据开始清理，时间复杂度为O(1)。
 
-[实现源码请点击这里查看](https://github.com/Zychaowill/AlgorithmAndDataStructure/blob/master/src/main/java/zychaowill/datastructure/basic/list/LRUCache.java)
+[实现源码请点击这里查看](https://github.com/buildupchao/AlgorithmAndDataStructure/blob/master/src/main/java/com/buildupchao/datastructure/basic/list/LRUCache.java)
 
 ## 3. 判断单链表是否为回文链表
 ### 3.1 定位链表中间节点
@@ -88,7 +88,7 @@ A：我们可以通过快慢指针进行定位。慢指针每次前进一步，�
 	}
 ```
 
-[完整代码实现可以点击这里查看](https://github.com/Zychaowill/AlgorithmAndDataStructure/blob/master/src/main/java/zychaowill/datastructure/basic/list/PalindromeListChecker.java)
+[完整代码实现可以点击这里查看](https://github.com/buildupchao/AlgorithmAndDataStructure/blob/master/src/main/java/com/buildupchao/datastructure/basic/list/PalindromeListChecker.java)
 当然，这里通过双向链表进行实现会简单很多，毕竟存在前驱和后继指针。
 
 【注】除了单链表外，还有演化出来的双向链表，循环单链表，循环双向链表。
