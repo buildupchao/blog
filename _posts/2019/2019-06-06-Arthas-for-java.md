@@ -64,6 +64,8 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 
 首先我们启动arthas，会查看到我们当前server上部署的应用已经被探测到，当前我的server上只有一个应用程序，只需输入数字1，即可和该应用进行交互：
 
+#### 2.2.1基础命令
+
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-3-new.png?raw=true)
 
 - 通过``` dashboard ```命令可以实时查看应用监控数据
@@ -83,10 +85,6 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
   - 当然，因为是命令行交互，也是支持管道流式操作：
 
   ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-7.png?raw=true)
-
-- 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
-
-![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
 
 - 通过``` watch ```命令去查看方法的参数、返回值和异常信息
 
@@ -115,3 +113,9 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
   - case 3: ``` sm java.math.RoundingMode <init> ```
 
   ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-12.png?raw=true)
+
+#### 2.2.2重头戏命令
+
+- 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
+
+  ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
