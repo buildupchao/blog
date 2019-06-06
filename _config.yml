@@ -150,7 +150,7 @@ navs:
         subHref: /mylearningroadmap.html
         subLabel: 我的学习路线
       -
-        subHref: /bookmark
+        subHref: /bookmark.html
         subLabel: 书签直达站
 
 # labels. my blog key words
