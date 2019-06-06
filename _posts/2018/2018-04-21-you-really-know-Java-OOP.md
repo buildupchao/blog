@@ -2,7 +2,7 @@
 title: 你真的懂得Java-OOP吗？
 date: 2018-04-21 13:00:36
 tags: ['Java']
-category: Java
+category: java
 ---
 
 众所周知，Java是纯面向对象编程的一门语言，然而这就造成很多Java Programmer自以为自己随随便便写出来的代码就是面向对象编程的结晶。

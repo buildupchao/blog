@@ -2,7 +2,7 @@
 title: Java不使用Math.sqrt方法实现的求平方根
 date: 2016-12-20 14:06:18
 tags: ['Java']
-category: Java
+category: java
 ---
 
 今天中午吃饭闲暇，和朋友聊到了如果不使用Math.sqrt方法，该怎么通过Java实现同样的功能，我们各自发表了下意见。

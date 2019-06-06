@@ -2,7 +2,7 @@
 title: Java 8 Stream槽点之toMap引发的NullPointerException异常
 date: 2018-01-19 20:52:20
 tags: ['Java']
-category: Java
+category: java
 ---
 
 众所周知，Java 8 Stream，是我们Java程序员的福音，可以简洁、高效的编写代码，可变通性的帮助我们开发项目，实现业务。然而，现实是，提供具体快捷方式的同时，也存在着潜在的危险，就比如说Stream中的toMap操作，就让博主掉入坑中而不能自拔。
