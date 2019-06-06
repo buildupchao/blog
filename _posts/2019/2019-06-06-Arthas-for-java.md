@@ -82,3 +82,11 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 
 当然，因为是命令行交互，也是支持管道流式操作：
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-7.png?raw=true)
+
+- 通过``` sc -d *yourClassName* ```去查看JVM加载的类信息
+
+![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-8.png?raw=true)
+
+- 通过``` jad yourFullClassName ```去查看反编译后的完整代码信息
+
+![](https://github.com/buildupchao/ImgStore/blob/master/blog/arthas/arthas-9.png?raw=true)
