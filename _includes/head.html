@@ -58,15 +58,27 @@
       })();
     </script>
     <script>
-        // 给图片添加链接
-        $(document).ready(function() {
-            $("p img").each(function() {
-                var strA = "<a class='fancy-box-big-img' href='" + this.src + "'></a>";
-                $(this).wrapAll(strA);
+      function createImgEventFullScreen() {
+          var imgs = $(".container").find("img");
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick= function(e) {
+              var src = e.srcElement.currentSrc;
+              createCover(src);
+            };
+          }
+          function createCover (src) {
+            var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+            $("#fullScreenCover").remove();
+            $("body").append(cover);
+            $("body").addClass("zhao-no-scroll");
+            $("#fullScreenCover").click(function(){
+              $("#fullScreenCover").remove();
+              $("body").removeClass("zhao-no-scroll");
             });
-        });
-
-        // fancybox
-        $(".fancy-box-big-img").fancybox();
+          }
+     }
+     setTimeout(function(){
+        createImgEventFullScreen();
+     }, 1000);
     </script>
 </head>
