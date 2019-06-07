@@ -25,14 +25,6 @@
                         + ">"
                         + "&nbsp;&nbsp;- " + $(this).text()
                         + "</a></dd>");
-                var subChildren = $(this).nextUtil("h3", "h4");
-                subChildren.each(function(index) {
-                  $(".post-directory dl").append("<dd><a class=\"jumper\" hre=#" +
-                          $(this).attr("id")
-                          + ">"
-                          + "&nbsp;&nbsp;&nbsp;&nbsp;- " + $(this).text()
-                          + "</a></dd>");
-                });
             });
         });
 
