@@ -63,7 +63,7 @@
               $(this).addClass('zoomify-img-big');
           });
           $(".zoomify-img-big").zoomify().on({
-            'zoom-in-complete.zoomify', function() {
+            'zoom-in-complete.zoomify': function() {
                 var totalWidth = $(window).width();
                 var el = $(".zoomed");
 
@@ -72,7 +72,8 @@
             },
             'zoom-out-complete.zoomify': function() {
                 $(this).css('margin-left', 0);
-            });
+            }
+          );
       });
     </script>
 </head>
