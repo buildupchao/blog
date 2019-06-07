@@ -68,10 +68,10 @@
                 var el = $(".zoomed");
 
                 var marginLeft = (totalWidth - el.width()) / 2;
-                el.css('margin-left', marginLeft + 'px');
+                el.css('left', marginLeft);
             },
             'zoom-out-complete.zoomify': function() {
-                $('.zoomify-img-big').css('margin-left', 0);
+                $('.zoomify-img-big').css('left', 0);
             }
           );
       });
