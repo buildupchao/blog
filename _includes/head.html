@@ -60,12 +60,12 @@
     <script>
       $(function() {
           $("p img").each(function() {
-              var strA = "<a id='yourid' href='" + this.src + "'></a>";
+              var strA = "<a class='fancy-box-big-img' href='" + this.src + "'></a>";
               $(this).wrapAll(strA);
           });
       });
 
-      $("#yourid").fancybox({
+      $(".fancy-box-big-img").fancybox({
           openEffect    : 'elastic',
           closeEffect   : 'elastic',
           width: 560,
