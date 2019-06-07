@@ -64,14 +64,10 @@
           });
           $(".zoomify-img-big").zoomify().on({
             'zoom-in-complete.zoomify': function() {
-                var totalWidth = $(window).width();
-                var el = $(".zoomed");
-
-                var marginLeft = (totalWidth - el.width()) / 2;
-                el.css('left', marginLeft);
+                $(".zoomed").addClass('center-block');
             },
             'zoom-out-complete.zoomify': function() {
-                $('.zoomify-img-big').css('left', 0);
+                $('.zoomify-img-big').removeClass('center-block');
             }
           });
       });
