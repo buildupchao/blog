@@ -64,10 +64,10 @@
           });
           $(".zoomify-img-big").zoomify().on({
             'zoom-in-complete.zoomify': function() {
-                $(".zoomed").addClass('center-block');
+                $(".zoomed").css('max-width', '100%');
             },
             'zoom-out-complete.zoomify': function() {
-                $('.zoomify-img-big').removeClass('center-block');
+                $('.zoomify-img-big').css('max-width', '600px');
             }
           });
       });
