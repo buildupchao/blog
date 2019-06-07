@@ -68,8 +68,10 @@
       $(".fancy-box-big-img").fancybox({
           openEffect    : 'elastic',
           closeEffect   : 'elastic',
-          width: 560,
-          height: 300
+          showCloseButton: true,
+          onClosed: function() {
+            window.history.go(-1);
+          }
       });
     </script>
 </head>
