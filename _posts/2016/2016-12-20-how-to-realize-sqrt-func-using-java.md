@@ -1,6 +1,5 @@
 ---
 title: Java不使用Math.sqrt方法实现的求平方根
-date: 2016-12-20 14:06:18
 tags: ['Java']
 category: java
 ---

@@ -1,6 +1,5 @@
 ---
 title: Hive数据去重、多变一与一变多等实现
-date: 2017-09-29 23:49:54
 tags: ['大数据', 'Hive']
 category: hive
 ---

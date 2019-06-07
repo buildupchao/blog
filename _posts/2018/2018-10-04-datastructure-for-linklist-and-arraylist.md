@@ -1,6 +1,5 @@
 ---
 title: 数组、链表对比及应用
-date: 2018-10-04 18:46:58
 tags: ['Java', '数据结构']
 category: datastructureandalgo
 ---

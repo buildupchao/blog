@@ -1,6 +1,5 @@
 ---
 title: 设计一个分布式RPC框架
-date: 2019-02-01 23:18:16
 tags: ['Java', 'RPC', '框架设计']
 category: arch
 ---

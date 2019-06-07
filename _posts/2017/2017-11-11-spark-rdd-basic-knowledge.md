@@ -1,6 +1,5 @@
 ---
 title: 从RDD角度来剖析Spark内部原理
-date: 2017-11-11 23:49:54
 tags: ['大数据', 'Spark']
 category: spark
 ---

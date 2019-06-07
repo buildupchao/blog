@@ -1,6 +1,5 @@
 ---
 title: 如何高效拓展Java技术栈
-date: 2018-05-25 23:53:36
 tags: ['Java']
 category: java
 ---

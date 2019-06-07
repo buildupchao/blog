@@ -1,6 +1,5 @@
 ---
 title: 2018年度复盘，2019年度规划
-date: 2019-01-23 17:42:49
 tags: ['年度复盘', '年度规划', '总结']
 category: yearlysummary
 ---

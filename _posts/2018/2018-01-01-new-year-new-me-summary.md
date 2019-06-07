@@ -1,6 +1,5 @@
 ---
 title: New Year, New Me
-date: 2018-01-01 01:30:18
 tags: ['年度复盘', '年度规划', '总结']
 category: yearlysummary
 ---

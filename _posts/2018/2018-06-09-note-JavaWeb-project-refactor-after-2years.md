@@ -1,6 +1,5 @@
 ---
 title: 记一次时隔两年后的JavaWeb项目重构总结
-date: 2018-06-09 11:12:22
 tags: ['Java']
 category: java
 ---

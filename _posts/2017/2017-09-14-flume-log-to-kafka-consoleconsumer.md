@@ -1,6 +1,5 @@
 ---
 title: Flume读取日志数据并写入到Kafka，ConsoleConsumer进行实时消费
-date: 2017-09-14 00:03:45
 tags: ['大数据', 'Flume']
 category: flume
 ---

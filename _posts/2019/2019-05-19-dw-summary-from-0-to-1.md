@@ -1,6 +1,5 @@
 ---
 title: 数据仓库从0到1总结整理
-date: 2019-05-19 23:23:21
 tags: ['大数据', '数据仓库']
 category: datawarehouse
 ---

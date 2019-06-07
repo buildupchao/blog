@@ -1,6 +1,5 @@
 ---
 title: Centos7安装并配置mysql5.6完美教程
-date: 2016-12-09 11:26:48
 tags: ['Linux', 'MySQL', '安装教程']
 category: installtutorial
 ---

@@ -1,6 +1,5 @@
 ---
 title: Hive集群合并之应用端的负载均衡算法
-date: 2019-05-12 20:46:59
 tags: ['Hive', '大数据', '负载均衡算法']
 category: bigdata
 ---
