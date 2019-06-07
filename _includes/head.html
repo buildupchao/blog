@@ -63,6 +63,11 @@
               $(this).addClass('zoomify-img-big');
           });
           $(".zoomify-img-big").zoomify();
+          var totalWidth = $(window).width();
+          var el = $(".zoomed");
+
+          var marginLeft = (totalWidth - el.width()) / 2;
+          el.css('margin-left', marginLeft + 'px');
       });
     </script>
 </head>
