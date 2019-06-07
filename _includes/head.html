@@ -62,13 +62,17 @@
           $("p img").each(function() {
               $(this).addClass('zoomify-img-big');
           });
-          $(".zoomify-img-big").zoomify().on('zoom-in-complete.zoomify', function() {
-            var totalWidth = $(window).width();
-            var el = $(".zoomed");
+          $(".zoomify-img-big").zoomify().on({
+            'zoom-in-complete.zoomify', function() {
+                var totalWidth = $(window).width();
+                var el = $(".zoomed");
 
-            var marginLeft = (totalWidth - el.width()) / 2;
-            el.css('margin-left', marginLeft + 'px');
-          });
+                var marginLeft = (totalWidth - el.width()) / 2;
+                el.css('margin-left', marginLeft + 'px');
+            },
+            'zoom-out-complete.zoomify': function() {
+                $(this).css('margin-left', 0);
+            });
       });
     </script>
 </head>
