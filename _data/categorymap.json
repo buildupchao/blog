@@ -12,5 +12,6 @@
   "hadoop": "Hadoop",
   "hive": "Hive",
   "flume": "Flume",
-  "redis": "Redis"
+  "redis": "Redis",
+  "onlinetroubleshooting": "线上问题排查集锦"
 }
