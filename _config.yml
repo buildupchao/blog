@@ -256,7 +256,7 @@ gitalk:
     clientID: 7875384262e8e900eafa
     clientSecret: e58288b5749a9437025983c9f144ba572949b41e
 # 在使用其它评论组件时可点击显示 Disqus
-lazy_load_disqus : true
+lazy_load_disqus : false
 
 baidu-analysis: 8d29f87550e2c2eb9397008079863e3c
 
@@ -270,3 +270,7 @@ jekyll-archives:
   permalinks:
     category: '/category/:name/'
     tag: '/tag/:name/'
+
+# 是否开启访问量统计功能(不蒜子)
+busuanzi:
+  enable: true
