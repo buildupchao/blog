@@ -55,7 +55,7 @@ category: datawarehouse
 
 - 2）Ralph Kimball则主张自下而上(bottom-up)的方式建立DW，极力推崇建立数据集市，认为DW是企业内所有DM的集合，信息总是被存储在多维模型中。
 
-- 3）Bill Inmon提出了新的BI架构CIP（Corporation information factory），把DM包含了进来。CIP的核心是<strong style="color:red;">将DW架构划分为不同的层次</strong>以满足不同场景的需求，比如常见的ODS、DW（e g: DWD, DWS等）、DM等，每层根据实际场景采用不同的建设方案，该思路也是目前DW建设的架构指南，但到底是以top-down还是bottom-up方式进行DW建设，并未统计。
+- 3）Bill Inmon提出了新的BI架构CIP（Corporation information factory），把DM包含了进来。CIP的核心是<strong style="color:red;">将DW架构划分为不同的层次</strong>以满足不同场景的需求，比如常见的ODS、DW（e g: DWD, DWS等）、DM等，每层根据实际场景采用不同的建设方案，该思路也是目前DW建设的架构指南，但到底是以top-down还是bottom-up方式进行DW建设，并未统一。
 
 ---------
 <strong>[敲黑板，说重点]:</strong>
@@ -65,3 +65,7 @@ category: datawarehouse
 只不过很多公司做大数据可能是刚起步阶段，更在意与流量方面，所以不需要建模，但是等数据体量达到一定程度后，如果没有数据建模，那么数据质量也就无法保障，数据也就会废掉、烂掉。
 
 ---------
+
+数据仓库分层架构图：
+
+![数据仓库分层架构图](https://github.com/buildupchao/ImgStore/blob/master/blog/datawarehouse/DW-structure.png?raw=true)
