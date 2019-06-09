@@ -146,3 +146,7 @@ category: datawarehouse
 - 2）数据化运营、精准运营
 
 - 3）广告精准、智能投放
+
+## Resource Link
+
+- [1][数据仓库(三)之架构篇](https://blog.csdn.net/mark_wu2000/article/details/82694865)
