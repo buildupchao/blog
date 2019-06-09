@@ -149,5 +149,5 @@ category: datawarehouse
 
 ## Resource Link
 
-- [1][数据仓库(三)之架构篇](https://blog.csdn.net/mark_wu2000/article/details/82694865)
-- [2][数据仓库学习笔记 --- 如何设计数据仓库](https://blog.csdn.net/u012965373/article/details/81903095)
+- [1] [数据仓库(三)之架构篇](https://blog.csdn.net/mark_wu2000/article/details/82694865)
+- [2] [数据仓库学习笔记 --- 如何设计数据仓库](https://blog.csdn.net/u012965373/article/details/81903095)
