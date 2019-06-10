@@ -165,8 +165,10 @@ keywords: 数据仓库,DW,Hadoop,基于Hadoop的数据仓库
 
 - 查询
 ```
-	SELECT domain_id, sum(log_type) FROM logs WHERE
-	log_time>'2016-01-12-06' GROUP BY domain_id;
+	SELECT domain_id, sum(log_type)
+	FROM logs
+	WHERE log_time>'2016-01-12-06'
+	GROUP BY domain_id;
 ```
 
 ### 3.3 参数化报表与可视化
