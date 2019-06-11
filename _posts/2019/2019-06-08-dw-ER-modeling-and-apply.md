@@ -108,6 +108,8 @@ xxx | 0002x | xx公司 | 10000001
 
 ## 4.ER实体关系模型
 
+### 4.1什么是ER模型？
+
 在信息系统中，将事物抽象为“实体”、“属性”、“关系”来表示数据关联和事物描述。
 
 三者用来做什么呢？
@@ -133,7 +135,7 @@ xxx | 0002x | xx公司 | 10000001
 
 ![教师、学生与课程之间的ER图](https://github.com/buildupchao/ImgStore/blob/master/blog/datawarehouse/dw-modeling-ER-1.png?raw=true)
 
-### 4.1小结
+### 4.2小结
 
 - ER模型是数据库设计的理论基础，当前几乎所有的OLTP系统设计都采用ER模型建模的方式
 - Bill Inom提出的数仓理论，推荐采用ER关系模型进行建模
