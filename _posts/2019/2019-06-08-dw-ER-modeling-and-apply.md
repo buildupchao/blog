@@ -32,7 +32,7 @@ keywords: 数据仓库,DW,Hadoop,数仓建模,建模
 
 众所周知，RDBMS设计时，需要遵照一定的规范要求，目的在于降低数据的冗余性和数据的一致性，目前业界范式有：
 
-- 1NF
+- <span style="color:red;">1NF</span>
 
 域都应该是<strong style="color:red;">原子性（即不可分割的）</strong>的，即数据库表的每一列都是不可分割的原子数据项。
 
@@ -46,7 +46,7 @@ ID | 商品个数 | 商品名称 | 商家ID | 用户ID
 ---|--------|---------|--------|------
 xxx | 4 | 毛衣 | xx毛衣生产商 | 10001
 
-- 2NF
+- <span style="color:red;">2NF</span>
 
 在``` 1NF ```的基础上，实体的属性<strong style="color:red;">完全依赖于主关键字</strong>，不能存在仅依赖主关键字一部分的属性。
 
@@ -76,7 +76,7 @@ xxx | 4 | 毛衣 | xx毛衣生产商 | 10001
 ------|-------|-------
 101 | 物理系 | 张三
 
-- 3NF
+- <span style="color:red;">3NF</span>
 
 在``` 2NF ```的基础上，<strong style="color:red;">任何非主属性不依赖于其他非主属性</strong>。
 
@@ -100,8 +100,8 @@ xxx | 0002x | xx公司 | 10000001
 
 大多数RDBMS业务场景达到``` 3NF ```即可满足我们业务需求，后续三项范式不再展开介绍。
 
-- BCNF
-- 4NF
-- 5NF
+- <span style="color:red;">BCNF</span>
+- <span style="color:red;">4NF</span>
+- <span style="color:red;">5NF</span>
 
 ## 4.ER实体关系模型
