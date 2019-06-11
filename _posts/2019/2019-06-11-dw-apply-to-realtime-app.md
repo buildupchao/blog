@@ -7,3 +7,12 @@ keywords: 数据仓库,DW,Hadoop,数仓实时场景的应用
 ---
 
 数仓实时场景的应用
+
+- [美团点评基于 Flink 的实时数仓建设实践](https://www.jianshu.com/p/1f66be648b02)
+
+- [知乎实时数仓架构实践及演进
+](https://blog.csdn.net/cqacry2798/article/details/88101580)
+
+- [实时数仓建设](https://www.jianshu.com/p/560c2598e3d5)
+
+- [分享一个实时数仓系统--SnappyData的博客与中文社区](https://blog.csdn.net/lmalds/article/details/80051137)
