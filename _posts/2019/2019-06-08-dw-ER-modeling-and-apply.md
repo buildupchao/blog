@@ -105,3 +105,9 @@ xxx | 0002x | xx公司 | 10000001
 - <strong style="color:green;">5NF</strong>
 
 ## 4.ER实体关系模型
+
+## 5.维度建模
+
+## 6.dataVault模型
+
+## 7.Anchor
