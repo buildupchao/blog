@@ -308,7 +308,7 @@ PK | sat_订单明细表
 
 - CIF层次架构
 
-![CIF层次架构](https://github.com/buildupchao/ImgStore/blob/master/blog/datawarehouse/CIF-modeling.png)
+![CIF层次架构](https://github.com/buildupchao/ImgStore/blob/master/blog/datawarehouse/CIF-modeling.png?raw=true)
 
 - <strong style="color:green;">【敲黑板，划重点】</strong>
   - 数仓模型的选择时灵活的，不局限于某一种模型方法
