@@ -16,9 +16,9 @@ category: bigdataplatform
 
 安装工具 | 版本
 -------|------
-Python | 3.6.x
+Python | 3.6.5
 MySQL | 5.7
-Airflow | 1.10.x
+Airflow | 1.10.0
 
 <strong style="color:red;">请选择一台干净的物理机或者云主机。不然，产生任何多余影响或者后果，本人概不负责！</strong>
 
