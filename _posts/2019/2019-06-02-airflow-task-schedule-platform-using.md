@@ -14,11 +14,11 @@ category: bigdataplatform
 
 - 安装版本说明
 
-安装工具 | 版本
--------|------
-Python | 3.6.5
-MySQL | 5.7
-Airflow | 1.10.0
+安装工具 | 版本 | 用途
+-------|------|-----
+Python | 3.6.5 | 安装airflow及其依赖包、开发airflow的dag使用
+MySQL | 5.7 | 作为airflow的元数据库
+Airflow | 1.10.0 | 任务调度平台
 
 <strong style="color:red;">请选择一台干净的物理机或者云主机。不然，产生任何多余影响或者后果，本人概不负责！</strong>
 
@@ -114,3 +114,47 @@ ______________________
 ## 4.安装Airflow
 
 <strong>万事既已具备，让我们开始进入今天的主题！</strong>
+
+- 1）通过pip安装airflow脚手架
+
+安装之前需要设置一下临时环境变量``` SLUGIFY_USES_TEXT_UNIDECODE ```，不然，会导致安装失败，命令如下：
+```bash
+export SLUGIFY_USES_TEXT_UNIDECODE=yes
+```
+
+安装airflow脚手架:
+```bash
+sudo pip install apache-airflow===1.10.0
+```
+
+airflow会被安装到python3下的site-packages目录下，完整目录为:``` ${PYTHON_HOME}/lib/python3.6/site-packages/airflow ```，我的airflow目录如下所示：
+![python3-airflow-dir](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/python3-airflow-dir.png?raw=true)
+
+- 2) 正式安装airflow
+
+安装airflow前，我们需要先配置一下airflow的安装目录``` AIRFLOW_HOME ```，同时为了方便使用airflow的相关命令，我们也把airflow配置到环境变量中，一劳永逸。
+
+<strong>编辑``` /etc/profile ```系统环境变量文件：</strong>
+```bash
+sudo vim /etc/profile
+```
+
+<strong>做如下修改（当然，具体目录需要修改成你自己对应的目录，不要照搬不动哦）：</strong>
+![airflow-env-variable](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-env-variable.png?raw=true)
+
+<strong>使修改后的环境变量立即生效:</strong>
+```bash
+sudo source /etc/profile
+```
+
+- 3）执行``` airflow ```命令做初始化操作
+
+因为配置过airflow的环境变量``` SITE_AIRFLOW_HOME ```，我们在哪里执行如下命令都可：
+```bash
+airflow
+```
+
+到此，airflow会在刚刚的``` AIRFLOW_HOME ```目录下生成一些文件。当然，执行该命令时可能会报一些错误，可以不用理会！生成的文件列表如下所示：
+![airflow-init-file](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-init-file.png?raw=true)
+
+- 4) 为airflow安装mysql模块

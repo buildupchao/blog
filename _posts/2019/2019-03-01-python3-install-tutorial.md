@@ -50,7 +50,7 @@ ____________________
 - 2）通过 configure 命令检测及校验平台
 
 ```bash
-./configure --with-ssl --prefix=/service/python3.6.5
+./configure --with-ssl --prefix=/service/python3
 ```
 
 - 3）通过 make 命令编译Python源代码
@@ -78,7 +78,7 @@ sudo mv /usr/bin/python /usr/bin/python2.backup
 
 <strong>制作新的指向Python3的软连接:</strong>
 ```bash
-sudo ln -s /service/python3.6.5/bin/python3 /usr/bin/python
+sudo ln -s /service/python/bin/python3 /usr/bin/python
 ```
 
 <strong>验证是否生效:</strong>
