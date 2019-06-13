@@ -160,5 +160,50 @@ airflow
 - 4) 为airflow安装mysql模块
 
 ```bash
-sudo pip install apache-airflow[mysql]
+sudo pip install 'apache-airflow[mysql]'
 ```
+
+airflow的包依赖安装均可采用该方式进行安装，具体可参考[airflow官方文档](https://airflow.apache.org/installation.html)
+
+- 5) 采用mysql作为airflow的元数据库
+
+<strong>修改airflow.cfg文件，配置mysql作为airflow元数据库:</strong>
+
+_______________________
+<strong style="color:red;">这里就巨坑无比了，很多人的教程里面都是这么直接写的，然后就完蛋了！！！不信你试试看，等下初始化数据库必死无疑！而且还没有任何有效的解决方案可以供你搜索！！！其次也不要相信什么改成<span style="color:green;">``` pymysql ```</span>配合pymysql包实现，这样更惨，会有数据类型解析问题，让你毫无头绪！！！切记切记！！！</strong>
+```bash
+sql_alchemy_conn = mysql://airflow:airflow@localhost:3306/airflow
+```
+或
+```bash
+sql_alchemy_conn = mysql+pymysql://airflow:airflow@localhost:3306/airflow
+```
+_______________________
+那既然这种方式不可行，该怎么办呢？办法总比困难多的！因为Python3不再支持MySQLdb了，只有Python2才支持。但是呢，也只有MySQLdb才是最佳结果。
+
+<strong>首先，我们通过pip安装一下mysqlclient:</strong>
+```bash
+sudo pip install mysqlclient
+```
+
+<strong>然后，再通过pip安装一下MySQLdb:</strong>
+```bash
+sudo pip install MySQLdb
+```
+
+<strong>最后，我们修改airflow.cfg文件中的sql_alchemy_conn配置:</strong>
+```bash
+sql_alchemy_conn = mysql+mysqldb://airflow:airflow@localhost:3306/airflow
+```
+
+到此，我们已经为airflow配置好元数据库信息且准备好依赖包。
+
+- 6) 初始化元数据库信息（其实也就是新建airflow依赖的表）
+
+```bash
+airflow initdb
+```
+
+此时，我们的mysql元数据库（库名为airflow）中已经新建好了airflow的依赖表：
+
+![airflow-metadata](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-metadata.png?raw=true)
