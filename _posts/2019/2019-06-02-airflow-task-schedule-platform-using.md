@@ -158,3 +158,7 @@ airflow
 ![airflow-init-file](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-init-file.png?raw=true)
 
 - 4) 为airflow安装mysql模块
+
+```bash
+sudo pip install apache-airflow[mysql]
+```
