@@ -78,10 +78,46 @@ category: bigdataplatform
 - other任务调度方式
   - 1) 跳过非最新DAG Run（作业中出现故障，一段时间后恢复）
   - 2) 当存在正在执行的DAG Run时，跳过当前DAG Run（作业执行时间过长，长到下一次作业开始）
-  - 3）Sensor的替代方案（Airflow中有一类Operator被称为Sensor，Sensor可以感应预先设定的条件是否满足，当满足条件后Sensor作业变为Success使得下游的作业可以执行。）
+  - 3）Sensor的替代方案（Airflow中有一类Operator被称为Sensor，Sensor可以感应预先设定的条件是否满足，当满足条件后Sensor作业变为Success使得下游的作业可以执行。<strong>弊端是，如果上游作业执行3个小时，那么会占用worker三个小时不释放，资源浪费。</strong>）
 
 ### 2.4 Airflow的服务构成
 
+- webserver
+
+Airflow 提供了一个可视化的 Web 界面。启动 WebServer 后，就可以在 Web 界面上查看定义好的 DAG 并监控及改变运行状况。也可以在 Web 界面中对一些变量进行配置。
+
+- worker
+
+一般来说我们用 Celery Worker 来执行具体的作业。Worker 可以部署在多台机器上，并可以分别设置接收的队列。当接收的队列中有作业任务时，Worker 就会接收这个作业任务，并开始执行。Airflow 会自动在每个部署 Worker 的机器上同时部署一个 Serve Logs 服务，这样我们就可以在 Web 界面上方便的浏览分散在不同机器上的作业日志了。
+
+- scheduler
+
+整个 Airflow 的调度由 Scheduler 负责发起，每隔一段时间 Scheduler 就会检查所有定义完成的 DAG 和定义在其中的作业，如果有符合运行条件的作业，Scheduler 就会发起相应的作业任务以供 Worker 接收。
+
+- flower
+
+Flower 提供了一个可视化界面以监控所有 Celery Worker 的运行状况。这个服务并不是必要的。
+
+### 2.5 Airflow的原始架构
+
+![airflow-origin-structure](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-origin-structure.png?raw=true)
+
 ## 3.基于Docker的Airflow分布式搭建
 
-## 4.彩蛋
+### 3.1 部署结点
+
+- Scheduler、WebServer、Flower:  10.21.0.192
+
+- Worker:  10.21.0.190、10.21.0.191、10.21.0.193
+
+- RabbitMQ(Celry broker ):  10.21.0.192
+
+- Mysql(backend): 10.21.0.235
+
+### 3.2 Docker文件目录
+
+![airflow-origin-structure](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-docker-dir.png?raw=true)
+
+### 3.3 架构图
+
+![airflow-origin-structure](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-docker-structure.png?raw=true)
