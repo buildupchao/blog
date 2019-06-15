@@ -66,7 +66,7 @@ sudo chown -R mysql:mysql /var/lib/mysql
 - 启动mysql
 
 ```bash
-service mysqld start
+sudo service mysqld start
 ```
 
 ______________________
@@ -167,6 +167,31 @@ sudo pip install 'apache-airflow[mysql]'
 
 airflow的包依赖安装均可采用该方式进行安装，具体可参考[airflow官方文档](https://airflow.apache.org/installation.html)
 
+-----------------------------
+<strong style="color:green;">[敲黑板，划重点]</strong>
+安装mysql模块时可能会报如下错误：
+```bash
+mysql_config not found
+```
+
+解决步骤如下：
+
+(1)先查看下是否已经存在mysql_config文件:
+```bash
+find / -name mysql_config
+```
+
+(2)如果没有的话，安装mysql-devel:
+```bash
+sudo yum install mysql-devel
+```
+
+(3)安装完成之后，再次验证是否有mysql_config文件：
+
+![airflow-mysql_config_install](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-mysql_config_install.png?raw=true)
+
+-----------------------------
+
 - 5) 采用mysql作为airflow的元数据库
 
 <strong>修改airflow.cfg文件，配置mysql作为airflow元数据库:</strong>
@@ -210,6 +235,44 @@ airflow initdb
 
 ![airflow-metadata](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-metadata.png?raw=true)
 
+-------------------------
+<strong style="color:green;">[敲黑板，划重点]</strong>
+此时初始化数据库时，可能会报如下错误：
+```bash
+Global variable explicit_defaults_for_timestamp needs to be on (1) for mysql
+```
+
+该问题的解决方案在Airflow官方文档中有说明，链接为：[http://airflow.apache.org/faq.html](http://airflow.apache.org/faq.html)。需要通过修改MySQL配置文件my.cnf进行处理，步骤如下：
+
+(1)查找my.cnf位置：
+```bash
+mysql --help | grep my.cnf
+```
+![airflow-mysql-cnf-pos](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-mysql-cnf-pos.png?raw=true)
+
+(2)修改my.cnf文件：
+
+在<strong style="color:red;">[mysqld]下面（一定不要写错地方）</strong>添加如下配置:
+```bash
+explicit_defaults_for_timestamp=true
+```
+
+![airflow-mysql-cnf-modify](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-mysql-cnf-modify.png?raw=true)
+
+(3))重启MySQL使配置生效：
+
+```bash
+sudo service mysqld restart
+```
+
+(4)查看修改的配置是否生效：
+
+![airflow-mysql-cnf-result](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-mysql-cnf-result.png?raw=true)
+
+(5)重新执行``` airflow initdb ```即可
+
+-------------------------
+
 - 7) 应用的基础命令
   - airflow组件：webserver, scheduler, worker, flower
   - 后台启动各组件命令：``` airflow xxx -D ```
@@ -217,6 +280,49 @@ airflow initdb
   - 查看某个dag的任务列表：``` airflow list_tasks dag_id ```
   - 挂起/恢复某个dag：``` airflow pause/unpause dag_id ```
   - 测试某个dag任务：``` airflow test dag_id task_id execution_date ```
+
+-------------------------
+<strong style="color:green;">[敲黑板，划重点]</strong>
+
+启动webserver组件时可能会报如下错误：
+
+<strong>错误1：</strong>
+
+```bash
+Error: 'python:airflow.www.gunicorn_config' doesn‘t exist
+```
+
+安装指定版本的gunicorn即可：
+
+(1) Airflow1.10版本对应gunicorn的19.4.0版本：
+```bash
+sudo pip install gunicorn==19.4.0
+```
+
+(2) Airflow1.8版本安装gunicorn的19.3.0版本：
+```bash
+sudo pip install gunicorn==19.3.0
+```
+
+<strong>错误2：</strong>
+
+```bash
+FileNotFoundError: [Errno 2] No such file or directory: 'gunicorn': 'gunicorn'
+```
+
+只需要配置好Python的bin目录环境变量即可（也可以参照[https://www.cnblogs.com/lwglinux/p/7100400.html](https://www.cnblogs.com/lwglinux/p/7100400.html)）：
+
+```bash
+sudo vim /etc/profile
+```
+
+![airflow-python-bin-dir](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-python-bin-dir.png?raw=true)
+
+```bash
+source /etc/profile
+```
+
+-------------------------
 
 ### 4.2进阶篇
 
@@ -321,6 +427,8 @@ python add_account.py
 ```
 
 你会发现mysql元数据库表user中会多出来一条记录的。
+
+当然，你也可以借助于第三方插件方式对用户账号还有可视化UI建立/修改DAG代码。链接为：[https://github.com/lattebank/airflow-dag-creation-manager-plugin](https://github.com/lattebank/airflow-dag-creation-manager-plugin)，可惜只支持到Python2.x。不过后续我会对其做升级处理。
 
 - 4) 修改webserver地址
 
