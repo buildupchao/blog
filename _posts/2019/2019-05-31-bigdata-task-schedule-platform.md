@@ -19,7 +19,7 @@ API | [Airflow API文档](http://airflow.apache.org/api.html) | [Azkaban API文�
 
 - API方面
 
-总的来说，Azkaban和EasyScheduler的API更充分、更有利于实现应用端业务需求。
+总的来说，Azkaban和EasyScheduler的API更充分、更有利于实现应用端业务需求。Airflow可以借助于第三方插件的方式使用或扩展API。
 
 - 调度方面
 
