@@ -210,6 +210,11 @@ classes:
     name: Java的觉醒之路
     describe: Java觉醒之路之步步高升
 
+  -
+    href: /bigdata.html
+    name: 大数据之路
+    describe: 大数据学习记录
+
 
 # ---------------- #
 #       RSS        #
