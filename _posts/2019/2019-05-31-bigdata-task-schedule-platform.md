@@ -9,7 +9,7 @@ category: bigdataplatform
 比对项 |Airflow | Azkaban | EasyScheduler
 ------|--------|---------|--------------
 API | [Airflow API文档](http://airflow.apache.org/api.html) | [Azkaban API文档](https://azkaban.readthedocs.io/en/latest/ajaxApi.html) | [EasyScheduler API文档](http://52.82.13.76:8888/easyscheduler/doc.html?language=zh_CN&lang=cn)
-调度对比 | 更偏向于工作流方式 | 更偏向于底层，跟Hadoop结合的比较紧 | 更贴切于建立DAG以及任务依赖，进行任务调度
+调度对比 | 更偏向于工作流方式，有强大的任务依赖管理和调度支持 | 更偏向于底层，跟Hadoop结合的比较紧 | 更贴切于建立DAG以及任务依赖，进行任务调度
 环境搭建 | 分为WebServer和Executor端，属于中轻量级环境 | 环境搭建根据网站手册搭建，也没有太大问题 | 符合高可用需求
 账户管理 | 数据库中存储，可集成第三方插件UI操作 | XML配置方式 | 可配置
 社区活跃度 | [Airflow Github](https://github.com/apache/airflow) | [Azkaban Github](https://github.com/azkaban/azkaban) | [EasyScheduler Github](https://github.com/analysys/EasyScheduler)
