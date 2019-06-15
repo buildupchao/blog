@@ -72,6 +72,7 @@ category: bigdataplatform
   - SequentialExecutor: 顺序调度
   - LocalExecutor: 多进程调度
   - CeleryExecutor: 分布式调度
+  - DaskExecutor: 动态任务调度
 
 <strong style="color:red;">但是有时候仅仅靠配置作业依赖和调度执行周期并不能满足一些复杂的需求</strong>
 

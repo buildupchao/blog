@@ -328,13 +328,13 @@ source /etc/profile
 
 ### 4.2进阶篇
 
-- 1) 初识executor
+- 1) 初识executor（需要重启生效）
 
 ![airflow-executor](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-executor.png?raw=true)
 
 这里为什么要修改呢？因为SequentialExecutor是单进程顺序执行任务，默认执行器，通常只用于测试，LocalExecutor是多进程本地执行任务使用的，CeleryExecutor是分布式调度使用（当然也可以单机），生产环境常用，DaskExecutor则用于动态任务调度，常用于数据分析。
 
-- 2）如何修改时区为东八区
+- 2）如何修改时区为东八区（需要重启生效）
 
 为什么要修改时区呢？因为Airflow默认的时间是GMT时间，虽然可以在Airflow集群分布在不同时区时仍可保证时间相同，不会出现时间不同步的问题，但是这个时间比北京早8小时，不太符合我们的阅读习惯，也不够简洁直观。鉴于我们通常情况下，我们要么为单节点服务，要么即使扩展也是在同一个时区的，所以将时区修改为东八区，即北京时间，这样更便于我们使用。
 
@@ -432,9 +432,23 @@ python add_account.py
 
 当然，你也可以借助于第三方插件方式对用户账号还有可视化UI建立/修改DAG代码。链接为：[https://github.com/lattebank/airflow-dag-creation-manager-plugin](https://github.com/lattebank/airflow-dag-creation-manager-plugin)，可惜只支持到Python2.x。不过后续我会对其做升级处理。
 
-- 4) 修改webserver地址
+- 4) 修改webserver地址（需要重启生效）
 
 ![airflow-webserver-url](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-webserver-url.png?raw=true)
+
+- 5) 如何修改检测新DAG间隔（需要重启生效）
+
+如果scheduler检测DAG过于频繁，会导致CPU负载非常高。而默认scheduler检测时间为0，也就是没有时间间隔。
+
+可以通过修改airflow.cfg文件中的``` min_file_process_interval ```设置时间间隔，如下，我是修改为了5秒检测一次：
+
+![airflow-scheduler-check-time](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-scheduler-check-time.png?raw=true)
+
+- 6) 如何修改scheduler线程数控制并发量（需要重启生效）
+
+可以通过修改airflow.cfg文件中的``` parallelism ```来控制scheduler的并发量：
+
+![airflow-scheduler-parallelism](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-scheduler-parallelism.png?raw=true)
 
 ### 4.3高级篇
 
