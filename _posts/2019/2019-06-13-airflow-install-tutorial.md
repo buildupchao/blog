@@ -169,6 +169,7 @@ airflow的包依赖安装均可采用该方式进行安装，具体可参考[air
 
 -----------------------------
 <strong style="color:green;">[敲黑板，划重点]</strong>
+
 安装mysql模块时可能会报如下错误：
 ```bash
 mysql_config not found
@@ -237,6 +238,7 @@ airflow initdb
 
 -------------------------
 <strong style="color:green;">[敲黑板，划重点]</strong>
+
 此时初始化数据库时，可能会报如下错误：
 ```bash
 Global variable explicit_defaults_for_timestamp needs to be on (1) for mysql
