@@ -20,6 +20,7 @@ category: java
 如此，问题得以解决。
 
 【参考文献】
+
 [1] [mysql DatabaseMetaData 获取table remarks为空的解决办法](http://huqiji.iteye.com/blog/2205161)
 
 [2] [DatabaseMetaData的用法](https://www.cnblogs.com/shide/p/3340906.html)
