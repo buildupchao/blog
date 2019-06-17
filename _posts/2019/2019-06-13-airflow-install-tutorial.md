@@ -126,7 +126,7 @@ export SLUGIFY_USES_TEXT_UNIDECODE=yes
 
 安装airflow脚手架:
 ```bash
-sudo pip install apache-airflow===1.10.0
+sudo pip install apache-airflow==1.10.0
 ```
 
 airflow会被安装到python3下的site-packages目录下，完整目录为:``` ${PYTHON_HOME}/lib/python3.6/site-packages/airflow ```，我的airflow目录如下所示：
@@ -216,7 +216,7 @@ sudo pip install mysqlclient
 
 <strong>然后，再通过pip安装一下MySQLdb:</strong>
 ```bash
-sudo pip install MySQLdb
+sudo pip install python-mysqldb
 ```
 
 <strong>最后，我们修改airflow.cfg文件中的sql_alchemy_conn配置:</strong>
