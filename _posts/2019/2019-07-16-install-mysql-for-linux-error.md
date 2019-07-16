@@ -14,4 +14,7 @@ category: installtutorial
 - 然后编辑该目录下的mysql-community.repo文件，命令为：``` sudo vi mysql-community.repo```
 - 在该文件中找到 mysql-56-community
 - 将enable设置为0
+
+![](https://github.com/buildupchao/ImgStore/tree/master/blog/installtutorial/linux-mysql-repo.png?raw=true)
+
 - 重新执行 ``` sudo yum install mysql-server ```安装
