@@ -1,5 +1,5 @@
 ---
-title: 年终总结之最后我们都成为了过往
+title: 年中总结之最后我们都成为了过往
 tags: ['年度复盘', '年度规划', '总结']
 category: yearlysummary
 ---
