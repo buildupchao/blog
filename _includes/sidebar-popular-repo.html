@@ -51,9 +51,13 @@
 
 <!-- 开源软件 -->
 <br/>
+<!-- | limit: site.side_bar_repo_limit -->
 <h3 class="sidebar-title">开源软件</h3>
+{% assign repositories = site.data.repos.repositories %}
 {% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse | where: "fork", "false" %}
-{% for repo in sorted_repos | limit: site.side_bar_repo_limit %}
+{% for repository in repositories %}
+{% for repo in sorted_repos %}
+{% if repository == repo.name %}
 <div class="card text-center">
     <div class="thumbnail">
         <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
@@ -82,7 +86,8 @@
         </div>
     </div>
 </div>
-
+{% endif %}
+{% endfor %}
 {% endfor %}
 
 <!-- 分类目录 -->
