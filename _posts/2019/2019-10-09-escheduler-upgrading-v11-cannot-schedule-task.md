@@ -31,4 +31,4 @@ category: onlinetroubleshooting
 
 - 有一个为开源做贡献的心，每个平台起步都是艰辛的，需要我们的支持和滋养
 
-最后，希望EasyScheduler（心在的DolphinScheduler）能够越来越好！
+最后，希望EasyScheduler（现在的DolphinScheduler）能够越来越好！
