@@ -6,11 +6,11 @@ category: onlinetroubleshooting
 
 ## 一、背景
 
-> 早上，暴躁君W来了条信息:"小时计算任务延迟一小时执行,导致应该6点启动的计算3点数据的任务到7点才被提交执行，而计算4点数据的任务跑了两次,帮忙排查下这个问题."
+> 早上，暴躁君W来了条信息:"小时计算任务延迟一小时执行,导致应该6点启动的计算3点数据的任务到7点才被提交执行，而计算4点数据的任务跑了两次,帮忙排查下这个问题。"
 
 ## 二、那么问题来了
 
-![](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/easyscheduler/easyscheduler-arch.png)
+![easyscheduler-archtecture](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/easyscheduler/easyscheduler-arch.png?raw=true)
 
 从上述架构图我们知道，MasterServer进行任务的生成，放至Task Queue中，WorkerServer从Task Queue中消费任务进行执行。
 其次，EasyScheduler有一配置特性，如果当前结点CPU或者内存达到了80%以上，则不会进行新的任务的调度和执行。
