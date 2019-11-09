@@ -42,7 +42,7 @@ GEM
     color (1.8)
     colorator (1.1.0)
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
+    crass (1.0.5)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -82,7 +82,6 @@ GEM
     jekyll-github-metadata (2.12.1)
       jekyll (~> 3.4)
       octokit (~> 4.0, != 4.4.0)
-    jekyll-itafroma-archive (0.3.0)
     jekyll-octicons (8.5.0)
       jekyll (~> 3.1)
       octicons (= 8.5.0)
@@ -99,7 +98,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -110,9 +109,9 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multipart-post (2.1.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.3-x64-mingw32)
+    nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     octicons (8.5.0)
       nokogiri (>= 1.6.3.1)
@@ -191,7 +190,6 @@ DEPENDENCIES
   jekyll-archives
   jekyll-geo-pattern
   jekyll-github-metadata
-  jekyll-itafroma-archive
   jekyll-octicons
   jekyll-paginate
   jekyll-sitemap
