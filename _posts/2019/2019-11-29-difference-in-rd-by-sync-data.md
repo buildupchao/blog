@@ -47,7 +47,7 @@ class CustomAsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
 
 ## **3.潜在问题探讨**
 
-通过上述方式，想必有一批直接使用Spring Boot做项目开发的工程师，都自以为标注上`@Transactional`就可以了，就不失败回滚，也不需要什么补救措施，那你就大错特错了。`@Transactional`支持的是单体应用，远程IO已经脱离了它的控制。
+通过上述方式，想必有一批直接使用Spring Boot做项目开发的工程师，都自以为标注上`@Transactional`就可以了，就会失败回滚，也不需要什么补救措施，那你就大错特错了。`@Transactional`支持的是单体应用，远程IO已经脱离了它的控制。
 
 其次，同步失败，重试5次没问题，那同步概况记录表应该放在哪里呢？那些分别放到不同地域分别建立同步概况表的就不想说什么了，retry都失败了，你写入同步概况到国外RDS就一定能成功吗？答案是不能！所以记录同步概况的表当然需要放在主RDS里面（这里主从是相对概念，从A同步到B，则A是主；如果从C同步到A，则C是主），也就是国内RDS。
 
