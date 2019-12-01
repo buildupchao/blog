@@ -75,7 +75,7 @@ class CustomAsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
 
 写完文章后，发现还是有必要贴上一些有助于理解上述问题的文章链接。就在晚上找了下最佳解读的：
 
-[1] [两个与spring事务相关的问题](https://www.cnblogs.com/ASPNET2008/p/5570237.html)
-[2] [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/)
-[3] [Spring Boot系列文章 – 纯洁的微笑](http://www.ityouknow.com/spring-boot.html)
-[4] [《Spring Boot Cookbook》阅读笔记](https://yq.aliyun.com/articles/54071)
+- [1] [两个与spring事务相关的问题](https://www.cnblogs.com/ASPNET2008/p/5570237.html)
+- [2] [Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [3] [Spring Boot系列文章 – 纯洁的微笑](http://www.ityouknow.com/spring-boot.html)
+- [4] [《Spring Boot Cookbook》阅读笔记](https://yq.aliyun.com/articles/54071)
