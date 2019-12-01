@@ -5,6 +5,8 @@ category: onlinetroubleshooting
 keywords: 线上问题排查,onlinetroubleshooting,线上事故,问题排查,Java
 ---
 
+![](https://github.com/buildupchao/ImgStore/blob/master/blog/2019-11-26-0.jpeg?raw=true)
+
 ## **背景**
 
 > bug千千万，今天到我家。
