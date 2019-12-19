@@ -1,5 +1,5 @@
 ---
-title: 成人礼 — 成人的世界里没有那么多童话
+title: 考研前夕 — 成人的世界里没有那么多童话
 tags: ['thought-line']
 category: thought-line
 keywords: thought-line,思绪感悟
