@@ -12,16 +12,20 @@
     "url": "http://www.iocoder.cn/",
     "description": "纯源码解析博客"
   },{
+    "name": "架构师之路",
+    "url": "https://blog.csdn.net/shenjian58/article/details/89849328",
+    "description": "架构师之路精选100篇"
+  },{
     "name": "rickiyeat的博客",
     "url": "https://blog.csdn.net/rickiyeat",
     "description": "hadoop、spring boot/cloud技术博客"
   },{
-    "name": "并发编程",
-    "url": "http://ifeve.com/",
-    "description": "并发编程网"
-  },{
     "name": "lxw的大数据田地",
     "url": "http://lxw1234.com/",
     "description": "Hadoop/Hive/HBase/Spark/Java"
-  }]
+  },{
+    "name": "董的博客",
+    "url": "http://dongxicheng.org/",
+    "description": "大数据相关"
+    }]
 }
