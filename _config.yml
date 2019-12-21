@@ -137,6 +137,11 @@ navs:
     target: _self
 
   -
+    href: /latestreading.html
+    label: 最近阅读
+    target: _self
+
+  -
     href: /about.html
     label: 其他
     target: _self
