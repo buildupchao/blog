@@ -28,7 +28,7 @@
 </div>
 
 <!-- 精选文章 -->
-<h3 class="sidebar-title">精选文章</h3>
+<!-- <h3 class="sidebar-title">精选文章</h3>
 
 {% for article in site.classes  %}
 <div class="card text-center">
@@ -47,12 +47,12 @@
         </div>
     </div>
 </div>
-{% endfor %}
+{% endfor %} -->
 
 <!-- 开源软件 -->
-<br/>
+<!-- <br/> -->
 <!-- | limit: site.side_bar_repo_limit -->
-<h3 class="sidebar-title">开源软件</h3>
+<!-- <h3 class="sidebar-title">开源软件</h3>
 {% assign repositories = site.data.repos.repositories %}
 {% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse | where: "fork", "false" %}
 {% for repository in repositories %}
@@ -88,29 +88,42 @@
 </div>
 {% endif %}
 {% endfor %}
-{% endfor %}
+{% endfor %} -->
+
+<!-- 最新文章 -->
+<br/>
+<h4 class="sidebar-title" style="text-align: left;">最新文章</h4>
+
+<div class="card" style="border-radius: 4px; overflow: hidden;">
+    <ul class="list-group">
+        {% for post in site.posts offset:0 limit:5  %}
+          <li class="list-group-item col-xs-12" style="border:0;margin: 0px 2px 0px 4px;">
+              <h4 class="card-title" style="margin-top: 0px; margin-bottom:2px;font-size:16px;">
+                  <a href="{{ post.url }}" target="_blank" style="text-decoration:none;color:#009688;">{{ post.title }}</a>
+              </h4>
+              <strong>{{ post.date | date: '%Y/%m/%d' }}</strong>
+          </li>
+      {% endfor %}
+    </ul>
+</div>
 
 <!-- 分类目录 -->
 <br/>
-<h3 class="sidebar-title">分类目录</h3>
+<h4 class="sidebar-title" style="text-align: left;">分类</h4>
 
-<div class="card" style="border-radius: 4px; border: 1px solid #ddd; overflow: hidden;">
+<div class="card" style="border-radius: 4px; overflow: hidden;">
     <ul class="list-group">
       {% assign categoryMap = site.data.categorymap %}
-      {% for category in site.categories  %}
-          <li class="list-group-item col-xs-12" style="border:0;margin: 0px 2px 0px 4px; width: 48%;">
-              <h5 class="card-title" style="margin-top: 0px; margin-bottom:0px;">
-                  {% if categoryMap contains category[0] %}
-                    {% for holdCategory in categoryMap %}
-                      {% if holdCategory[0]==category[0] %}
-                        <a href="/category/{{ category[0] | downcase }}" target="_blank">{{ holdCategory[1] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
-                      {% endif %}
-                    {% endfor %}
-                  {% else %}
-                    <a href="/category/{{ category[0] | downcase }}" target="_blank">{{ category[0] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
-                  {% endif %}
-              </h5>
+      {% for holdCategory in categoryMap %}
+        {% for category in site.categories  %}
+          {% if categoryMap contains category[0] and holdCategory[0] == category[0] %}
+          <li class="list-group-item col-xs-12" style="border:0;margin: 0px 2px 0px 4px;">
+              <span class="card-title" style="margin-top: 0px; margin-bottom:0px;font-size:16px;">
+                  <a href="/category/{{ category[0] | downcase }}" target="_blank" style="text-decoration:none;color:#009688;">{{ holdCategory[1] }}&nbsp;<span style="color: #C1BBC9;">({{ category[1].size }})</span></a>
+              </span>
           </li>
+          {% endif %}
+        {% endfor %}
       {% endfor %}
     </ul>
 </div>
