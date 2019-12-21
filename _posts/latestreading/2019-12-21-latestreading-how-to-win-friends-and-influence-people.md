@@ -1,5 +1,5 @@
 ---
-title: 读书 | 人性的弱点
+title: 阅读 | 人性的弱点
 tags: ['latestreading']
 category: latestreading
 keywords: latestreading,最近阅读,读书,人性的弱点
