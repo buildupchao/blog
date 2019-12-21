@@ -101,11 +101,11 @@
           {% for category in categoryMap %}
           {% if post.category == category[0] %}
           <li class="list-group-item col-xs-12" style="border:0;margin: 0px 2px 0px 4px;">
-              <span style="color:#009688;margin-bottom:2px;">{{ category[1] }}</span>
-              <h4 class="card-title" style="margin-top: 0px; margin-bottom:2px;font-size:16px;">
-                  <a href="{{ post.url }}" target="_blank" style="text-decoration:none;color:#333;">{{ post.title }}</a>
+              <p style="color:#009688;margin-bottom:2px;font-size:13px;">{{ category[1] }}</p>
+              <h4 class="card-title" style="margin-top:0px;margin-bottom:2px;font-size:15px;">
+                  <a href="{{ post.url }}" target="_blank" style="text-decoration:none;color:#565a5f;">{{ post.title }}</a>
               </h4>
-              <span style="color:#aaa;">{{ post.date | date: '%Y/%m/%d' }}</span>
+              <p style="color:#aaa;font-size:13px;">{{ post.date | date: '%Y/%m/%d' }}</p>
           </li>
           {% endif %}
           {% endfor %}
