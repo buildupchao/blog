@@ -101,7 +101,7 @@
               <h4 class="card-title" style="margin-top: 0px; margin-bottom:2px;font-size:16px;">
                   <a href="{{ post.url }}" target="_blank" style="text-decoration:none;color:#009688;">{{ post.title }}</a>
               </h4>
-              <strong>{{ post.date | date: '%Y/%m/%d' }}</strong>
+              <span style="color:#aaa;">{{ post.date | date: '%Y/%m/%d' }}</span>
           </li>
       {% endfor %}
     </ul>
