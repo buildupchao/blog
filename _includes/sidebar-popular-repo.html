@@ -102,7 +102,7 @@
           {% if post.category == category[0] %}
           <li class="list-group-item col-xs-12" style="border:0;margin: 0px 2px 0px 4px;">
               <p style="color:#009688;margin-bottom:2px;font-size:13px;">
-                <a href="/category/{{ category[0] | downcase }}" target="_blank" style="text-decoration:none;">{{ category[1] }}</a>
+                <a href="/category/{{ category[0] | downcase }}" target="_blank" style="text-decoration:none;color:#009688;">{{ category[1] }}</a>
               </p>
               <h4 class="card-title" style="margin-top:0px;margin-bottom:2px;font-size:15px;">
                   <a href="{{ post.url }}" target="_blank" style="text-decoration:none;color:#565a5f;">{{ post.title }}</a>
