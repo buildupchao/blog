@@ -72,11 +72,11 @@ menus:
     href: /bigdata.html
     label: 大数据
     target: _self
-#
-#   -
-#     href: /life.html
-#     label: 故事
-#     target: _self
+
+  -
+    href: /latestreading.html
+    label: 阅读
+    target: _self
 #
 #   -
 #     href: /arch.html
@@ -134,11 +134,6 @@ navs:
   -
     href: /archives.html
     label: 归档
-    target: _self
-
-  -
-    href: /latestreading.html
-    label: 最近阅读
     target: _self
 
   -
