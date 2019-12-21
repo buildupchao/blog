@@ -56,22 +56,22 @@ paginate: 10
 paginate_path: 'page:num'
 
 # Navigation. top menu list
-# menus:
-#
-#   -
-#     href: /zsxq.html
-#     label: 星球
-#     target: _self
-#
-#   -
-#     href: /gitchat.html
-#     label: Chat
-#     target: _self
-#
-#   -
-#     href: /geektime.html
-#     label: 极客
-#     target: _self
+menus:
+
+  -
+    href: /arch.html
+    label: 架构
+    target: _self
+
+  -
+    href: /java.html
+    label: Java
+    target: _self
+
+  -
+    href: /bigdata.html
+    label: 大数据
+    target: _self
 #
 #   -
 #     href: /life.html
