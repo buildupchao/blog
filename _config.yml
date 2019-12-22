@@ -26,13 +26,14 @@ plugins:
   - jekyll-geo-pattern
   - rouge
   - kramdown
+  - pygments
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
   - jekyll-archives
 
 # Build settings
-markdown: kramdown
+markdown: pygments
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
