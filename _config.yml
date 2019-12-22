@@ -50,7 +50,7 @@ kramdown:
   syntax_highlighter: pygments
 
 syntax_highlighter_opts:
-  coderay_line_numbers:  nil
+  coderay_line_numbers:  true
 
 # Pagination
 paginate: 10

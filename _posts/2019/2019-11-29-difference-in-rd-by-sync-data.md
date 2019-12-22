@@ -32,7 +32,7 @@ void newEvent(event) throws Exception {
 {% endhighlight %}
 
   - (2) 同步失败重试以及重试结果记录
-```Java
+{% highlight java %}
 class CustomAsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
   public void handleUncaughtException(Throwable throwable, Method method, Object... objects) {
       retry 5 times
@@ -43,7 +43,7 @@ class CustomAsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
         insert async table failed label and data
   }
 }
-```
+{% endhighlight %}
 
 ## **3.潜在问题探讨**
 
