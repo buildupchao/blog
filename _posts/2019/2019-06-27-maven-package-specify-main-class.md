@@ -6,7 +6,7 @@ category: java
 
 maven打包时候指定运行主类，pom.xml配置如下：
 
-```XML
+{% highlight bash %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-jar-plugin</artifactId>
@@ -21,5 +21,4 @@ maven打包时候指定运行主类，pom.xml配置如下：
         </archive>
     </configuration>
 </plugin>
-
-```
+{% endhighlight %}

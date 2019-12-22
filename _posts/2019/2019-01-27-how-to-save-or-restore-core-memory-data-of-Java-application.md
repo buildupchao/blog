@@ -15,9 +15,9 @@ category: java
 
 ### **0.1 技术储备**
 
-```
+{% highlight java %}
 Runtime.getRuntime().addShutdownHook(Thread thread);
-```
+{% endhighlight %}
 <!-- more -->
 我们可以借助于JDK为我们所提供的上述**钩子**方法。这个方法的意思就是在JVM中增加一个关闭的钩子，当JVM关闭的时候，会执行系统中已经设置的所有通过方法addShutdownHook添加的钩子，当系统执行完这些钩子后，JVM才会关闭。所以这些钩子可以在JVM关闭的时候进行**内存清理、对象销毁以及核心数据现场保存**等操作。
 
@@ -32,7 +32,7 @@ Runtime.getRuntime().addShutdownHook(Thread thread);
 
 理好了思路，那就开始Coding吧！
 
-```
+{% highlight java %}
 private static final HashMap<String, User> cacheData = new HashMap<>();
 private static final String filePath = System.getProperty("user.dir")+ File.separator +"save_point.binary";
 
@@ -65,7 +65,7 @@ private static void saveData() {
           }
       }
   }
-```
+{% endhighlight %}
 
 这样我们就可以保证Map<String, User>这个映射关系保存好了。
 
@@ -75,7 +75,7 @@ private static void saveData() {
 
 继续Coding...
 
-```
+{% highlight java %}
 @PostConstruct
 public void resoverData() {
     ObjectInputStream ois = null;
@@ -103,12 +103,12 @@ public void resoverData() {
         }
     }
 }
-```
+{% endhighlight %}
 
 是不是整个过程似曾相识？没错，就是Java IO流 **ObjectInputStream**和**ObjectOutputStream**的应用。但是有一点需要注意，使用对象流的时候，需要保证被序列化的对象必须实现了**Serializable**接口，这样才能正常使用。
 
 应用整体调用逻辑如下（测试的时候，第一次需要正常调用generateAndPutData()方法，终止项目保存现场后，需要把generateAndPutData()注释掉，看看时候正确恢复现场了。）：
-```
+{% highlight java %}
 @SpringBootApplication
 public class SavePointApplication {
 
@@ -138,7 +138,7 @@ public class SavePointApplication {
       cacheData.put("test3", new User(3L, "testName3"));
   }
 }
-```
+{% endhighlight %}
 
 ## **2. Fuck! 没有保存现场?!**
 
@@ -151,11 +151,11 @@ public class SavePointApplication {
 - JVM中注册的多个关闭钩子是并发执行的，无法保证执行顺序，当所有Hook线程执行完毕，runFinalizersOnExit为true,JVM会先运行终结器，然后停止。
 
 所以，如果我们直接使用的**kill -9 processId**命令直接强制关闭的应用程序，JVM都被强制关闭了，还怎么运行我们的Java代码呢？嘿嘿，所以我们可以尝试着用如下命令替代**kill -9 processId**:
-```
+{% highlight java %}
 kill processId
 kill -2 processId
 kill -15 processId
-```
+{% endhighlight %}
 
 通过上述命令进行终止应用的时候，是不是我们看到我们项目下成功生成了 **save_point.binary** 文件了，哈哈哈哈哈……
 
