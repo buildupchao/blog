@@ -240,3 +240,14 @@
         }
     }
 }
+
+.article-nav span.article-nav-next {
+    float: right;
+    text-align: right;
+}
+
+.article-nav span {
+    float: left;
+    position: relative;
+    max-width: 50%;
+}
