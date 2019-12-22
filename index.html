@@ -25,7 +25,7 @@ css: ['index.css', 'sidebar-popular-repo.css']
             <ol class="post-list">
                 {% assign categoryMap = site.data.categorymap %}
                 {% for post in paginator.posts %}
-                 {% if post.category != 'zsxq' and post.category != 'gitchat' and post.category != 'geektime' %}
+                 {% if post.category != 'zsxq' and post.category != 'gitchat' and post.category != 'geektime' and post.category != 'latestreading' %}
                     <li class="post-list-item">
                         {% if categoryMap contains post.category %}
                           {% for holdCategory in categoryMap %}
