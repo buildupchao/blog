@@ -26,6 +26,7 @@ plugins:
   - jekyll-geo-pattern
   - rouge
   - kramdown
+  - redcarpet
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
