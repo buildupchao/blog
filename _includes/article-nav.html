@@ -1,10 +1,10 @@
 
 <nav class="nav article-nav">
   {% if page.previous %}
-	  <span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a class="btn btn-outline-success btn-sm" href="{{ page.previous.url }}" rel="prev">{{ page.previous.title }}</a></span>
+	  <span class="article-nav-prev"><i class="fa fa-angle-double-left"></i> <a href="{{ page.previous.url }}" rel="prev">{{ page.previous.title }}</a></span>
   {% endif %}
   {% if page.next %}
-	  <span class="article-nav-next"><a class="btn btn-outline-success btn-sm" href="{{ page.next.url }}" rel="next">{{ page.next.title }}</a><i class="fa fa-angle-double-right"></i></span>
+	  <span class="article-nav-next"><a href="{{ page.next.url }}" rel="next">{{ page.next.title }}</a><i class="fa fa-angle-double-right"></i></span>
   {% endif %}
 </nav>
 <style type="text/css">
