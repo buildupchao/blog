@@ -33,6 +33,7 @@ plugins:
 
 # Build settings
 markdown: kramdown
+highlight: true
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
