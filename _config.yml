@@ -46,7 +46,7 @@ defaults: []
 kramdown:
   input: GFM
   enable_coderay: true
-  syntax_highlighter: rouge
+  syntax_highlighter: pygments
 
 syntax_highlighter_opts:
   block:
