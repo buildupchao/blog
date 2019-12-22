@@ -49,7 +49,9 @@ kramdown:
   syntax_highlighter: rouge
 
 syntax_highlighter_opts:
-   coderay_line_numbers:  nil
+  block:
+      line_numbers: true
+   #coderay_line_numbers:  nil
 
 # Pagination
 paginate: 10
