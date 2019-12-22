@@ -51,7 +51,7 @@ kramdown:
 syntax_highlighter_opts:
   block:
       line_numbers: true
-   #coderay_line_numbers:  nil
+  coderay_line_numbers:  nil
 
 # Pagination
 paginate: 10
