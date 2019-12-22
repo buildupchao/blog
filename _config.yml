@@ -26,15 +26,14 @@ plugins:
   - jekyll-geo-pattern
   - rouge
   - kramdown
-  - redcarpet
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
   - jekyll-archives
 
 # Build settings
-markdown: redcarpet
-highlighter: pygments
+markdown: kramdown
+highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
