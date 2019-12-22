@@ -23,13 +23,13 @@ keywords: 架构设计,Java
 
 - 再来看一段<strong>伪代码</strong>（以下代码仅供参考，只是伪代码，不是标准Java代码）：
   - (1) 写入国内RDS、同步到国外其他RDS以及对应事务控制
-```Java
+{% hightlight java %}
 @Transactional(rollbackFor = Exception.class)
 void newEvent(event) throws Exception {
     insertEventIntoInlandRds(event);
     asyncEventToOtherRds(event); // 异步同步数据
 }
-```
+{% endhightlight %}
 
   - (2) 同步失败重试以及重试结果记录
 ```Java

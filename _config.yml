@@ -26,14 +26,13 @@ plugins:
   - jekyll-geo-pattern
   - rouge
   - kramdown
-  - pygments
   - jekyll-github-metadata
   - jekyll-octicons
   - jekyll-sitemap
   - jekyll-archives
 
 # Build settings
-markdown: pygments
+markdown: kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
@@ -52,7 +51,7 @@ kramdown:
 syntax_highlighter_opts:
   block:
       line_numbers: true
-  coderay_line_numbers:  nil
+  #coderay_line_numbers:  nil
 
 # Pagination
 paginate: 10
