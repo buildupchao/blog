@@ -1,7 +1,7 @@
 ---
 title: Hive集群合并之应用端的负载均衡算法
 tags: ['Hive', '大数据', '负载均衡算法']
-category: bigdata
+category: Hive
 ---
 
 ![Hive集群合并](https://github.com/buildupchao/ImgStore/blob/master/blog/Hive%E9%9B%86%E7%BE%A4%E5%90%88%E5%B9%B6.png?raw=true)
