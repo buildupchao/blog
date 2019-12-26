@@ -10,6 +10,7 @@ keywords: technology-challenge,技术挑战
 - [三周技术挑战约定之缘起](http://www.buildupchao.cn/technology-challenge/2019/12/23/technology-challenge-for-3-weeks.html)
 - [【技术挑战】Nacos自动刷新配置如何实现的？](http://www.buildupchao.cn/technology-challenge/2019/12/26/how-to-refresh-conf-automatically-for-nacos.html)
 
+<!-- more -->
 
 ## Nacos是什么？
 
@@ -167,7 +168,9 @@ curl -X GET 'http://127.0.0.1:8848/nacos/v1/ns/instance/list?serviceName=HelloWo
 
 ## 熟悉游走于Nacos脉络结构之中
 
-接下来，我们将开始潜如Nacos内部，去查看注册发布一份服务的流程活动。
+接下来，我们将开始潜入Nacos内部，去查看注册发布一个服务的流程活动。
+
+
 
 ## 回味Nacos自动刷新配置的实现
 
