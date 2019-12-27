@@ -12,7 +12,9 @@ keywords: technology-challenge,技术挑战
 
 <!-- more -->
 
-## Nacos是什么？
+> 文章很长，请做好心理准备。
+
+## 1.Nacos是什么？
 
 摘自Nacos官网：
 
@@ -30,7 +32,9 @@ keywords: technology-challenge,技术挑战
 
 综上，我们大概可以知道Nacos是致力于动态服务发现、配置管理、服务元数据以及流量管理的平台。相比大多数人已经对这几个关键字耳熟能详了，就不做过多解释，详情可根据文章末尾资料链接前往官网查看。
 
-## 开始邂逅Nacos
+## 2.开始邂逅Nacos
+
+### 2.1初涉Nacos
 
 为了方便测试，我们采用自构建jar包的方式使用Nacos
 
@@ -82,16 +86,93 @@ sh startup.sh -m standalone
 <br/>
 此外，通过上图日志，我们可以知道nacos-server启动在8848端口（该端口我们后续会使用）。<br/>
 其次，我们可以获取到另外两项信息：进程号以及Console控制台访问链接。
+<br/><br/>
+接下来，我们先来体验下nacos动态配置功能：<br/>
+首先，我们对nacos example模块代码中```com.alibaba.nacos.example```包下的``` ConfigExample ```进行修改并启动。<br/>
+修改后代码如下所示，其中``` TimeUnit.SECONDS.sleep(Integer.MAX_VALUE) ```代码是为了防止主线程退出而无法获取配置修改信息：<br/>
+
+{% highlight Java %}
+package com.alibaba.nacos.example;
+
+import java.util.Properties;
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+
+import com.alibaba.nacos.api.NacosFactory;
+import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.config.listener.Listener;
+import com.alibaba.nacos.api.exception.NacosException;
+/**
+ * Config service example
+ *
+ * @author Nacos
+ */
+public class ConfigExample {
+
+    public static void main(String[] args) throws NacosException, InterruptedException {
+        String serverAddr = "localhost";
+        String dataId = "test";
+        String group = "DEFAULT_GROUP";
+        Properties properties = new Properties();
+        properties.put("serverAddr", serverAddr);
+        ConfigService configService = NacosFactory.createConfigService(properties);
+        String content = configService.getConfig(dataId, group, 5000);
+        System.out.printf("got content: %s\n", content);
+        configService.addListener(dataId, group, new Listener() {
+            @Override
+            public void receiveConfigInfo(String configInfo) {
+                System.out.printf("time: %d, receive: %s\n", System.currentTimeMillis(), configInfo);
+            }
+
+            @Override
+            public Executor getExecutor() {
+                return null;
+            }
+        });
+
+        TimeUnit.SECONDS.sleep(Integer.MAX_VALUE);
+    }
+}
+{% endhighlight %}
 <br/>
+控制台显示信息如下：
+![deep-in-nacos-new-config-1](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-new-config-1.png?raw=true)
+<br/><br/>
+然后，登录nacos控制台，初始化默认账号/密码为：nacos/nacos，并新增一个配置信息。<br/>
+![deep-in-nacos-new-config-2](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-new-config-2.png?raw=true)
+<br/>
+![deep-in-nacos-new-config-3](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-new-config-3.png?raw=true)
+<br/><br/>
+我们将在控制台查看到获取到如下配置信息：
+<br/>
+![deep-in-nacos-new-config-4](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-new-config-4.png?raw=true)
+<br/><br/>
+接下来，我们修改一次配置信息内容，并查看配置客户端listener是否可以获取到对应修改：
+<br/>
+![deep-in-nacos-update-config-1](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-update-config-1.png?raw=true)
+<br/>
+![deep-in-nacos-update-config-2](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/deep-in-nacos-update-config-2.png?raw=true)
+<br/><br/>
+显然，客户端会获取到最新数据。到此为止，已经完成一个简单的动态配置管理功能（删除类似，不再敖述）。<br/>
+
+### 2.1小结
+
+- Nacos服务端保存配置信息
+- 客户端连接到服务端之后，通过dataId和group获取具体的配置信息
+- 当服务端配置信息发生变更时，客户端会收到通知
+- 客户端拿到变更后的配置信息后，然后做相应处理
+
+那客户端是如何感知到nacos服务端配置信息变更呢？也就是说，客户端和服务端的数据交互式如何实现的。而根据经验来说，通常是两种交互方式：#1,服务端主动推送数据；#2，客户端从服务端拉取数据。具体如何实现，我们下面开始逐渐深入了解。
+
+## 3.从客户端潜入Nacos实时更新配置原理
 
 
-## 从客户端潜入Nacos实时更新配置原理
 
-## 从服务端潜入Nacos实时更新配置原理
+## 4.从服务端潜入Nacos实时更新配置原理
 
-## 结尾
+## 5.结尾
 
-## 资料链接
+## 6.资料链接
 
 - Nacos官网：[https://nacos.io/en-us/docs/what-is-nacos.html](https://nacos.io/en-us/docs/what-is-nacos.html)
 - Nacos Github: [https://github.com/alibaba/nacos](https://github.com/alibaba/nacos)
