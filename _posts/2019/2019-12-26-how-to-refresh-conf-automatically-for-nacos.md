@@ -81,14 +81,13 @@ sh startup.sh -m standalone
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/technologychallenge/nacos/nacos-log-info.png?raw=true)
 <br/>
 此外，通过上图日志，我们可以知道nacos-server启动在8848端口（该端口我们后续会使用）。<br/>
-其次，我们可以获取到另外两项信息：<br/>
-进程号以及Console控制台访问链接。
+其次，我们可以获取到另外两项信息：进程号以及Console控制台访问链接。
 <br/>
 
 
-## 从客户端潜入Nacos配置实时更新原理
+## 从客户端潜入Nacos实时更新配置原理
 
-## 从服务端潜入Nacos配置实时更新原理
+## 从服务端潜入Nacos实时更新配置原理
 
 ## 结尾
 
