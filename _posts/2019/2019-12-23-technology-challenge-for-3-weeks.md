@@ -48,3 +48,8 @@ keywords: technology-challenge,技术挑战
 
 
 后续，每次完成一个选项，才会开启下一个选项的选择，不会一开始就展开一系列问题。希望后续能收到不错的结果。
+
+产出文章列表：<br/>
+- [三周技术挑战约定之缘起](http://www.buildupchao.cn/technology-challenge/2019/12/23/technology-challenge-for-3-weeks.html)
+- [【技术挑战】Nacos自动刷新配置如何实现的？](http://www.buildupchao.cn/technology-challenge/2019/12/26/how-to-refresh-conf-automatically-for-nacos.html)
+- [【技术挑战】Sentinel限流原理？](http://www.buildupchao.cn/technology-challenge/2019/12/28/traffic-limit-control-for-sentinel.html)

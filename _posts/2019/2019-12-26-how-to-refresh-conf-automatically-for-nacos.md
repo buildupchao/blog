@@ -2,7 +2,7 @@
 title: 【技术挑战】Nacos自动刷新配置如何实现的？
 tags: ['tech-talking', 'technology-challenge', 'Nacos', 'Java']
 category: technology-challenge
-keywords: technology-challenge,技术挑战
+keywords: technology-challenge,技术挑战,Nacos,Java
 ---
 
 **技术挑战发展进度列表：**
@@ -441,7 +441,7 @@ haha~No Problem.因为在```DataChangeTask```调用```ClientLongPolling#sendResp
   - 如果相同，则通过schedule延迟29.5s后再执行比较
 - 为保证服务端在29.5s内发生配置信息变更时能及时通知客户端，服务端采用了事件订阅的方式监听```LocalDataChangeEvent```事件
   - 收到```LocalDataChangeEvent```事件，触发```DataChangeTask```任务，遍历allSubs列队中的```ClientLongPolling```并将数据写回给客户端。
-- 关于timeout事件去除500ms，这个要好好品。你品，你细品，你细细品。
+- 关于timeout时间去除500ms，这个要好好品。你品，你细品，你细细品。
 
 ## 5.结尾
 
