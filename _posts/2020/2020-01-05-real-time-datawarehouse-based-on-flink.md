@@ -1,6 +1,6 @@
 ---
 title: 基于Flink的实时数仓案例资料（Flink Forward Asia 2019）
-tags: ['Flink']
+tags: ['Flink', '大数据']
 category: flink
 keywords: flink,Flink,大数据,实时数仓,Flink Forward Asia 2019
 ---
