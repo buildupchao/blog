@@ -8,6 +8,7 @@
   "db": "数据库",
   "yearlysummary": "年度总结规划",
   "java": "Java",
+  "flink": "Flink",
   "spark": "Spark",
   "hadoop": "Hadoop",
   "hive": "Hive",
