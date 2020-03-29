@@ -15,20 +15,20 @@ category: java
 <br/>
 - 等待方：
 
-{% hightlight java %}
+{% highlight java %}
 synchronized (对象) {
   while (条件不满足) {
     对象.wait();
   }
   对应的处理逻辑
 }
-{% endhightlight %}
+{% endhighlight %}
 
 - 通知方：
 
-{% hightlight java %}
+{% highlight java %}
 synchronized (对象) {
   改变条件
   对象.notifyAll();
 }
-{% endhightlight %}
+{% endhighlight %}
