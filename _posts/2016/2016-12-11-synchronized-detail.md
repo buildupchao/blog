@@ -9,3 +9,26 @@ category: java
 ``` synchronized ```原语图解如下：<br/>
 
 ![synchronized原语图解](https://github.com/buildupchao/ImgStore/blob/master/blog/concurrent/synchronized_detail.png?raw=true)
+
+<br/>
+等待/通知的编程范式：
+<br/>
+- 等待方：
+
+{% hightlight java %}
+synchronized (对象) {
+  while (条件不满足) {
+    对象.wait();
+  }
+  对应的处理逻辑
+}
+{% endhightlight %}
+
+- 通知方：
+
+{% hightlight java %}
+synchronized (对象) {
+  改变条件
+  对象.notifyAll();
+}
+{% endhightlight %}
