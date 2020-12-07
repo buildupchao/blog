@@ -4,6 +4,7 @@ tags: ['线上问题排查', 'Java', '大数据', 'OOM']
 category: onlinetroubleshooting
 description: 记一次线上内存溢出问题的排查过程，如何定位问题产生的根本原因。
 keywords: 内存溢出,线上问题排查,troubleshooting,线上事故,问题排查,Java
+layout: post
 ---
 
 ## 0. 背景

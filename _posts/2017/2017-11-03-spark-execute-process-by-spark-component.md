@@ -2,6 +2,7 @@
 title: 从Spark组件来剖析Spark的执行流程
 tags: ['大数据', 'Spark']
 category: spark
+layout: post
 ---
 
 ## 0 从对比的视角来看Spark

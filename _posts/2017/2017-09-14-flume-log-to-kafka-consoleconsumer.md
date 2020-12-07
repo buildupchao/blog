@@ -2,6 +2,7 @@
 title: Flume读取日志数据并写入到Kafka，ConsoleConsumer进行实时消费
 tags: ['大数据', 'Flume']
 category: flume
+layout: post
 ---
 
 最近大数据学习使用了Flume、Kafka等，今天就实现一下Flume实时读取日志数据并写入到Kafka中，同时，让Kafka的ConsoleConsumer对日志数据进行消费。

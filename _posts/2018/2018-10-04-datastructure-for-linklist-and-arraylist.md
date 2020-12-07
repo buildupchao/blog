@@ -2,6 +2,7 @@
 title: 数组、链表对比及应用
 tags: ['Java', '数据结构']
 category: datastructureandalgo
+layout: post
 ---
 
 ## 1. 数组和链表的区别

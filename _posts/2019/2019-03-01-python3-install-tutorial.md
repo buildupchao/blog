@@ -2,6 +2,7 @@
 title: Python3.x安装教程
 tags: ['Python', '安装教程']
 category: installtutorial
+layout: post
 ---
 
 ## 1.前期准备

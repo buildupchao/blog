@@ -3,6 +3,7 @@ title: 基于Flink的实时数仓案例资料（Flink Forward Asia 2019）
 tags: ['Flink', '大数据']
 category: flink
 keywords: flink,Flink,大数据,实时数仓,Flink Forward Asia 2019
+layout: post
 ---
 
 - [小米流式平台架构演进与实践](https://github.com/buildupchao/ImgStore/blob/master/blog/flink/real-time-dw/%E5%B0%8F%E7%B1%B3%E6%B5%81%E5%BC%8F%E5%B9%B3%E5%8F%B0%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%AE%9E%E8%B7%B5.pdf)

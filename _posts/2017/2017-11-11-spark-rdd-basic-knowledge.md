@@ -2,6 +2,7 @@
 title: 从RDD角度来剖析Spark内部原理
 tags: ['大数据', 'Spark']
 category: spark
+layout: post
 ---
 
 ## 1 Spark的核心 — RDD？

@@ -4,6 +4,7 @@ tags: ['Java', 'Hive', 'CountDownLatch', '大数据', '线上问题排查']
 category: onlinetroubleshooting
 description: 记一次线上任务未启动问题的排查过程，如何定位问题产生的根本原因。
 keywords: CountDownLatch,线上问题排查,troubleshooting,线上事故,问题排查,Java
+layout: post
 ---
 
 > 2019.2.22号凌晨3点半，是一个让人难以忘怀的、和瑞哥最后一次一起奋战的夜晚。

@@ -3,6 +3,7 @@ title: 如何控制MySQL事务提交后，刷redo-log的策略？
 tags: ['redo-log', 'MySQL']
 category: db
 keywords: database,db,MySQL,数据库,redo log
+layout: post
 ---
 
 既然涉及到事务提交，那么我们就是以`InnoDB`来说明的。

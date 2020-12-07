@@ -2,6 +2,7 @@
 title: 京东大数据技术白皮书下载分享
 tags: ['tech-talking']
 category: tech-talking
+layout: post
 ---
 
 - [京东大数据技术白皮书](https://pan.baidu.com/s/1JRNOm40zm2kMXxCZ9Bf0UA)

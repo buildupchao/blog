@@ -2,6 +2,7 @@
 title: 由一段Java代码渗析原因
 tags: ['Java']
 category: java
+layout: post
 ---
 
 前段时间，看到了一段如下代码：

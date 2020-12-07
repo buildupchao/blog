@@ -3,6 +3,7 @@ title: 【技术挑战】Nacos自动刷新配置如何实现的？
 tags: ['tech-talking', 'technology-challenge', 'Nacos', 'Java']
 category: technology-challenge
 keywords: technology-challenge,技术挑战,Nacos,Java
+layout: post
 ---
 
 **技术挑战发展进度列表：**

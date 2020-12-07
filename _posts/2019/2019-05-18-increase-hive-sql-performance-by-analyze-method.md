@@ -2,6 +2,7 @@
 title: Hive SQL查询效率提升之Analyze方案的实施
 tags: ['Hive', 'HQL查询效率', 'Analyze Table', '大数据']
 category: Hive
+layout: post
 ---
 
 ## **0.简介**

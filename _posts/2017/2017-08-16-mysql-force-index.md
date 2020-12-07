@@ -2,6 +2,7 @@
 title: MySQL如何实现强制查询走索引和强制查询不缓存
 tags: ['MySQL', '数据库']
 category: db
+layout: post
 ---
 
 - A:强制走索引

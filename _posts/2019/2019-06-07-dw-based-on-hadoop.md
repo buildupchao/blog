@@ -4,6 +4,7 @@ tags: ['大数据', '数据仓库', 'DW']
 category: datawarehouse
 description: 如何从0到1建立数据仓库呢？那就come on and follow me!
 keywords: 数据仓库,DW,Hadoop,基于Hadoop的数据仓库
+layout: post
 ---
 
 ## 1 什么是数据仓库

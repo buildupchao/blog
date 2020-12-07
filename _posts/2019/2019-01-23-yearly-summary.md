@@ -2,6 +2,7 @@
 title: 2018年度复盘，2019年度规划
 tags: ['年度复盘', '年度规划', '总结']
 category: yearlysummary
+layout: post
 ---
 
 

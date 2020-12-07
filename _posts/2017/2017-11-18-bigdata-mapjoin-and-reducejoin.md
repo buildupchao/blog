@@ -2,6 +2,7 @@
 title: MapJoin和ReduceJoin区别及优化
 tags: ['大数据', 'Hadoop']
 category: hadoop
+layout: post
 ---
 
 ##  1 Map-side Join（Broadcast join）

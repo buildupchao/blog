@@ -2,6 +2,7 @@
 title: 设计一个分布式RPC框架
 tags: ['Java', 'RPC', '框架设计']
 category: arch
+layout: post
 ---
 
 ## **0 前言**

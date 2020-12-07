@@ -2,6 +2,7 @@
 title: 爱上Java诊断利器之Arthas
 tags: ['Java', 'Arthas', '诊断利器']
 category: java
+layout: post
 ---
 
 ## 1. Arthas是什么？

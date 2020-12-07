@@ -3,6 +3,7 @@ title: Flink Table API & SQL
 tags: ['Flink', '大数据']
 category: flink
 keywords: flink,Flink,大数据,Flink SQL,Flink Table API
+layout: post
 ---
 
 ## Table API & SQL介绍

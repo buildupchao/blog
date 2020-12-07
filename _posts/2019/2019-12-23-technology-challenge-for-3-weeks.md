@@ -3,6 +3,7 @@ title: 三周技术挑战约定之缘起
 tags: ['tech-talking', 'technology-challenge']
 category: technology-challenge
 keywords: technology-challenge,技术挑战
+layout: post
 ---
 
 2019年12月23日，突发奇想，相约三周时间进行技术挑战。

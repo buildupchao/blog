@@ -2,6 +2,7 @@
 title: 初识Airflow任务调度平台
 tags: ['Airflow', '大数据']
 category: bigdataplatform
+layout: post
 ---
 
 ## 1.分布式和集群

@@ -2,6 +2,7 @@
 title: 如何保存/恢复Java应用程序核心内存数据现场？
 tags: ['钩子函数', 'Java', '保存数据现场', 'addShutdownHook']
 category: java
+layout: post
 ---
 
 ## **0. 背景**

@@ -2,6 +2,7 @@
 title: Airflow[v1.10]任务调度平台的安装教程
 tags: ['Airflow', '大数据']
 category: bigdataplatform
+layout: post
 ---
 
 ![airflow安装教程](https://github.com/buildupchao/ImgStore/blob/master/blog/bigdataplatform/airflow/airflow-install-header.JPG?raw=true)

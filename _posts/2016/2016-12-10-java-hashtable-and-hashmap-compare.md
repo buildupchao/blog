@@ -2,6 +2,7 @@
 title: HashMap和Hashtable的区别
 tags: ['Java']
 category: java
+layout: post
 ---
 
 HashMap和Hashtable的比较是Java面试中的常见问题，主要用来考研程序员是否能够正确使用集合类以及是否可以随机应变使用多种思路解决问题。

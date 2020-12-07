@@ -3,6 +3,7 @@ title: 阅读 | 《大型网站系统与Java中间件实践》
 tags: ['latestreading', 'java']
 category: latestreading
 keywords: latestreading,最近阅读,读书,中间件,技术,Java
+layout: post
 ---
 
 - 分布式系统介绍

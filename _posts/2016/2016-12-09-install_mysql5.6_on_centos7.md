@@ -2,6 +2,7 @@
 title: Centos7安装并配置mysql5.6完美教程
 tags: ['Linux', 'MySQL', '安装教程']
 category: installtutorial
+layout: post
 ---
 
 Centos7将默认数据库mysql替换成了Mariadb，对于我们这些还想使用mysql的开发人员来说并不是一个好消息。然而，网上关于Linux安装mysql数据库的教程数不胜数，但是，大多教程都是漏洞百出。今天，为了帮助各位需要的人，从而写下Centos7安装配置mysql5.6的教程。好了，话不多说，上教程：

@@ -2,6 +2,7 @@
 title: Redis缓存设计之令人兴奋的OOM
 tags: ['Redis', '缓存设计', 'OutOfMemoryError', 'OOM', 'Java']
 category: redis
+layout: post
 ---
 
 先来个自我介绍，博主是Synnex WEBOP OE的Sales部门的一枚Java程序员。<br/>

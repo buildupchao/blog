@@ -2,6 +2,7 @@
 title: synchronized原语图解
 tags: ['Java']
 category: java
+layout: post
 ---
 
 

@@ -3,6 +3,7 @@ title: 我只是同步了下Redis数据，怎么就服务瘫痪了？
 tags: ['线上问题排查','Java']
 category: onlinetroubleshooting
 keywords: 线上问题排查,onlinetroubleshooting,线上事故,问题排查,Java
+layout: post
 ---
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/2019-11-26-0.jpeg?raw=true)

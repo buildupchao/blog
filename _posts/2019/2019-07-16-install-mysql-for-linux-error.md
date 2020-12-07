@@ -2,6 +2,7 @@
 title: Linux安装MySQL报libc.so.6(GLIBC_2.17)(64bit)错误
 tags: ['Linux', 'MySQL']
 category: installtutorial
+layout: post
 ---
 
 今天临时需要在某台Linux云主机上安装一下MySQL Client用于远程连接RDS，结果通过yum快速安装MySQL时出现如下问题：

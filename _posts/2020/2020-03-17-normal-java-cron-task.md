@@ -3,6 +3,7 @@ title: 没有Spring cron时该怎么定点执行定时任务？
 tags: ['java', 'cron']
 category: java
 keywords: java,cron,定时任务
+layout: post
 ---
 
 最近有个小需求，在普通Java项目里面，不能借助于Spring，也不能使用复杂的jar，来实现cron定点定时任务。<br/>

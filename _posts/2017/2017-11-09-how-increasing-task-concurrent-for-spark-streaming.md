@@ -2,6 +2,7 @@
 title: Spark Streaming中，增大任务并发度的方法有哪些？
 tags: ['大数据', 'Spark', 'Spark Streaming']
 category: spark
+layout: post
 ---
 
 ## 0 准备阶段

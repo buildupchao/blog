@@ -2,6 +2,7 @@
 title: Hive数据去重、多变一与一变多等实现
 tags: ['大数据', 'Hive']
 category: hive
+layout: post
 ---
 
 ## 0. 数据准备

@@ -2,6 +2,7 @@
 title: 数据结构与算法整理
 tags: ['数据结构', '算法']
 category: datastructureandalgo
+layout: post
 ---
 
 ## 1. 数据结构整理
