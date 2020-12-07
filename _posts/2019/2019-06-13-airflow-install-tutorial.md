@@ -413,7 +413,7 @@ from airflow.contrib.auth.backends.password_auth import PasswordUser
 
 user = PasswordUser(models.User())
 user.username = 'airflow'
-user.email = 'test_airflow@wps.cn'
+user.email = 'test_airflow@163.com'
 user.password = 'airflow'
 
 session = settings.Session()
