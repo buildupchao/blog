@@ -16,9 +16,12 @@
     "description": "投身实践与技术成长：微服务, 大数据"
   }, {
     "date": "2018",
-    "description": "技术成长：重新审视大数据, KingSight"
+    "description": "技术成长：重新审视大数据, KingSight（自助式ETL平台）"
   }, {
     "date": "2019",
     "description": "大数据平台：数据仓库, 采集端, etc..."
+  }, {
+    "date": "2020",
+    "description": "深入实践：数仓采集 & ETL 架构调整、性能优化等"
   }]
 }
