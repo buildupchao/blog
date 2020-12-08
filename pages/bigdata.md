@@ -19,6 +19,9 @@ permalink: /bigdata
                   or post.category contains 'bigdata'
                   or post.tags contains '大数据'
                   or post.title contains '大数据'
+                  or post.category=='datawarehouse'
+                  or post.tags contains 'flume'
+                  or post.tags contains 'datawarehouse'
                 %}
                 <li class="posts-list-item">
                     <div class="posts-content">
