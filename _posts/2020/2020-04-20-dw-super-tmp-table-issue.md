@@ -6,11 +6,13 @@ keywords: db,java,mysql,数据库,性能优化
 layout: post
 ---
 
-## 问题背景
+## 1.问题背景
 
   近期接到运维同学反馈，数仓线上MySQL数据库产生了一个500G的临时表。500G！500G！500G！
 
-## 排查定位
+<!-- more -->
+
+## 2.排查定位
 
 通过pma访问数据库实例，执行``` show full processlist ```找到可疑的那个SQL（可疑查看Time字段，单位：秒）
 
@@ -38,9 +40,9 @@ select distinct device as value from (select device from database_name.table_nam
 
 ![](https://github.com/buildupchao/ImgStore/blob/master/blog/db/tmp_table_4.png?raw=true)
 
-嗯，好，没有临时表问题了~
+嗯，好，没有超级临时表问题了~
 
-## 问题复盘
+## 3.问题复盘
 
 其实这个SQL并不复杂，但是为啥之前没有暴露出来问题呢？我想原因有两点：
 
