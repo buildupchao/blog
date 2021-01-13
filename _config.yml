@@ -15,7 +15,7 @@ keywords: buildupchao,buildupchao.cn,Spring,架构,大数据,Java,Hadoop,Spark,�
 encoding: "utf-8"
 favicon: favicon.ico
 
-repository: buildupchao/buildupchao.github.io
+repository: buildupchao/blog
 github_url: https://github.com/buildupchao
 url: http://www.buildupchao.cn
 enforce_ssl: buildupchao.cn
