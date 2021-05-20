@@ -82,7 +82,6 @@ GEM
     jekyll-github-metadata (2.12.1)
       jekyll (~> 3.4)
       octokit (~> 4.0, != 4.4.0)
-    jekyll-itafroma-archive (0.3.0)
     jekyll-octicons (8.5.0)
       jekyll (~> 3.1)
       octicons (= 8.5.0)
@@ -107,13 +106,14 @@ GEM
     mercenary (0.3.6)
     middleware (0.1.0)
     mini_mime (1.0.1)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.1)
     minitest (5.11.3)
     multipart-post (2.1.1)
-    nokogiri (1.10.3)
-      mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.3-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.5)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
+    nokogiri (1.11.5-x64-mingw32)
+      racc (~> 1.4)
     octicons (8.5.0)
       nokogiri (>= 1.6.3.1)
     octokit (4.14.0)
@@ -126,6 +126,7 @@ GEM
       thor
       thread_safe
     public_suffix (3.1.0)
+    racc (1.5.2)
     rack (1.6.11)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -191,7 +192,6 @@ DEPENDENCIES
   jekyll-archives
   jekyll-geo-pattern
   jekyll-github-metadata
-  jekyll-itafroma-archive
   jekyll-octicons
   jekyll-paginate
   jekyll-sitemap
