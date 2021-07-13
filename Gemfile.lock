@@ -35,8 +35,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.8.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (6.0.4)
     builder (3.2.3)
     color (1.8)
@@ -82,7 +82,6 @@ GEM
     jekyll-github-metadata (2.12.1)
       jekyll (~> 3.4)
       octokit (~> 4.0, != 4.4.0)
-    jekyll-itafroma-archive (0.3.0)
     jekyll-octicons (8.5.0)
       jekyll (~> 3.1)
       octicons (= 8.5.0)
@@ -125,7 +124,7 @@ GEM
       middleware
       thor
       thread_safe
-    public_suffix (3.1.0)
+    public_suffix (4.0.6)
     rack (1.6.11)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -191,7 +190,6 @@ DEPENDENCIES
   jekyll-archives
   jekyll-geo-pattern
   jekyll-github-metadata
-  jekyll-itafroma-archive
   jekyll-octicons
   jekyll-paginate
   jekyll-sitemap
